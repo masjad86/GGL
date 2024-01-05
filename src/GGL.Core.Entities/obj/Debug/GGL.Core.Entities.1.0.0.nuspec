@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>GGL.Core.Entities</id>
+    <version>1.0.0</version>
+    <title>Green Garden Lawn Core</title>
+    <authors>GGL.Core.Entities</authors>
+    <readme>README.md</readme>
+    <description>The core entities defined in this package so that other microservices can refer the core entiries as shared one.</description>
+    <copyright>GGL</copyright>
+    <tags>GGL</tags>
+    <repository type="https://github.com/masjad86/GGL.git" commit="5da27abaa658f26d1e1a598f7b44bac929009401" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Asjad\Practice App\GGL\src\GGL.Core.Entities\bin\Debug\net8.0\GGL.Core.Entities.dll" target="lib\net8.0\GGL.Core.Entities.dll" />
+    <file src="C:\Asjad\Practice App\GGL\src\GGL.Core.Entities\README.md" target="\README.md" />
+  </files>
+</package>

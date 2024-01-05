@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "KlEXMS4bwfCxbeTl2WIdlG/hj0yVx1D0tFbmpU5rm+A=",
+  "Source": "GGL.Payment.Api",
+  "BasePath": "_content/GGL.Payment.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

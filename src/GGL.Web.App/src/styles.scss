@@ -1,0 +1,342 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./assets/color.scss";
+@import "./assets/custom-angular-material.scss";
+
+/* You can add global styles to this file, and also import other style files */
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.cursor {
+	cursor: pointer;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.round {
+	border-radius: 50%;
+}
+
+.main-container {
+	width: 100%;
+    height: calc(100% - 50px);
+    position: absolute;
+}
+
+.top-section {
+	width: 100%;
+	height: 50px;
+	display: inline-flex;
+	background-color: $color-menu-black;
+	border-bottom: solid 1px $color-light-gray;
+
+	img {
+		padding-top: 5px;
+		height: 44px;
+		width: 44px;
+		padding-left: 5px;
+	}
+}
+
+.top-nav-section {
+	left: 75px;
+	top: 0;
+	width: calc(100% - 75px);
+	height: 60px;
+	position: absolute;
+	background-color: $color-menu-black;
+	border-bottom: solid 1px $color-light-gray;
+	.progress-bar {
+		position: absolute;
+		z-index: 1000;
+		width: 100%;
+		top: 0;
+	}
+
+	.left-container {
+		padding-left: 25px;
+		width: 45%;
+		float: left;
+		height: 60px;
+		.title {
+			padding-top: 20px;
+			font-weight: bold;
+			font-size: 15pt;
+		}
+	}
+
+	.right-container {
+		margin-left: 4px;
+		width: 52%;
+		float: left;
+		height: 60px;
+	}
+}
+
+.nav-section {
+	width: 75px;
+	left: 0;
+	top: 0;
+	position: absolute;
+	height: 100%;
+	cursor: pointer;
+	background-color: $color-menu-black;
+
+	.logo {
+		width: 55px;
+		height: 60px;
+		padding-left: 10px;
+		background-color: $color-menu-black;
+		color: $color-white;
+
+		img {
+			padding-top: 11px;
+			height: 44px;
+			width: 44px;
+			padding-left: 5px;
+		}
+	}
+
+	.nav-item {
+		width: 55px;
+		height: 60px;
+		padding-top: 25px;
+		padding-left: 20px;
+		background-color: $color-menu-black;
+		color: $color-white;
+
+		.red {
+			color: $color-red;
+		}
+	}
+
+	a {
+		color: $color-white;
+	}
+
+	a.active {
+		color: $color-black;
+	}
+
+	.nav-item:hover {
+		cursor: pointer;
+		background-color: $color-light-green;
+		color: $color-black;
+
+		.nav-sub-section {
+			display: block;
+		}
+
+		.sub-menu-arrow {
+			display: block;
+			color: $color-white-smoke;
+		}
+
+		.active {
+			cursor: pointer;
+			background-color: $color-light-green;
+			color: $color-black;
+		}
+
+		a {
+			color: $color-black;
+		}
+		a.active {
+			color: $color-black;
+		}
+	}
+	.active {
+		cursor: pointer;
+		background-color: $color-menu-active;
+		color: $color-black;
+	}
+
+	.active:hover {
+		cursor: pointer;
+	}
+
+	.log-out {
+		width: 55px;
+		height: 60px;
+		padding-top: 25px;
+		padding-left: 20px;
+		background-color: $color-maroon-red;
+		color: $color-white;
+	}
+
+	.log-out:hover {
+		background-color: $color-red;
+		color: $color-white;
+	}
+
+	.bottom {
+		position: fixed;
+		bottom: 0;
+	}
+
+	.sub-menu-arrow {
+		position: relative;
+		float: right;
+		font-size: 55px;
+		right: 8px;
+		bottom: 5px;
+		display: none;
+	}
+
+	.nav-sub-section {
+		cursor: pointer;
+		width: 180px;
+		position: relative;
+		background-color: $color-white-smoke;
+		top: -60px;
+		left: 55px;
+		color: $color-black;
+		padding: 10px;
+		display: none;
+		z-index: 1000;
+		label {
+			position: relative;
+			display: inline-flex;
+			padding-left: 10px;
+			cursor: pointer;
+		}
+
+		mat-icon {
+			cursor: pointer;
+		}
+	}
+
+	.nav-sub-section:hover {
+		background-color: $color-menu-active;
+		color: $color-black;
+	}
+}
+
+.content-section {
+	top: 60px;
+	right: 0;
+	width: calc(100% - 75px);
+	height: calc(100% - 60px);
+	position: absolute;
+	display: inline-flex;
+
+	.filter-section {
+		width: 22%;
+		background-color: $color-lighter-gray;
+		height: 100%;
+
+		.filter-action-button {
+			display: inline-flex;
+			float: right;
+			padding: 10px 15px 10px 0;
+
+			.apply {
+				left: 5px;
+			}
+		}
+
+		.filter-item {
+			padding-left: 10px;
+			display: inline-block;
+		}
+
+		.mat-form-field {
+			width: 95%;
+			padding-bottom: 1.25em;
+		}
+
+		.toggle,
+		.slider {
+			display: list-item;
+			list-style: none;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.radio {
+			display: list-item;
+			list-style: none;
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+			label {
+				padding-right: 10px;
+			}
+		}
+	}
+
+	.content {
+		width: 78%;
+		height: 100%;
+	}
+
+	.content-100 {
+		width: 100%;
+		height: 100%;
+	}
+
+	.filter-collapse {
+		cursor: pointer;
+		width: 15px;
+		background-color: $color-light-gray;
+		align-items: center;
+		height: inherit;
+		height: 100%;
+
+		mat-icon {
+			right: 5px;
+			position: relative;
+			top: 50%;
+		}
+	}
+}
+
+/* BOOKING STATUS */
+.pending {
+	color: $color-orange;
+}
+
+.confirmed {
+	color: $color-light-green;
+}
+
+.payment-pending {
+	color: $color-skyblue;
+}
+
+.cancelled {
+	color: $color-red;
+}
+
+/* padding css */
+.pad-10 {
+	padding-left: 10px;
+}
+
+.pad-15 {
+	padding-left: 15px;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-margin {
+	margin: 0;
+}

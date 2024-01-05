@@ -1,0 +1,6 @@
+@GGL.Booking.Api_HostAddress = http://localhost:5290
+
+GET {{GGL.Booking.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

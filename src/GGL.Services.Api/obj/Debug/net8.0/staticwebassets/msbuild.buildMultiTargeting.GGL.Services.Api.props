@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GGL.Services.Api.props" />
+</Project>

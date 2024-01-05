@@ -1,0 +1,42 @@
+<div *ngIf="items && items.length" class="container">
+    <!--Grid row-->
+    <div class="row">
+        <!--Grid column-->
+        <div *ngFor="let item of items" (click)="preview(item)" class="col-lg-2 col-md-12 mb-4 cursor">
+
+            <!--Image-->
+            <div *ngIf="item.type === 0" class="view overlay z-depth-1-half">
+                <img [src]="item.url" class="img-fluid" [alt]="item.title">
+                <a href="">
+                    <div class="mask rgba-white-light"></div>
+                </a>
+            </div>
+
+            <!-- Video -->
+            <div *ngIf="item.type === 1" class="embed-responsive embed-responsive-16by9 mb-4">
+                <iframe class="embed-responsive-item" [src]="item.url" allowfullscreen></iframe>
+                <h4>{{item.type}}</h4>
+            </div>
+        </div>
+        <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+</div>
+
+<div *ngIf="showDialog" class="dialog-overlay"></div>
+<div *ngIf="showDialog" class="preview-box">
+    <div class="dialog-header bg-light-gray" mat-dialog-header>
+        <span *ngIf="selectedItem.title" class="white"><b>{{selectedItem.title}} Name : Abc.jpg</b></span>
+        <mat-icon class="md-18 white right cursor" (click)="preview(null, true)">cancel</mat-icon>
+    </div>
+    <div mat-dialog-content>
+        <img *ngIf="selectedItem.type === 0" [src]="selectedItem.url" class="img-fluid" [alt]="selectedItem.title" />
+        <iframe *ngIf="selectedItem.type === 1" class="embed-responsive-item" [src]="selectedItem.url"
+            allowfullscreen></iframe>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button>No Thanks</button>
+        <button mat-button cdkFocusInitial>Ok</button>
+    </div>
+</div>

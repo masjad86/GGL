@@ -1,0 +1,6 @@
+@GGL.Services.Api_HostAddress = http://localhost:5080
+
+GET {{GGL.Services.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

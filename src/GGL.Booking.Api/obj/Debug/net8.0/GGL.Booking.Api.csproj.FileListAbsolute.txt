@@ -1,0 +1,8 @@
+C:\Asjad\Practice App\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.csproj.AssemblyReference.cache
+C:\Asjad\Practice App\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Asjad\Practice App\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.AssemblyInfoInputs.cache
+C:\Asjad\Practice App\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.AssemblyInfo.cs
+C:\Asjad\Practice App\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.csproj.CoreCompileInputs.cache
+C:\Asjad\Practice App\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Asjad\Practice App\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Asjad\Practice App\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.sourcelink.json

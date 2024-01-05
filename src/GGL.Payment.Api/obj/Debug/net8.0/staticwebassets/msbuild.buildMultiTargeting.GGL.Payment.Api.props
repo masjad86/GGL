@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GGL.Payment.Api.props" />
+</Project>

@@ -1,0 +1,21 @@
+<div class="main-container">
+    <ggl-home *ngIf="userRole !== 1"></ggl-home>
+    <!-- <div>
+        <ggl-nav-menu  [menuItems]="menus"></ggl-nav-menu>
+    </div>
+    <div class="top-nav-section">      
+        <ggl-global-header></ggl-global-header>
+
+    </div>
+    <div class="content-section">
+        <div *ngIf="isFilterExpanded && showFilter" class="filter-section">
+            <ggl-global-filter></ggl-global-filter>
+        </div>
+        <div *ngIf="showFilter" class="filter-collapse" (click)="isFilterExpanded =!isFilterExpanded">
+            <mat-icon matTooltipPosition="right" matTooltip="{{isFilterExpanded ? 'Collapse' : 'Expand'}}">more_vert</mat-icon>
+        </div>
+        <div class="content" [ngClass]="{'content-100': !isFilterExpanded, 'content': isFilterExpanded}">
+            <router-outlet></router-outlet>
+        </div>
+    </div> -->
+</div>
