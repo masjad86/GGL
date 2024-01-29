@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "+49wxMjWedqeJVRn9DuGu93wfHUigiw0C6fboxzuIpc=",
+  "Source": "GGL.Gateway.Api",
+  "BasePath": "_content/GGL.Gateway.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

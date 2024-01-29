@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace GGL.OAuth.Api.Controllers
+namespace GGL.Gateway.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

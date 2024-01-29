@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GGL.Services.Api", "src\GGL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GGL.Core.Api", "src\GGL.Core.Api\GGL.Core.Api.csproj", "{E9CF1AF3-BF59-47A5-B02C-1FEC9CA9B136}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGL.Payment.Api", "src\GGL.Payment.Api\GGL.Payment.Api.csproj", "{1EF18550-4DA4-481C-B2C5-C419F7760E98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GGL.Payment.Api", "src\GGL.Payment.Api\GGL.Payment.Api.csproj", "{1EF18550-4DA4-481C-B2C5-C419F7760E98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGL.Gateway.Api", "src\GGL.Gateway.Api\GGL.Gateway.Api.csproj", "{51834938-DF84-4980-A74E-D5CD3842D854}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1EF18550-4DA4-481C-B2C5-C419F7760E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EF18550-4DA4-481C-B2C5-C419F7760E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EF18550-4DA4-481C-B2C5-C419F7760E98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51834938-DF84-4980-A74E-D5CD3842D854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51834938-DF84-4980-A74E-D5CD3842D854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51834938-DF84-4980-A74E-D5CD3842D854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51834938-DF84-4980-A74E-D5CD3842D854}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-namespace GGL.OAuth.Api
+namespace GGL.Gateway.Api
 {
     public class WeatherForecast
     {

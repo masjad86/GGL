@@ -102,8 +102,8 @@
 	{
 		public BookingProfile()
 		{
-			CreateMap<Booking, BookingDto>();
-			CreateMap<BookingDto, Booking>();
+			//CreateMap<Booking, BookingDto>();
+			//CreateMap<BookingDto, Booking>();
 		}
 	}
 }

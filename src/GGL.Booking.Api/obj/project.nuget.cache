@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LoZwgCCrHHy9eh31ionACTMC8ziQ6ykxo+qC5666pXHIw0PTZqlMvG99HX7JOVoosAMGRCcHtcf7LaIGocEcUw==",
+  "dgSpecHash": "s/Y0bHz/JKQ9rlT8yjGgiRc+Bpy8Vj87kTSNDPVSJZrNa3ZDEGSUwfg1hGEjIelTrjQ04FDkgvdFOKoq4X6ukQ==",
   "success": true,
-  "projectFilePath": "C:\\Asjad\\Practice App\\GGL\\src\\GGL.Booking.Api\\GGL.Booking.Api.csproj",
+  "projectFilePath": "C:\\Asjad\\Practice App\\.NET\\GGL\\src\\GGL.Booking.Api\\GGL.Booking.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mohd.asjad\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\mohd.asjad\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

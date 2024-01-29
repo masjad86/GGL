@@ -872,11 +872,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Asjad\\Practice App\\GGL\\src\\GGL.Services.Api\\GGL.Services.Api.csproj",
+      "projectUniqueName": "C:\\Asjad\\Practice App\\.NET\\GGL\\src\\GGL.Services.Api\\GGL.Services.Api.csproj",
       "projectName": "GGL.Services.Api",
-      "projectPath": "C:\\Asjad\\Practice App\\GGL\\src\\GGL.Services.Api\\GGL.Services.Api.csproj",
+      "projectPath": "C:\\Asjad\\Practice App\\.NET\\GGL\\src\\GGL.Services.Api\\GGL.Services.Api.csproj",
       "packagesPath": "C:\\Users\\mohd.asjad\\.nuget\\packages\\",
-      "outputPath": "C:\\Asjad\\Practice App\\GGL\\src\\GGL.Services.Api\\obj\\",
+      "outputPath": "C:\\Asjad\\Practice App\\.NET\\GGL\\src\\GGL.Services.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -890,7 +890,6 @@
         "net8.0"
       ],
       "sources": {
-        "C:\\Asjad\\Practice App\\GGL\\custom-nuget": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },

@@ -33,17 +33,17 @@
             return await _entities.ToListAsync();
         }
 
-        public async Task<TEntity> GetByIdAsync(object id)
+        public async Task<TEntity> GetByIdAsync<TType>(TType id)
         {
             return await _entities.FindAsync(id);
         }
 
         public async Task<TEntity> CreateAsync(TEntity entity)
         {
-            UpdateBaseEntityFieldsAsync(null, ref entity, isCreated: true);
+            UpdateBaseEntityFieldsAsync(null, entity, isCreated: true);
             var currentEntity = _entities.Add(entity);
             await _dbContext.SaveChangesAsync();
-            return currentEntity;
+            return currentEntity?.Entity;
         }
 
         public async Task<bool> DeleteAsync(object id)
@@ -54,17 +54,21 @@
             return true;
         }
 
-        public async Task<TEntity> UpdateAsync(object id, TEntity entity)
+        public async Task<TEntity> UpdateAsync<TType>(TType id, TEntity entity)
         {
-            var existing = GetByIdQuery(id).AsNoTracking().FirstOrDefault();
-            var updateEntity = _entities.Attach(entity);
-            UpdateBaseEntityFieldsAsync(existing, ref updateEntity);
+            var existing = GetByIdQuery(id)
+                .AsNoTracking()
+                .FirstOrDefault();
+            var updateEntity = _entities.Attach(entity).Entity;
+            
+            UpdateBaseEntityFieldsAsync(existing, updateEntity);
+            
             _dbContext.Entry(updateEntity).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
             return entity;
         }
 
-        private void UpdateBaseEntityFieldsAsync(TEntity existing, ref TEntity entity, bool isCreated = false)
+        private void UpdateBaseEntityFieldsAsync(TEntity existing, TEntity entity, bool isCreated = false)
         {
             var userId = Guid.NewGuid();
             if (isCreated)

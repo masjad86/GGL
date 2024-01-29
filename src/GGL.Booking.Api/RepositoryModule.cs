@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using AutoMapper;
+using GGL.Booking.Api;
 using System.Collections.Generic;
 using Module = Autofac.Module;
 
@@ -9,13 +10,13 @@ namespace GGL.Repository
 	{
 		protected override void Load(ContainerBuilder builder)
 		{
-			builder.RegisterType<GGLContext>()
-				.As<GGLContext>()
-				.InstancePerLifetimeScope();
+			//builder.RegisterType<GGLContext>()
+			//	.As<GGLContext>()
+			//	.InstancePerLifetimeScope();
 
-			builder.RegisterAssemblyTypes(ThisAssembly).AssignableTo(typeof(Profile)).As<Profile>();
-			builder.RegisterAssemblyTypes(ThisAssembly).Where(x => x.Name.EndsWith("Repository"))
-				.AsImplementedInterfaces();
+			//builder.RegisterAssemblyTypes(ThisAssembly).AssignableTo(typeof(Profile)).As<Profile>();
+			//builder.RegisterAssemblyTypes(ThisAssembly).Where(x => x.Name.EndsWith("Repository"))
+			//	.AsImplementedInterfaces();
 		}
 	}
 }

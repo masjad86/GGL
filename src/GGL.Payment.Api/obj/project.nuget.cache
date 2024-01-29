@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EOD1J6zgfWf/0x2Xo1Cc2tC68U2c6fH3za1T3WiTcIBxg5xIXfZO5rEIZbPfaHx/us9pdcS3Ij58BoTp9bi0cw==",
+  "dgSpecHash": "pXzPBeqJ9bbW1BZnh7hTHhzXH8rquiqExqkxt9nmxx5659necf6Rc4A/XipRe0ixcipeSEKn/3HEZjN2VwxhQA==",
   "success": true,
-  "projectFilePath": "C:\\Asjad\\Practice App\\GGL\\src\\GGL.Payment.Api\\GGL.Payment.Api.csproj",
+  "projectFilePath": "C:\\Asjad\\Practice App\\.NET\\GGL\\src\\GGL.Payment.Api\\GGL.Payment.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mohd.asjad\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\mohd.asjad\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

@@ -7,8 +7,8 @@
 	{
         public GGLContext(DbContextOptions options) : base(options)
         {
-            Configuration.LazyLoadingEnabled = false;
-            Database.SetInitializer<GGLContext>(null);
+            // Configuration.LazyLoadingEnabled = false;
+            //Database.SetInitializer<GGLContext>(null);
         }
 
         public DbSet<Booking> Bookings { get; set; }
