@@ -74,3 +74,11 @@ C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\obj\Debug\net8.0\refint\GGL.Core
 C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\obj\Debug\net8.0\GGL.Core.Api.pdb
 C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\obj\Debug\net8.0\GGL.Core.Api.genruntimeconfig.cache
 C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\obj\Debug\net8.0\ref\GGL.Core.Api.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Core.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

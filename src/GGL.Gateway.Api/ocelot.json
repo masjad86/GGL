@@ -1,4 +1,7 @@
 {
+  "GlobalConfiguration": {
+    //"BaseUrl": "http://localhost:5000"
+  },
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/bookings",
@@ -9,27 +12,40 @@
           "Port": 7270
         }
       ],
-      "UpstreamPathTemplate": "api/bookings",
-      "UpstreamHttpMethod": [
-        "GET"
-      ]
+      "UpstreamPathTemplate": "/gateway/bookings",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
-      "DownstreamPathTemplate": "/api/core",
-      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/api/core/{entity}",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 5218
         }
       ],
-      "UpstreamPathTemplate": "/core",
-      "UpstreamHttpMethod": [
-        "GET"
-      ]
+      "UpstreamPathTemplate": "/gateway/core/{entity}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/account/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7193
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/login",
+      "UpstreamHttpMethod": [ "POST" ]
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5000"
-  }
+  ]
 }

@@ -23,16 +23,15 @@
         /// <returns>Returns the JWT token for the user.</returns>
         public string GenerateToken(User user)
         {
-            var claims = new List<Claim>();
-
-            claims.Add(new Claim("sub", user.Email));
-            claims.Add(new Claim("name", user.Name));
-            claims.Add(new Claim("aud", this.options.Audience));
-
+            var claimsIdentity = new ClaimsIdentity(new Claim[]
+            {
+                 new Claim(ClaimTypes.Name, user.Name),
+            });
+            
             var roleClaims = user.Permissions.Select(x => new Claim("role", x.Id.ToString()));
-            claims.AddRange(roleClaims);
+            claimsIdentity.AddClaims(roleClaims);
 
-            var keyBytes = Encoding.UTF8.GetBytes(this.options.SigningKey);
+            var keyBytes = Encoding.UTF8.GetBytes(this.options.Secret);
             var symmetricKey = new SymmetricSecurityKey(keyBytes);
 
             var signingCredentials = new SigningCredentials(
@@ -42,7 +41,7 @@
             var token = new JwtSecurityToken(
                 issuer: this.options.Issuer,
                 audience: this.options.Audience,
-                claims: claims,
+                claims: claimsIdentity.Claims,
                 expires: DateTime.Now.AddMinutes(this.options.TokenExpirationInMinutes),
                 signingCredentials: signingCredentials);
 

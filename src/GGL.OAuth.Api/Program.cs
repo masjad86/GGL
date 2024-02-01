@@ -1,57 +1,37 @@
-using GGL.OAuth.Api.Extensions;
 using GGL.OAuth.Api.Models;
 using GGL.OAuth.Api.Shared;
-using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
-//var cookieTimeout = builder.Configuration.GetValue<int>("CookieTimeoutInMinutes");
-//var useLoadTest = builder.Configuration.GetValue<bool>("IsLoadTest");
-
-////// Add identity server to the pipeline
-////builder.Services.Add()
-////    .AddInMemoryClients(ClientConfig.GetClients())
-////    .AddInMemoryIdentityResources(ResourceConfig.GetResources())
-////    .AddInMemoryApiScopes(ApiScopeConfig.GetApiScopes())
-////    .AddDeveloperSigningCredential()
-////    .AddTestUsers(UserConfig.GetTestUsers());
-
-//var identitySection = builder.Configuration.GetSection("IdentityServer");
-//var identityUrl = identitySection.GetValue<string>("IdentityUrl");
-//var callBackUrl = identitySection.GetValue<string>("LogoutCallBackUrl");
-//var sessionCookieLifetime = identitySection.GetValue("SessionCookieLifetimeMinutes", 60);
 
 // Add Authentication services
-var jwtOptions = builder.Configuration
-    .GetSection("JwtOptions")
-    .Get<JwtOptions>();
+var config = builder.Configuration.GetSection("GlobalConfig").Get<GlobalConfig>();
 
-builder.Services.AddSingleton<IJwtOptions>(jwtOptions);
-
-builder.Services.AddAuthentication(options =>
+// Add services to the container.
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
 {
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
+    // Force Camel Case to JSON
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
+    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+});
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(setup =>
 {
-    var signingKeyBytes = Encoding.UTF8.GetBytes(jwtOptions.SigningKey);
-    var signingKey = new SymmetricSecurityKey(signingKeyBytes);
     setup.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
     {
         ValidateIssuer = true,
-        ValidIssuer = jwtOptions.Issuer,
         ValidateAudience = true,
-        ValidAudience = jwtOptions.Audience,
-        ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = signingKey
+        ValidIssuer = config.JwtOptions.Issuer,
+        ValidAudience = config.JwtOptions.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.JwtOptions.Secret))
     };
-    //setup.RefreshTokenProtector = new TicketDataFormat(new BearerTokenProtector().CreateProtector("RefreshToken"));
-    //setup.BearerTokenProtector = new TicketDataFormat(new BearerTokenProtector().CreateProtector("BearerToken"));
 });
 //.AddOpenIdConnect(options =>
 //{
@@ -77,19 +57,10 @@ builder.Services.AddAuthentication(options =>
 // Configuring the Authorization Service
 builder.Services.AddAuthorization();
 
-// Add services to the container.
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    // Force Camel Case to JSON
-    options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
-    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-});
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddScoped<IMediator, Mediator>();
+builder.Services.AddCustomDependencies(config);
 
 var app = builder.Build();
 
@@ -105,5 +76,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapEndpoints();
+app.MapControllers();
 app.Run();

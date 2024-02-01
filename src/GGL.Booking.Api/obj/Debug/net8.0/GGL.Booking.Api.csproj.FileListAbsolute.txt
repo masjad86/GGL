@@ -81,3 +81,4 @@ C:\Asjad\Practice App\.NET\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\refint\GGL.B
 C:\Asjad\Practice App\.NET\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.pdb
 C:\Asjad\Practice App\.NET\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\GGL.Booking.Api.genruntimeconfig.cache
 C:\Asjad\Practice App\.NET\GGL\src\GGL.Booking.Api\obj\Debug\net8.0\ref\GGL.Booking.Api.dll
+C:\Asjad\Practice App\.NET\GGL\src\GGL.Booking.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { 
+    MatInput, MatLabel
+} from '@angular/material/input';
 
 @Component({
-	selector: 'ggl-login',
-	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.scss']
+  selector: 'ggl-login',
+  standalone: true,
+  imports: [
+    MatInput,
+    MatLabel
+  ],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
 })
-export class LoginComponent implements OnInit {
-
-	constructor() { }
-
-	ngOnInit(): void {
-	}
+export class LoginComponent {
 
 }

@@ -1,7 +1,7 @@
 ﻿namespace GGL.Booking.Api.Repositories
 {
     using GGL.Booking.Api;
-    using GGL.Booking.Api.Interfaces;
+    using GGL.Booking.Api.Abstractions;
     using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;

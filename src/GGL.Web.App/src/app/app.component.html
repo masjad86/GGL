@@ -1,21 +1,23 @@
-<div class="main-container">
-    <ggl-home *ngIf="userRole !== 1"></ggl-home>
-    <!-- <div>
-        <ggl-nav-menu  [menuItems]="menus"></ggl-nav-menu>
-    </div>
-    <div class="top-nav-section">      
-        <ggl-global-header></ggl-global-header>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-    </div>
-    <div class="content-section">
-        <div *ngIf="isFilterExpanded && showFilter" class="filter-section">
-            <ggl-global-filter></ggl-global-filter>
+<style>
+    
+</style>
+
+<main class="main">
+    <div class="content">
+        <div class="top-header">
+            <h2>Green Garden Lawn</h2>
         </div>
-        <div *ngIf="showFilter" class="filter-collapse" (click)="isFilterExpanded =!isFilterExpanded">
-            <mat-icon matTooltipPosition="right" matTooltip="{{isFilterExpanded ? 'Collapse' : 'Expand'}}">more_vert</mat-icon>
-        </div>
-        <div class="content" [ngClass]="{'content-100': !isFilterExpanded, 'content': isFilterExpanded}">
+        <div>
             <router-outlet></router-outlet>
         </div>
-    </div> -->
-</div>
+    </div>
+</main>

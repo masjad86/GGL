@@ -1,0 +1,25 @@
+.main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    margin-bottom: 3rem;
+
+    @media screen and (max-width: 650px) {
+        .content {
+            flex-direction: column;
+            width: max-content;
+        }
+
+        .divider {
+            height: 1px;
+            width: 100%;
+            background: var(--red-to-pink-to-purple-horizontal-gradient);
+            margin-block: 1.5rem;
+        }
+    }
+}

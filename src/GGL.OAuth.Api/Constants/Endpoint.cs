@@ -2,6 +2,7 @@
 {
     public class EndpointConstant
     {
+        public const string BEARER_TAG = "bearer";
         public const string CONNECT_TOKEN_URL = "/tokens/connect";
         public class Account
         {
