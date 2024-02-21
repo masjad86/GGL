@@ -1,0 +1,4 @@
+<div class="nav-sub-section" *ngFor="let menu of menuItems">
+    <mat-icon class="md-{{menu?.icon?.size}}">{{menu?.icon?.name}}</mat-icon>
+    <label> {{menu.name}}</label>
+</div>

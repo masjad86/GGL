@@ -1,0 +1,11 @@
+<div *ngFor="let booking of bookings" class="notification">
+    <div class="title">{{booking.title}}
+        <div *ngIf="booking.contact" class="contact">{{booking.contact}}</div>
+    </div>
+    <div class="summary">
+        <div class="status {{getStatus(booking.status)}}">
+            <mat-icon class="{{getStatus(booking.status)}} md-16">check_circle</mat-icon>{{getStatus(booking.status) | uppercase}}
+        </div>
+        <div class="timestamp">{{booking.status | date: 'dd-MMM-yyyy HH:mm tt'}}</div>
+    </div>
+</div>

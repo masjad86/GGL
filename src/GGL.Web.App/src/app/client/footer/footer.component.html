@@ -1,0 +1,25 @@
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>{{appTitle}}</h2>
+                </div>
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <p class="ggl-social-icons">
+                        <a *ngFor = "let social of appSocialMediaLinks" [title] = "social.title" [href]="social.url">
+                            <i [class]="social.icon"></i>
+                        </a>
+                    </p>
+                    <p>
+                        Copyright
+                        <span>{{appCopyright}}</span> Green Garden Lawn. All Rights Reserved.
+                        <br>Made with
+                        <i class="icon-heart3"></i> by
+                        <a href="http://greengardenlawn.com/" target="_self" [title]="appTitle">GreenGardenLawn.Com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

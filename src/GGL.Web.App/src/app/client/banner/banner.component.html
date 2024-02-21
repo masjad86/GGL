@@ -1,0 +1,24 @@
+<div class="ggl-banner">
+    <div class="ggl-overlay"></div>
+    <div class="ggl-cover text-center" style="background-image: url(../../../assets/images/cover_bg_1.jpg);">
+        <div class="center-logo">
+            <img src="../../../assets/images/svg/White-Logo-No-Bg.svg" [title]="title" />
+        </div>
+        <div class="display-t">
+            <div class="display-tc">
+                <div class="container">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div *ngIf="upcomingEventDate" class="animate-box">
+                            <img src="../../../assets/images/ggl-logo.png" />
+                            <h1 class="ggl-text">{{title}}</h1>
+                            <h3 class="ggl-upcoming-event">Upcoming Event</h3>
+                            <p ngIf="upcomingEventDate">
+                                <span>{{upcomingEventDate}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
