@@ -1,11 +1,22 @@
 import { Injectable } from '@angular/core';
-import { EventType } from '../enums/event-type';
+import { Event, EventType } from '../shared';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class EventService {
-    nextEventDate?:Date = undefined; 
+    nextEventDate?: Date = undefined;
     nextEventType?: EventType = undefined;
-    constructor() { }
+    constructor() {
+
+    }
+
+    getCurrentEvent() {
+        return <Event>{};
+    }
+
+    getUpcomingEvent(): Observable<Event> {
+        return of(<Event>{});
+    }
 }

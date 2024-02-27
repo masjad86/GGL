@@ -8,7 +8,7 @@
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <p class="ggl-social-icons">
                         <a *ngFor = "let social of appSocialMediaLinks" [title] = "social.title" [href]="social.url">
-                            <i [class]="social.icon"></i>
+                            <i [class]="social.icon?.name"></i>
                         </a>
                     </p>
                     <p>

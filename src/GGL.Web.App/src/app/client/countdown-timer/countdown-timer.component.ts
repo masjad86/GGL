@@ -9,28 +9,30 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, OnDestroy, OnInit, Out
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CountdownTimerComponent implements OnInit, OnDestroy {
-    nextEventDays: string = "";
-    nextEventHours: string = "";
-    nextEventMinutes: string = "";
-    nextEventSeconds: string = "";
-    currentEventDate: Date = new Date();
-    upcomingEventDate: Date = new Date();
-    tickEventTimerHandler?: NodeJS.Timeout;
+    public nextEventDays: string = "00";
+    public nextEventHours: string = "00";
+    public nextEventMinutes: string = "00";
+    public nextEventSeconds: string = "00";
+    public currentEventDate: Date = new Date();
+    public upcomingEventDate: Date = new Date();
+    public tickEventTimerHandler?: NodeJS.Timeout;
     @Output('hide') hideCountdownTimer: EventEmitter<boolean> = new EventEmitter();
 
-    constructor() {
+    private isCountdownStopped: boolean = true;
 
+    constructor() {
+        const today = new Date();
+        this.currentEventDate = new Date(today.getFullYear(), today.getMonth(), today.getDay() + 3);
+        this.tickEventTimerHandler = setInterval(this.tickEventTimer, 1000);
     }
     ngOnDestroy(): void {
         if (this.tickEventTimerHandler) {
-            clearInterval(this.tickEventTimerHandler);
+            // clearInterval(this.tickEventTimerHandler);
         }
     }
 
     ngOnInit(): void {
-        const today = new Date();
-        this.currentEventDate = new Date(today.getFullYear(),today.getMonth(), today.getDay() + 3);
-        // this.tickEventTimerHandler = setInterval(this.tickEventTimer, 1000);
+        
     }
 
     private tickEventTimer() {
@@ -62,9 +64,13 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
             this.nextEventMinutes = minutes;
             this.nextEventSeconds = seconds;
 
-            this.hideCountdownTimer.emit(false);
+            this.isCountdownStopped = false;
+        } else {
+            this.isCountdownStopped = true;
         }
 
-        this.hideCountdownTimer.emit(true);
+        if (this.isCountdownStopped) {
+            this.hideCountdownTimer.emit(this.isCountdownStopped);
+        }
     }
 }

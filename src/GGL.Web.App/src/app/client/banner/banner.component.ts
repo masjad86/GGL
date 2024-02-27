@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
         NgIf
     ],
     templateUrl: './banner.component.html',
-    styleUrl: './banner.component.scss'
+    styleUrls: ['./banner.component.scss', '../../../assets/css/rain.scss']
 })
 export class BannerComponent {
     @Input() title: string = '';

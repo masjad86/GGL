@@ -657,13 +657,14 @@ ggl-cover .display-tc h6 {
         #ggl-countdown .countdown span {
             margin: 0 30px;
             display: inline-block;
-            font-family: "Montez",cursive
+            font-family: fantasy;
         }
 
         #ggl-countdown .countdown small {
             display: block;
-            font-size: 16px;
-            font-family: "Open Sans",Arial,sans-serif
+            font-size: 18px;
+            font-family: fantasy;
+            text-transform: uppercase;
         }
 
 .couple-wrap {
