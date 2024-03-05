@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-//import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { NotificationType } from '../../models/notification-service.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class NotificationService {
-	constructor(/*private toastService: ToastrService*/) { }
+	constructor(private toast: ToastrService) { }
 
 	/**
 	 * show toast notification.
@@ -36,7 +38,7 @@ export class NotificationService {
 	 * show message for information.
 	 */
 	private showInformation(title: string, message: string) {
-		// this.toastService.info(message, title);
+		this.toast.info(message, title);
 	}
 
 	/**
@@ -45,7 +47,7 @@ export class NotificationService {
 	 * @message: message which will be displayed
 	 */
 	private showError(title: string, message: string) {
-		// this.toastService.error(message, title);
+		this.toast.error(message, title);
 	}
 
 	/**
@@ -54,7 +56,7 @@ export class NotificationService {
 	 * @message: message which will be displayed
 	 */
 	private showSuccess(title: string, message: string) {
-		// this.toastService.success(message, title);
+		this.toast.success(message, title);
 	}
 
 	/**
@@ -63,6 +65,6 @@ export class NotificationService {
 	 * @message: message which will be displayed
 	 */
 	private showWarning(title: string, message: string) {
-		//this.toastService.warning(message, title);
+		this.toast.warning(message, title);
 	}
 }

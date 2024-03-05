@@ -1,41 +1,79 @@
-<div id="ggl-started">
+<div class="ggl-started">
     <div class="overlay"></div>
-    <div class="container">
+    <div *ngIf="!showBookingOtp && !showRequestSent" class="container">
         <div class="row animate-box">
             <div class="col-md-10 col-md-offset-1 text-center heading-section">
-                <h2>Checking Date For Marriage Or Other Celebrations?</h2>
-                <p>Please fill up the form to notify you that you're looking for the booking date. Thanks.
+                <h2>{{availablityMessage}}</h2>
+                <p>{{availablityDetailMessage}}</p>
             </div>
         </div>
         <div class="row animate-box">
-            <div class="col-md-10 col-md-offset-1">
-                <form class="form-inline">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3">
-                            <div class="form-group">
-                                <label for="name" class="sr-only">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <div class="form-group">
-                                <label for="mobile" class="sr-only">Mobile#</label>
-                                <input type="text" maxlength="10" class="form-control" id="mobile"
-                                    placeholder="Mobile Number">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <div class="form-group">
-                                <label for="email" class="sr-only">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 centered">
-                            <button type="submit" class="btn btn-primary btn-block">Booking Enquiry</button>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2">
+                        <div class="form-group">
+                            <label for="date" class="sr-only">Booking Date</label>
+                            <input required type="date" class="form-control" [ngModel]="enquiry.date" placeholder="Booking Date">
                         </div>
                     </div>
-                </form>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" class="form-control" [ngModel]="enquiry.name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <div class="form-group">
+                            <label for="mobile" class="sr-only">Mobile#</label>
+                            <input type="text" maxlength="10" class="form-control" [ngModel]="enquiry.mobileNumber"
+                                placeholder="Mobile Number">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" class="form-control" [ngModel]="enquiry.email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 centered">
+                        <button (click)="sentEnquiry()" class="btn btn-primary btn-block">Sent Enquiry</button>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+    <div *ngIf="showBookingOtp && !showRequestSent" class="container">
+        <div class="col-md-10 col-md-offset-1 text-center heading-section">
+            <h2>{{otpMessage}}</h2>
+            <p>{{otpFillMessage}}</p>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label for="otp" class="sr-only">OTP</label>
+                        <input type="number" class="form-control" [ngModel]="bookingOtp" placeholder="Enter your OTP">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 centered">
+                    <button (click)="confirmEnquiry()" class="btn btn-primary ggl-btn btn-block">Confirm</button>
+                </div>
+                <div class="col-md-3 col-sm-3 centered">
+                    <button (click)="cancelEnquiry()" class="btn btn-primary ggl-btn btn-danger">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showRequestSent" class="container">
+        <div class="col-md-10 col-md-offset-1 text-center heading-section">
+            <h2>{{requestSentMessage}}</h2>
+            <p>{{requestSentReviewMessage}}</p>
+        </div>
+        <div class="col-md-4 col-sm-4 centered">
+            <button (click)="checkAvailability()" class="btn btn-primary ggl-btn btn-block">Booking Availability</button>
+        </div>
+        <div class="col-md-4 col-sm-4 centered">
+            <button (click)="newEnquiry()" class="btn btn-primary ggl-btn btn-block">Request New Enquiry</button>
         </div>
     </div>
 </div>

@@ -1,62 +1,14 @@
 <div onload="load();">
     <div id="ggl-wrapper">
         <div id="ggl-page">
-            <ggl-banner [nextEvent]="nextEventDate"></ggl-banner>
+            <ggl-banner [nextEvent]="nextEvent" [title]="title"></ggl-banner>
             <ggl-header></ggl-header>
-            <div>
+            <div class="content">
                 <router-outlet></router-outlet>
             </div>
             <!-- end:header-top -->
-            <ggl-carousal></ggl-carousal>
-            <div id="ggl-couple" class="ggl-section-gray">
-                <div class="container">
-                    <div class="row row-bottom-padded-md animate-box">
-                        <!-- Marriage Container -->
-                        <div id="marriageContainer" class="col-md-6 col-md-offset-3 text-center">
-                            <div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-                                <img id="groomImage" src="../assets/images/no-image-man.png" class="img-responsive"
-                                    alt="Groom Image">
-                                <h3 id="groomName">Jack Wood</h3>
-                            </div>
-                            <div class="col-md-2 col-sm-2 col-xs-2 nopadding">
-                                <h2 class="amp-center">
-                                    <i class="icon-heart"></i>
-                                </h2>
-                            </div>
-                            <div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-                                <img id="brideImage" src="../assets/images/no-image-woman.png" class="img-responsive"
-                                    alt="Bride Image">
-                                <h3 id="brideName">Rose Thomas</h3>
-                            </div>
-                        </div>
-                        <!-- Non-Marriage Container -->
-                        <div id="nonMarriageContainer" class="col-md-6 col-md-offset-3 text-center hide">
-                            <div class="col-md-2 col-sm-2 col-xs-2 col-md-offset-1">
-                                <h2 class="amp-center"></h2>
-                            </div>
-                            <div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-                                <img id="personImage" src="../assets/images/no-image-woman.png" class="img-responsive"
-                                    alt="Person Image">
-                                <h3 id="personName">Rose Thomas</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row animate-box">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="col-md-12 text-center heading-section">
-                                <h2 id="eventType"></h2>
-                                <p>
-                                    <strong>on
-                                        <span id="eventDate"></span> &mdash;
-                                        <span id="eventPlace">Boracay, Philippines</span>
-                                    </strong>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <ggl-countdown-timer></ggl-countdown-timer>
+            <ggl-countdown-timer *ngIf="nextEvent" (onHide)="hideTimer" [nextEventDate]="nextEvent.date">
+            </ggl-countdown-timer>
             <ggl-getting-started></ggl-getting-started>
             <ggl-footer></ggl-footer>
         </div>

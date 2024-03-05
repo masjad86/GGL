@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './client/footer/footer.component';
@@ -8,77 +8,83 @@ import { HeaderComponent } from './client/header/header.component';
 //import { BlinkDirective } from '../directives/blink.directive';
 //import { BlinkItemType } from '../enums/blink-item-type';
 import { BannerComponent } from './client/banner/banner.component';
-import { GGL_TITLE } from '../shared';
+import { Event, EventService, GGL_TITLE } from '../shared';
+import { Subscription } from 'rxjs';
+import { EventPortfolioComponent } from './client/event-portfolio/event-portfolio.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './client/home/home.component';
+import { SubscriptionHelper } from '../helpers/subscript.helper';
 
 @Component({
     selector: 'ggl-root',
     standalone: true,
     imports: [
         // BlinkDirective,
-        CommonModule, 
+        CommonModule,
         RouterOutlet,
 
         BannerComponent,
+        HomeComponent,
         HeaderComponent,
         FooterComponent,
         CountdownTimerComponent,
         GettingStartedComponent,
+        EventPortfolioComponent,
+
+        // Directives
         NgIf
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    providers: [
+        HttpClientModule,
+    ]
+
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
     title: string = GGL_TITLE;
-    currentEventDate?: Date = undefined;
-    nextEventDate?: Date = undefined;
+    currentEvent?: Event;
+    nextEvent?: Event;
     hideCountdownTimerSection: boolean = false;
     nextEventDays: string = "00";
     nextEventHours: string = "00";
     nextEventMinutes: string = "00";
     nextEventSeconds: string = "00";
+
     //blinkItemType = BlinkItemType.IMAGE;
     blinkImageUrls: Array<string> = [
         '../assets/images/svg/Black-Logo-No-Bg.svg',
         '../assets/images/svg/White-Logo-No-Bg.svg',
         '../assets/images/svg/Color-Logo-No-Bg.svg'
     ];
-    
-    constructor() { }
-    
-    private tickEventTimer() {
-        var now = new Date().getTime();
 
-        if (!this.currentEventDate && this.nextEventDate) {
-            this.currentEventDate = this.nextEventDate;
+    private subscriptions?: Array<Subscription> = [];
+    constructor(private eventService: EventService) {
+
+    }
+
+    ngOnInit(): void {
+        this.initialize();
+    }
+
+    ngOnDestroy(): void {
+        if (this.subscriptions) {
+            SubscriptionHelper.Cleanup(this.subscriptions);
         }
+    }
 
-        if (this.currentEventDate) {
-            const distance: number = this.currentEventDate.getTime() - now;
-            if (distance < 0) {
-                this.hideCountdownTimerSection = true;
-                return;
-            }
+    hideTimer(isHide: boolean) {
+        this.hideCountdownTimerSection = isHide;
+    }
 
-            var days = (Math.floor(distance / (1000 * 60 * 60 * 24))).toString();
-            var hours = (Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).toString();
-            var minutes = (Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).toString();
-            var seconds = (Math.floor((distance % (1000 * 60)) / 1000)).toString();
+    private initialize() {
+        this.subscriptions?.push(this.eventService.getCurrentEvent().subscribe(e => {
+            this.currentEvent = e;
+        }));
 
-            if (days !== undefined && days.length === 1) days = "0" + days;
-            if (hours !== undefined && hours.length === 1) hours = "0" + hours;
-            if (minutes !== undefined && minutes.length === 1) minutes = "0" + minutes;
-            if (seconds !== undefined && seconds.length === 1) seconds = "0" + seconds;
-
-            this.nextEventDays = days;
-            this.nextEventHours = hours;
-            this.nextEventMinutes = minutes;
-            this.nextEventSeconds = seconds;
-
-            this.hideCountdownTimerSection = false;
-        } else {
-            this.hideCountdownTimerSection = true;
-        }
+        this.subscriptions?.push(this.eventService.getUpcomingEvent().subscribe(e => {
+            this.nextEvent = e;
+        }));
     }
 }

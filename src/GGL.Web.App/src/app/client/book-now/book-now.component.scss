@@ -1,0 +1,69 @@
+@import '../../../assets/css/color.scss';
+
+ul.booking-legends {
+    list-style: none;
+    display: inline-flex;
+    padding: 0;
+
+    li {
+        padding: .1rem;
+        margin: .1rem;
+        font-weight: 400;
+        color: $color-black;
+        display: flex;
+        span {
+            padding-left: 1rem;
+            font-size: 10pt;
+        }
+    }
+}
+
+.color-box {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-block;
+    border: solid .1rem $color-black;
+    border-radius: 50%;
+}
+
+.available {
+    background-color: $color-light-gray;
+}
+
+.booked {
+    background-color: $color-light-green;
+}
+
+.open-enquiry {
+    background-color: $color-skyblue;
+}
+
+.calendar-view {
+    padding-right: 3.5rem;
+
+    span {
+        padding-right: 1rem;
+        padding-left: .5rem;
+        font-style: normal;
+    }
+    
+    img {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    ul.booking-legends {
+        list-style: none;
+        display: inline-flex;
+
+        li {
+            span {
+                padding-left: .5rem;
+                font-size: 9pt;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,104 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-started {
+    padding: 2.5em 0;
+    min-height: 350px;
+    position: relative;
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-image: url('../../../assets/images/cover_bg_2.jpg');
+}
+
+.ggl-started .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5)
+}
+
+.ggl-started .form-control {
+    background: rgba(0, 0, 0, .2);
+    border: none !important;
+    color: $color-white;;
+    font-size: 16px !important;
+    width: 100%;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    min-height: 45px;
+}
+
+.ggl-started .form-control::-webkit-input-placeholder {
+    color: $color-white;
+}
+
+.ggl-started .form-control:-moz-placeholder {
+    color: $color-white;
+}
+
+.ggl-started .form-control::-moz-placeholder {
+    color: $color-white;
+}
+
+.ggl-started .form-control:-ms-input-placeholder {
+    color: $color-white;
+}
+
+.ggl-started .form-control:focus {
+    background: rgba(255, 255, 255, .3)
+}
+
+.ggl-started .ggl-btn {
+    border: none !important;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+    min-height: 45px;
+}
+
+.ggl-started .btn-block {
+    background: $color-light-green;
+    color: $color-white;;
+}
+
+.ggl-started .btn-danger {
+    background: #e6525e;
+    color: $color-white;;
+}
+
+.ggl-started ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.ggl-started .form-inline .form-group {
+    width: 100% !important;
+    margin-bottom: 10px;
+}
+
+.ggl-started .form-inline .form-group .form-control {
+    width: 100%;
+    padding: 27px 20px !important;
+}
+
+.ggl-started .heading-section {
+    margin-bottom: 30px;
+}
+
+.ggl-started .heading-section h2 {
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, .9);
+    font-family: fantasy;
+}
+
+.ggl-started .heading-section p {
+    color: rgba(255, 255, 255, .7)
+}
+
+@media screen and (max-width:768px) {
+    .ggl-started {
+        padding: 2em 0;
+    }
+}

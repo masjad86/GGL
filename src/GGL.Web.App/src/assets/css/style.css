@@ -144,12 +144,6 @@ figure {
     width: 100%
 }
 
-.center-logo img {
-    width: 300px;
-    height: 300px;
-    margin-top: 150px;
-}
-
 @media screen and (max-width:768px) {
     .ggl-cover, .ggl-banner {
         height: 700px
@@ -181,7 +175,6 @@ figure {
 
 .ggl-cover .display-t {
     display: table;
-    height: 800px;
     width: 100%;
     position: relative;
     z-index: 2
@@ -189,7 +182,15 @@ figure {
 
 @media screen and (max-width:768px) {
     .ggl-cover .display-t {
-        height: 600px
+        height: 200px;
+    }
+
+    
+    .ggl-cover .display-tc h2 {
+        color: #fff;
+        font-size: 20px;
+        margin-bottom: 30px;
+        font-weight: 300 !important
     }
 }
 
@@ -360,7 +361,6 @@ ggl-cover .display-tc h6 {
     width: 100%;
     z-index: 1022;
     background: #4a5725;
-    opacity: .8;
 }
 
 .nav-header {
@@ -395,8 +395,12 @@ ggl-cover .display-tc h6 {
     }
 
 @media screen and (max-width:768px) {
+    .nav-header {
+        width: 90%;
+    }
+
     #ggl-logo {
-        width: 100%;
+        width: 15%;
         float: none;
         text-align: center
     }
@@ -580,18 +584,18 @@ ggl-cover .display-tc h6 {
         color: #4bd444 !important;
     }
 
-#ggl-couple, #ggl-countdown, #ggl-services, #ggl-services-section, #ggl-specials, #ggl-specials-section, #ggl-started, #ggl-contact-us, #ggl-guest, #ggl-gallery, .ggl-content-section {
-    padding: 3em 0;
+#ggl-couple, #ggl-services, #ggl-services-section, #ggl-specials, #ggl-specials-section, #ggl-contact-us, #ggl-guest, #ggl-gallery, .ggl-content-section {
+    padding: 2.5em 0;
 }
 
 @media screen and (max-width:768px) {
-    #ggl-couple, #ggl-countdown, #ggl-services, #ggl-services-section, #ggl-specials, #ggl-specials-section, #ggl-started, #ggl-contact-us, #ggl-guest, #ggl-gallery, .ggl-content-section {
+    #ggl-couple, #ggl-services, #ggl-services-section, #ggl-specials, #ggl-specials-section, #ggl-contact-us, #ggl-guest, #ggl-gallery, .ggl-content-section {
         padding: 2em 0;
     }
 }
 
 .ggl-section-gray {
-    background: #F6FAF7
+    background: #F6FAF7;
 }
 
 .ggl-section-light-green {
@@ -600,7 +604,6 @@ ggl-cover .display-tc h6 {
 
 .heading-section {
     padding-bottom: 1em;
-    margin-bottom: 3em
 }
 
     .heading-section h2 {
@@ -613,59 +616,6 @@ ggl-cover .display-tc h6 {
     .heading-section p {
         font-size: 18px
     }
-
-#ggl-couple img {
-    margin-bottom: 20px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    border-radius: 50%
-}
-
-#ggl-couple h3 {
-    font-size: 30px
-}
-
-@media screen and (max-width:768px) {
-    #ggl-couple h3 {
-        font-size: 35px
-    }
-}
-
-#ggl-couple .amp-center {
-    font-size: 60px;
-    margin-top: 100%;
-    color: #4bd444
-}
-
-@media screen and (max-width:768px) {
-    #ggl-couple .amp-center {
-        font-size: 40px
-    }
-}
-
-#ggl-countdown {
-    background: #4bd444
-}
-
-    #ggl-countdown .countdown {
-        margin-bottom: 0;
-        font-size: 80px;
-        color: #fff
-    }
-
-        #ggl-countdown .countdown span {
-            margin: 0 30px;
-            display: inline-block;
-            font-family: fantasy;
-        }
-
-        #ggl-countdown .countdown small {
-            display: block;
-            font-size: 18px;
-            font-family: fantasy;
-            text-transform: uppercase;
-        }
 
 .couple-wrap {
     width: 100%;
@@ -689,12 +639,6 @@ ggl-cover .display-tc h6 {
 
 .couple-desc .ggl-social-icons a:first-child {
     padding-left: 0
-}
-
-@media screen and (max-width:768px) {
-    .couple-desc .ggl-social-icons a i {
-        font-size: 20px
-    }
 }
 
 @media screen and (max-width:768px) {
@@ -731,90 +675,6 @@ ggl-cover .display-tc h6 {
         .contact-us .desc p strong {
             font-size: 14px;
         }
-
-#ggl-started {
-    position: relative;
-    background-size: cover;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-image: url('../../assets/images/cover_bg_2.jpg');
-}
-
-    #ggl-started .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,.5)
-    }
-
-    #ggl-started .form-control {
-        background: rgba(0,0,0,.2);
-        border: none !important;
-        color: #fff;
-        font-size: 16px !important;
-        width: 100%;
-        -webkit-transition: 0.5s;
-        -o-transition: 0.5s;
-        transition: 0.5s
-    }
-
-        #ggl-started .form-control::-webkit-input-placeholder {
-            color: #fff
-        }
-
-        #ggl-started .form-control:-moz-placeholder {
-            color: #fff
-        }
-
-        #ggl-started .form-control::-moz-placeholder {
-            color: #fff
-        }
-
-        #ggl-started .form-control:-ms-input-placeholder {
-            color: #fff
-        }
-
-        #ggl-started .form-control:focus {
-            background: rgba(255,255,255,.3)
-        }
-
-    #ggl-started .btn-block {
-        height: 54px;
-        border: none !important;
-        background: #4bd444;
-        color: #fff;
-        font-size: 16px;
-        text-transform: uppercase;
-        font-weight: 400
-    }
-
-    #ggl-started .form-inline .form-group {
-        width: 100% !important;
-        margin-bottom: 10px;
-    }
-
-        #ggl-started .form-inline .form-group .form-control {
-            width: 100%;
-            padding: 27px 20px !important;
-        }
-
-    #ggl-started .heading-section {
-        margin-bottom: 30px;
-    }
-
-        #ggl-started .heading-section h2 {
-            margin-bottom: 20px;
-            color: rgba(255,255,255,.9);
-            font-family: fantasy;
-        }
-
-        #ggl-started .heading-section p {
-            color: rgba(255,255,255,.7)
-        }
-
-
 
 .circle img {
     display: block;
@@ -963,8 +823,6 @@ ggl-cover .display-tc h6 {
     }
 }
 
-
-
 .ggl-social-icons > a {
     padding: 4px 10px;
     color: #4bd444;
@@ -978,30 +836,6 @@ ggl-cover .display-tc h6 {
     .ggl-social-icons > a:hover, .ggl-social-icons > a:focus, .ggl-social-icons > a:active {
         text-decoration: none;
         color: #5a5a5a;
-    }
-
-#footer {
-    background: #4bd444;
-    padding: 60px 0 10px;
-}
-
-    #footer p {
-        color: white;
-        font-size: 14px
-    }
-
-        #footer p a {
-            color: black;
-        }
-
-            #footer p a:hover, #footer p a:active, #footer p a:focus {
-                color: rgba(255,255,255,.9) !important
-            }
-
-    #footer h2 {
-        color: #fff;
-        font-size: 60px;
-        font-family: fantasy;
     }
 
 .btn {
@@ -1085,6 +919,7 @@ ggl-cover .display-tc h6 {
     width: 240px;
     overflow-y: scroll !important;
     display: none;
+    z-index: 10000;
 }
 
     #offcanvas-menu.ggl-offcanvas {
@@ -1378,16 +1213,7 @@ ggl-cover .display-tc h6 {
 }
 
 .color-white {
-    color: #fff
-}
-
-.ggl-text {
-    font-size: 80pt
-}
-
-.ggl-upcoming-event {
     color: #fff;
-    font-size: 40pt
 }
 
 .hide {

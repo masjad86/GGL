@@ -6,7 +6,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 @Injectable({
     providedIn: 'root'
 })
-export class ApiService<T> implements IApiService<T> {
+export class ApiService implements IApiService {
 	public baseUrl: string = '';
 	constructor(private http: HttpClient) { }
 
@@ -14,9 +14,10 @@ export class ApiService<T> implements IApiService<T> {
 	 * Http get method.
 	 * @param url
 	 */
-	get(url: string): Observable<T> {
-		const header: HttpHeaders = this.createRequestHeader();
-		return this.http.get<T>(url, {
+	fetch<T>(url: string): Observable<T> {
+		const header: HttpHeaders = this.createRequestHeaders();
+        const apiUrl = this.createUrl(url);
+		return this.http.get<T>(apiUrl, {
 			headers: header
 		});
 	}
@@ -25,9 +26,10 @@ export class ApiService<T> implements IApiService<T> {
 	 * Http post method.
 	 * @param url
 	 */
-	post(url: string, body: any, requestParams: HttpParams): Observable<T> {
-		const header: HttpHeaders = this.createRequestHeader();
-		return this.http.post<T>(url, body, {
+	post<T>(url: string, body: any, requestParams?: HttpParams): Observable<T> {
+		const header: HttpHeaders = this.createRequestHeaders();
+        const apiUrl = this.createUrl(url);
+		return this.http.post<T>(apiUrl, body, {
 			headers: header,
 			params: requestParams
 		});
@@ -37,9 +39,10 @@ export class ApiService<T> implements IApiService<T> {
 	 * Http put method.
 	 * @param url
 	 */
-	put(url: string, body: any, requestParams: HttpParams): Observable<T> {
-		const header: HttpHeaders = this.createRequestHeader();
-		return this.http.put<T>(url, body, {
+	put<T>(url: string, body: any, requestParams?: HttpParams): Observable<T> {
+		const header: HttpHeaders = this.createRequestHeaders();
+        const apiUrl = this.createUrl(url);
+		return this.http.put<T>(apiUrl, body, {
 			headers: header,
 			params: requestParams
 		});
@@ -49,14 +52,33 @@ export class ApiService<T> implements IApiService<T> {
 	 * Http delete method.
 	 * @param url
 	 */
-	delete(url: string): Observable<T> {
-		const header: HttpHeaders = this.createRequestHeader();
-		return this.http.delete<T>(url, {
+	delete<T>(url: string): Observable<T> {
+		const header: HttpHeaders = this.createRequestHeaders();
+        const apiUrl = this.createUrl(url);
+		return this.http.delete<T>(apiUrl, {
 			headers: header
 		});
 	}
 
-	private createRequestHeader(): HttpHeaders {
-		return new HttpHeaders();
-	}
+    /**
+     * Create request header parameters.
+     */
+    private createRequestHeaders(): HttpHeaders {
+        let headers = new HttpHeaders();
+        const token = sessionStorage.getItem("ggl-token");
+        if (!token) {
+            throw new Error("");
+        }
+
+        headers.append("Authorization", "Bearer " + token);
+
+        return headers;
+    }
+
+    /**
+     * Create the complete api url using baseUrl + url.   
+     */
+    private createUrl(url: string): string {
+        return `${this.baseUrl}${url}`; 
+    }
 }

@@ -1,4 +1,5 @@
 export enum EventType {
+    NONE = 0,    
 	WEDDING_CEREMONY = 1,
 	BIRTHDAY_PARTY,
 	ENGAGEMENT,

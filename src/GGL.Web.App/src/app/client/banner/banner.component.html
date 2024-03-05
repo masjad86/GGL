@@ -1,9 +1,9 @@
 <div class="ggl-banner">
     <!-- check the Comments for more info -->
-    <div class="back-row-toggle splat-toggle">
+    <!-- <div class="back-row-toggle splat-toggle">
         <div class="rain front-row"></div>
         <div class="rain back-row"></div>
-    </div>
+    </div> -->
     <div class="ggl-overlay"></div>
     <div class="ggl-cover text-center" style="background-image: url(../../../assets/images/cover_bg_1.jpg);">
         <div class="center-logo">
@@ -13,12 +13,11 @@
             <div class="display-tc">
                 <div class="container">
                     <div class="col-md-10 col-md-offset-1">
-                        <div *ngIf="upcomingEventDate" class="animate-box">
-                            <img src="../../../assets/images/ggl-logo.png" />
-                            <h1 class="ggl-text">{{title}}</h1>
+                        <div class="animate-box">
                             <h3 class="ggl-upcoming-event">Upcoming Event</h3>
-                            <p ngIf="upcomingEventDate">
-                                <span>{{upcomingEventDate}}</span>
+                            <h4 class="ggl-event-quotes">{{quotes}}</h4>
+                            <p *ngIf="event?.date">
+                                <span>{{event?.date | date: 'dd-MMM-yyyy'}}</span>
                             </p>
                         </div>
                     </div>

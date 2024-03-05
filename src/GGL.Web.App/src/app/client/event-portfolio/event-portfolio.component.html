@@ -1,0 +1,40 @@
+<div id="ggl-couple" class="ggl-section-gray">
+    <div class="container">
+        <div class="row row-bottom-padded-md animate-box">
+            <!-- Marriage Container -->
+            <div *ngIf="weddingEventInfo" class="col-md-6 col-md-offset-3 text-center">
+                <ggl-portfolio [name]="weddingEventInfo.groomName" title="Groom Image"
+                    avatar="../../../../assets/images/booking/{{weddingEventInfo.groomPhoto}}"></ggl-portfolio>
+                <div class="col-md-2 col-sm-2 col-xs-2 nopadding">
+                    <h2 class="amp-center">
+                        <i class="icon-heart"></i>
+                    </h2>
+                </div>
+                <ggl-portfolio [name]="weddingEventInfo.brideName" title="Bride Image"
+                    avatar="../../../../assets/images/booking/{{weddingEventInfo.bridePhoto}}"></ggl-portfolio>
+            </div>
+
+            <!-- Non-Marriage Container -->
+            <div *ngIf="commonEventInfo" class="col-md-6 col-md-offset-3 text-center hide">
+                <div class="col-md-2 col-sm-2 col-xs-2 col-md-offset-1">
+                    <h2 class="amp-center"></h2>
+                </div>
+                <ggl-portfolio [name]="commonEventInfo.personName" title="Person Image"
+                avatar="../../../../assets/images/booking/{{commonEventInfo.personPhoto}}"></ggl-portfolio>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12 text-center heading-section">
+                    <h2>{{currentEvent?.name}}</h2>
+                    <p>
+                        <strong>on
+                            <span>{{ currentEvent?.date | date: 'dd-MMM-yyyy'}}</span> &mdash;
+                            <span>Shahjahanpur</span>
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

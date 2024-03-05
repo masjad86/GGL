@@ -1,0 +1,29 @@
+<div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6"></div>
+    </div>
+    <div class="row">
+        <div class="col-7 left">
+            <ul class="booking-legends">
+                <li *ngFor="let legend of legends">
+                    <span class="color-box" [ngClass]="legend.cssStyle">
+                        <i *ngIf="legend.icon" [class]="legend.icon"></i>
+                    </span>
+                    <span>{{legend.label}}</span>
+                </li>
+            </ul>
+        </div>  
+        <div class="col-5 right calendar-view">
+            <img src="../../../assets/images/svg/list.svg" /> <span>List</span>
+            <img src="../../../assets/images/svg/calendar.svg" /> <span>Grid</span>
+        </div>      
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <ggl-booking-calendar [mode]="viewMode"></ggl-booking-calendar>
+        </div>
+    </div>
+</div>
+
+<!-- <ggl-booking-calendar></ggl-booking-calendar> -->

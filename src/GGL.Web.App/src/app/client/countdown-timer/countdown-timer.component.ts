@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, NgZone, OnDestroy, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'ggl-countdown-timer',
@@ -6,46 +6,38 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, OnDestroy, OnInit, Out
     imports: [],
     templateUrl: './countdown-timer.component.html',
     styleUrl: './countdown-timer.component.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CountdownTimerComponent implements OnInit, OnDestroy {
-    public nextEventDays: string = "00";
-    public nextEventHours: string = "00";
-    public nextEventMinutes: string = "00";
-    public nextEventSeconds: string = "00";
-    public currentEventDate: Date = new Date();
-    public upcomingEventDate: Date = new Date();
-    public tickEventTimerHandler?: NodeJS.Timeout;
-    @Output('hide') hideCountdownTimer: EventEmitter<boolean> = new EventEmitter();
+export class CountdownTimerComponent implements AfterViewInit {
+    @Input("nextEventDate") nextEventDate?: Date;
+    @Output("hideTimer") onHide: EventEmitter<boolean> = new EventEmitter<boolean>();
+    nextEventDays: string = "00";
+    nextEventHours: string = "00";
+    nextEventMinutes: string = "00";
+    nextEventSeconds: string = "00";
 
-    private isCountdownStopped: boolean = true;
-
-    constructor() {
-        const today = new Date();
-        this.currentEventDate = new Date(today.getFullYear(), today.getMonth(), today.getDay() + 3);
-        this.tickEventTimerHandler = setInterval(this.tickEventTimer, 1000);
-    }
-    ngOnDestroy(): void {
-        if (this.tickEventTimerHandler) {
-            // clearInterval(this.tickEventTimerHandler);
-        }
-    }
-
-    ngOnInit(): void {
+    constructor(private zone: NgZone,
+        private changeDetectRef: ChangeDetectorRef) {
         
+    }
+    ngAfterViewInit(): void {
+        this.zone.runOutsideAngular(() => {
+            this.tickEventTimer();
+        });
     }
 
     private tickEventTimer() {
-        var now = new Date().getTime();
-
-        if (!this.currentEventDate && this.upcomingEventDate) {
-            this.currentEventDate = this.upcomingEventDate;
+        if (!this.nextEventDate) {
+            this.onHide.emit(true);
+            return;
         }
 
-        if (this.currentEventDate) {
-            const distance: number = this.currentEventDate.getTime() - now;
+        const timer = setInterval(() => {
+            const distance: number = this.nextEventDate!.getTime() - Date.now();
             if (distance < 0) {
-                this.hideCountdownTimer.emit(true);
+                this.onHide.emit(true);
+                clearInterval(timer);
                 return;
             }
 
@@ -64,13 +56,8 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
             this.nextEventMinutes = minutes;
             this.nextEventSeconds = seconds;
 
-            this.isCountdownStopped = false;
-        } else {
-            this.isCountdownStopped = true;
-        }
-
-        if (this.isCountdownStopped) {
-            this.hideCountdownTimer.emit(this.isCountdownStopped);
-        }
+            this.onHide.emit(false);
+            this.changeDetectRef.detectChanges();
+        }, 1000);
     }
 }

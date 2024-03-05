@@ -1,0 +1,1 @@
+export const BOOKING_ENQUIRY_API = "bookings/enquiry";  

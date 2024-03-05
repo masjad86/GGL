@@ -1,0 +1,84 @@
+@import '../../../assets/css/color.scss';
+
+.list-view {
+    width: 100%;
+    padding: 1.5rem;
+
+
+    .item-row {
+        border-top: solid 1px $color-light-gray;
+        border-left: solid 1px $color-light-gray;
+        border-right: solid 1px $color-light-gray;
+        display: flex;
+    }
+
+    .last-row {
+        border-bottom: solid 1px $color-light-gray;
+    }
+
+    .day {
+        font-size: 60px;
+        padding: 1rem;
+        font-weight: 800;
+        text-align: center;
+        min-width: 12rem;
+        color: $color-black;
+    }
+
+    .detail {
+        width: 100%;
+
+        .status {
+            float: right;
+            font-weight: 400;
+            padding: 0 .5rem 0 .5rem;
+            color: $color-black;
+        }
+
+        .event-type {
+            padding-left: 1rem;
+        }
+    }
+
+    .book-now {
+        font-size: 10pt;
+    }
+}
+
+.confirmed {
+    background-color: $color-light-green;
+}
+
+.pending {
+    background-color: $color-skyblue;
+}
+
+.hold {
+    background-color: $color-yellow;
+}
+
+.available {
+    background-color: $color-lighter-gray;
+}
+
+
+@media screen and (max-width:768px) {
+    .list-view {
+        position: relative;
+
+        .day {
+            font-size: 40px;
+            padding: 1rem;
+            font-weight: 800;
+            text-align: center;
+            min-width: 8rem;
+        }
+
+        .book-now {
+            font-size: 10pt;
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+        }
+    }
+}

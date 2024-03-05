@@ -1,0 +1,26 @@
+<div>
+    <div>
+        <label for="month">Month</label>
+        <select name="month">
+            <option></option>
+        </select>
+    </div>
+    <div *ngIf="!isListViewMode" class="calendar-view">
+
+    </div>
+    <div *ngIf="isListViewMode" class="list-view">
+        <div *ngFor="let event of bookingEvents; let i = index"
+            [ngClass]="{'last-row' : bookingEvents.length && i == bookingEvents.length - 1}" class="item-row">
+            <div class="day {{event.statusLabel | lowercase}}">
+                <span>{{event.date | date: 'dd'}}</span>
+            </div>
+            <div class="detail">
+                <span class="status {{event.statusLabel | lowercase}}">{{event.statusLabel}}</span>
+                <span *ngIf="event.type" class="event-type">Event type: <b>{{event.name}}</b></span>
+                <span *ngIf="event.status === BOOKING_STATUS_NOTBOOKED || event.status === BOOKING_STATUS_CANCELED">
+                    <a class="book-now">Book Now</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

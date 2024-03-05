@@ -1,0 +1,56 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-countdown {
+    padding: 2.5em 0;
+    background: $color-light-green;
+}
+
+.ggl-countdown .countdown {
+    margin-bottom: 0;
+    font-size: 80px;
+    color: #fff
+}
+
+.ggl-countdown .countdown span {
+    margin: 0 30px;
+    min-width: 10%;
+    display: inline-block;
+    font-family: fantasy;
+}
+
+.ggl-countdown .countdown small {
+    display: block;
+    font-size: 18px;
+    font-family: fantasy;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width:768px) {
+    .couple-desc .ggl-social-icons a i {
+        font-size: 20px;
+    }
+
+    .ggl-countdown {
+        padding: 2em 0;
+    }
+
+    .ggl-countdown .countdown {
+        margin-bottom: 0;
+        font-size: 40px;
+        color: #fff
+    }
+
+    .ggl-countdown .countdown span {
+        margin: 0 15px;
+        min-width: 10%;
+        display: inline-block;
+        font-family: fantasy;
+    }
+
+    .ggl-countdown .countdown small {
+        display: block;
+        font-size: 14px;
+        font-family: fantasy;
+        text-transform: uppercase;
+    }
+}
