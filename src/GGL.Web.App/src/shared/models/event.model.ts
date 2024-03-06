@@ -1,4 +1,5 @@
 import { BookingStatus } from '../../enums';
+import { EventTiming } from '../enums';
 import { EventType } from '../enums/event-type.enum';
 import { Base } from './base.model';
 
@@ -10,7 +11,10 @@ export interface Event extends Base<string> {
     info?: IEventInfo;
 }
 
-export interface IEventInfo {}
+export interface IEventInfo {
+    eventTiming: EventTiming;
+    eventTimingLabel: string;
+}
 
 export interface WeddingEventInfo extends IEventInfo {
     groomName?: string;

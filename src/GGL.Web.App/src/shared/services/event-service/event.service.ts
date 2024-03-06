@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EventType } from '../../enums';
+import { EventTiming, EventType } from '../../enums';
 import { Event, IEventInfo, WeddingEventInfo } from '../../models';
 import { Observable, of } from 'rxjs';
 import { BookingStatus } from '../../../enums';
@@ -37,7 +37,8 @@ export class EventService {
             groomPhoto: "young-man-smiling.jpg",
             groomName: "Rahul Kumar",
             bridePhoto: "young-woman-smiling.jpg",
-            brideName: "Swati Sharma"
+            brideName: "Swati Sharma",
+            eventTiming: EventTiming.Evening
         } as WeddingEventInfo;
 
         const event: Event = {

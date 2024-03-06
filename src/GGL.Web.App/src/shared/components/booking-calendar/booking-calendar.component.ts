@@ -2,9 +2,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Com
 import { BookingStatus, BookingStatusLabel, ViewMode } from '../../../enums';
 import { DatePipe, LowerCasePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Event } from '../../models';
-import { EventType } from '../../enums';
+import { EventTiming, EventTimingDescription, EventType, EventTypeDescription } from '../../enums';
 import moment from 'moment';
 import { MatSelectModule } from '@angular/material/select';
+import { EnumHelper } from '../../helpers/enum.helper';
 
 @Component({
     selector: 'ggl-booking-calendar',
@@ -53,14 +54,33 @@ export class BookingCalendarComponent implements OnInit {
         const date = new Date(this.selectedYear, this.selectedMonth, 1);
         const daysInMonth = moment(date).daysInMonth();
         for (let i = 1; i <= daysInMonth; i++) {
-            if (i % 3 === 0 || i % 5 === 0) {
+            
+            if (i % 6 === 0) {
                 this.bookingEvents.push({
                     id: i.toString(),
-                    name: 'Wedding',
+                    name: EnumHelper.GetDesciption(EventType.RECEPTION, EventTypeDescription),
+                    type: EventType.RECEPTION,
+                    date: new Date(this.selectedYear, this.selectedMonth, i),
+                    status: BookingStatus.CONFIRMED,
+                    statusLabel: BookingStatusLabel[BookingStatus.CONFIRMED],
+                    info: {
+                        eventTiming: EventTiming.Evening,
+                        eventTimingLabel: EnumHelper.GetDesciption(EventTiming.Evening, EventTimingDescription),
+                    }
+                });
+            }
+            else if (i % 3 === 0 || i % 5 === 0) {
+                this.bookingEvents.push({
+                    id: i.toString(),
+                    name: EnumHelper.GetDesciption(EventType.WEDDING_CEREMONY, EventTypeDescription),
                     type: EventType.WEDDING_CEREMONY,
                     date: new Date(this.selectedYear, this.selectedMonth, i),
                     status: BookingStatus.CONFIRMED,
-                    statusLabel: BookingStatusLabel[BookingStatus.CONFIRMED]
+                    statusLabel: BookingStatusLabel[BookingStatus.CONFIRMED],
+                    info: {
+                        eventTiming: EventTiming.Evening,
+                        eventTimingLabel: EnumHelper.GetDesciption(EventTiming.Evening, EventTimingDescription),
+                    }
                 });
             }
             else {

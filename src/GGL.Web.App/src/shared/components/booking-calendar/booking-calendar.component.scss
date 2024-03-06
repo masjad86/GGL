@@ -1,15 +1,23 @@
 @import '../../../assets/css/color.scss';
 
+
+.calendar-filter {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
 .list-view {
     width: 100%;
     padding: 1.5rem;
-
+    max-height: 50rem;
+    overflow-y: auto;
 
     .item-row {
         border-top: solid 1px $color-light-gray;
         border-left: solid 1px $color-light-gray;
         border-right: solid 1px $color-light-gray;
         display: flex;
+        position: relative;
     }
 
     .last-row {
@@ -33,15 +41,31 @@
             font-weight: 400;
             padding: 0 .5rem 0 .5rem;
             color: $color-black;
+            min-width: 8rem;
+            text-transform: uppercase;
+            border-bottom-left-radius: 0.5rem;
         }
 
-        .event-type {
+        .event-info {
+            width: 100%;
             padding-left: 1rem;
+            display: inline-flex;
+            flex-direction: column;
         }
     }
 
     .book-now {
-        font-size: 10pt;
+        font-size: 11pt;
+        // position: absolute;
+        // bottom: 1rem;
+        // right: 0.5rem;
+        cursor: pointer;
+        color: $color-dark-green;
+    }
+
+    .book-now-message {
+        text-align: center;
+        padding: 1rem;
     }
 }
 
@@ -65,6 +89,7 @@
 @media screen and (max-width:768px) {
     .list-view {
         position: relative;
+        max-height: 30rem;
 
         .day {
             font-size: 40px;
@@ -74,11 +99,10 @@
             min-width: 8rem;
         }
 
-        .book-now {
+        .book-now,
+        .book-now-message {
             font-size: 10pt;
-            position: absolute;
-            bottom: 8px;
-            right: 16px;
         }
+
     }
 }

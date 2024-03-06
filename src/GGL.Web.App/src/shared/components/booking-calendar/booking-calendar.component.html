@@ -1,5 +1,5 @@
 <div>
-    <div>
+    <div class="calendar-filter">
         <label for="month">Month</label>
         <select name="month">
             <option></option>
@@ -16,10 +16,13 @@
             </div>
             <div class="detail">
                 <span class="status {{event.statusLabel | lowercase}}">{{event.statusLabel}}</span>
-                <span *ngIf="event.type" class="event-type">Event type: <b>{{event.name}}</b></span>
-                <span *ngIf="event.status === BOOKING_STATUS_NOTBOOKED || event.status === BOOKING_STATUS_CANCELED">
-                    <a class="book-now">Book Now</a>
-                </span>
+                <div class="event-info">
+                    <span *ngIf="event.type" class="event-type">Event: <b>{{event.name}}</b></span>
+                    <span *ngIf="event.info" class="event-type">Timing: <b>{{event.info.eventTimingLabel}}</b></span>
+                    <div class="book-now-message" *ngIf="event.status === BOOKING_STATUS_NOTBOOKED || event.status === BOOKING_STATUS_CANCELED">
+                        <span>Block your favorite date. <a class="book-now">Book Now</a></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

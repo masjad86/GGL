@@ -20,13 +20,6 @@ body {
     overflow-x: hidden
 }
 
-a {
-    color: #4bd444;
-    -webkit-transition: 0.5s,ease;
-    -o-transition: 0.5s,ease;
-    transition: 0.5s,ease
-}
-
     a:hover {
         text-decoration: none;
         color: #4bd444
