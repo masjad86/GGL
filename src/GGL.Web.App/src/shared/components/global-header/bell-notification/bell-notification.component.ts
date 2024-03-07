@@ -3,6 +3,7 @@ import { BellNotification, BookingNotification, NotificationType } from '../../.
 import { BellNotificationType } from '../../../enums';
 import { NgClass, NgIf } from '@angular/common';
 import { BookingNotificationComponent } from './booking-notification/booking-notification.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'ggl-bell-notification',
@@ -11,6 +12,7 @@ import { BookingNotificationComponent } from './booking-notification/booking-not
         NgClass,
         NgIf,
 
+        MatIconModule,
         BookingNotificationComponent
     ],
     templateUrl: './bell-notification.component.html',

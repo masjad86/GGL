@@ -1,43 +1,45 @@
 <div *ngIf="showProgressBar" class="progress-bar">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
-<div class="left-container">
-    <div class="title white">{{ title }}</div>
-</div>
-<div class="right-container">
-    <div gglClickOutside (afterClosed)="hideNotifications()"  class="icons">
-        <mat-icon matBadge="{{notifications.length}}" matBadgeColor="white" class="md-24 white" (click)="toggleNotification()">
-            notification_important</mat-icon>
-        <ggl-bell-notification [items]="notifications" [type]="BOOKING" [show]="showBellNotification">
-        </ggl-bell-notification>
+<div class="top-nav-section" [ngClass]="{'expand': isMenuBarExpanded}">
+    <div class="left-container">
+        <div class="title">{{ title }}</div>
     </div>
-    <div gglClickOutside (afterClosed)="hideMessages()" class="icons">
-        <mat-icon matBadge="{{messages.length}}" matBadgeColor="white" class="md-24 white" (click)="toggleMessageNotification()">
-            email
-        </mat-icon>
-        <ggl-bell-notification [items]="notifications" [type]="OTHERS" [show]="showMessageNotification">
-        </ggl-bell-notification>
-    </div>
-    <div class="icons">
-        <img *ngIf="avatarImage" src="{{avatarImage}}" />
-        <img src="{{avatarImage}}" />
-        <mat-icon matTooltipe="{{ username }}" *ngIf="!avatarImage" class="md-24 white">person</mat-icon>
-    </div>
-    <div gglClickOutside (afterClosed)="hideSearch()" class="icons">
-        <mat-icon class="md-24 white" (click)="toggleSearch()">search</mat-icon>
-        <!-- SEARCH TEXTBOX -->
-        <div  class="search-box" [ngClass]="{'show': showSearch, 'hide': !showSearch}">
-            <div class="arrow" [ngClass]="{'show': showSearch, 'hide': !showSearch}">
-                <mat-icon class="md-48">arrow_drop_up</mat-icon>
-            </div>
-            <div class="header">
-                <span> Search Booking</span>
-            </div>
-            <div class="input">
-                <input matInput name="bookingNumber" (keyup)="searchBookings($event)" 
-                [(ngModel)]="searchBookingNumber"
-                    placeholder="GGL000000000786" />
-                <mat-icon class="md-24" (click)="searchBookings()">search</mat-icon>
+    <div class="right-container">
+        <div gglClickOutside (afterClosed)="hideNotifications()" class="icons">
+            <mat-icon matBadge="{{notifications.length}}" matBadgeColor="white" class="md-24 white"
+                (click)="toggleNotification()" fontIcon="notification_important">
+                </mat-icon>
+            <ggl-bell-notification [items]="notifications" [type]="BOOKING" [show]="showBellNotification">
+            </ggl-bell-notification>
+        </div>
+        <div gglClickOutside (afterClosed)="hideMessages()" class="icons">
+            <mat-icon matBadge="{{messages.length}}" matBadgeColor="white" class="md-24 white"
+                (click)="toggleMessageNotification()" fontIcon="email">
+            </mat-icon>
+            <ggl-bell-notification [items]="notifications" [type]="OTHERS" [show]="showMessageNotification">
+            </ggl-bell-notification>
+        </div>
+        <div class="icons">
+            <img *ngIf="avatarImage" src="{{avatarImage}}" />
+            <img src="{{avatarImage}}" />
+            <mat-icon matTooltipe="{{ username }}" *ngIf="!avatarImage" fontIcon="person" class="md-24 white"></mat-icon>
+        </div>
+        <div gglClickOutside (afterClosed)="hideSearch()" class="icons">
+            <mat-icon class="md-24 white" (click)="toggleSearch()" fontIcon="search"></mat-icon>
+            <!-- SEARCH TEXTBOX -->
+            <div class="search-box" [ngClass]="{'show': showSearch, 'hide': !showSearch}">
+                <div class="arrow" [ngClass]="{'show': showSearch, 'hide': !showSearch}">
+                    <mat-icon class="md-48" fontIcon="arrow_drop_up"></mat-icon>
+                </div>
+                <div class="header">
+                    <span> Search Booking</span>
+                </div>
+                <div class="input">
+                    <input matInput name="bookingNumber" (keyup)="searchBookings($event)"
+                        [(ngModel)]="searchBookingNumber" placeholder="GGL000000000786" />
+                    <mat-icon class="md-24" (click)="searchBookings()" fontIcon="search"></mat-icon>
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="notifications" [ngClass]="{'show': show, 'hide': !show}">
     <div class="notification-arrow" [ngClass]="{'show': show, 'hide': !show}">
-        <mat-icon class="md-48">arrow_drop_up</mat-icon>
+        <mat-icon class="md-48" fontIcon="arrow_drop_up"></mat-icon>
     </div>
     <div class="header"><span>ALERTS</span></div>
     <div *ngIf="type === BOOKING">
@@ -10,6 +10,6 @@
         
     </div>
     <div *ngIf="isEmpty" class="not-avaiable">
-        <mat-icon class="md-16">notification_important</mat-icon> <span>No booking notifications are available.</span>
+        <mat-icon class="md-16" fontIcon="notification_important"></mat-icon> <span>No booking notifications are available.</span>
     </div>
 </div>

@@ -1,0 +1,64 @@
+@import '../nav-menu.component.scss';
+
+
+.icon {
+    width: 7rem;
+    height: 6rem;
+    padding: 2rem;
+    cursor: pointer;
+
+    a {
+        color: $color-white;
+        display: inline-flex;
+    }
+
+    span {
+        font-size: 11pt;
+        padding-left: 1.5rem;
+        font-weight: 400;
+    }
+
+    &:hover {
+        background-color: $color-light-sea-green;
+
+        a {
+            color: $color-black;
+        }
+    }
+}
+
+.expand {
+    .icon {
+        width: 20rem;
+    }
+}
+
+.special-menu {
+    color: $color-white;
+    cursor: pointer;
+    position: fixed;
+    left: 0;
+
+    :hover {
+        background-color: $color-light-sea-green;
+        color: $color-black;
+    }
+}
+
+.log-out-nav {
+    
+    bottom: 6rem;    
+    background-color: $color-light-red;
+
+}
+
+.expand-nav {
+    background-color: $color-black;
+    bottom: 0;
+}
+
+::ng-deep .tooltip {
+    background-color: red;
+    color: blue;
+    font-size: 20px;
+  }

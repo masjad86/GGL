@@ -1,24 +1,27 @@
-<div class="nav-section">
-    <!-- Toggle Menu -->
-    <div class="logo" title="Green Garden">
-        <img src="../../../../assets/graphics/images/logo-64.png" />
-        <!-- <mat-icon aria-hidden="false" class="md-30" aria-label="Toggle">menu</mat-icon> -->
-    </div>
-    <!-- Dynamic Menu -->
-    <div *ngFor="let menu of menuItems" [class]="menu.cssStyle!" [ngClass]="{ 'active': menu.active === true}"
-        [title]="menu.title">
-        <mat-icon *ngIf="menu.childrens && menu.childrens.length" class="sub-menu-arrow">arrow_left</mat-icon>
-        <a href="{{menu.url}}" [ngClass]="{ 'active': menu.active === true}">
-            <mat-icon aria-hidden="false" class="md-{{ menu?.icon?.size }}" [aria-label]="menu.title">
-                {{menu?.icon?.name}}</mat-icon>
-        </a>
+<div *ngIf="isAdminView" class="nav-section" [ngClass]="{'expand': isMenuBarExpanded}">
+    <ggl-logo [isAdminView]="true"></ggl-logo>   
+    <nav>
+         <!-- Dynamic Menu Start-->
+        <ggl-nav-item *ngFor="let menu of menuItems" [item]="menu" [isMenuExpanded]="isMenuBarExpanded"></ggl-nav-item>
+        <!-- Dynamic Menu End-->
+        <ggl-nav-item [item]="expandMenuItem" [isMenuExpanded]="isMenuBarExpanded"></ggl-nav-item>
+    </nav>
+</div>
 
-        <div *ngIf="menu.childrens && menu.childrens.length">
-            <ggl-nav-sub-menu [menuItems]="menu.childrens"></ggl-nav-sub-menu>
+<header *ngIf="!isAdminView" id="ggl-header-section" class="sticky-banner">
+    <div class="container">
+        <div class="nav-header">
+            <a href="#" class="js-ggl-nav-toggle ggl-nav-toggle dark">
+                <i></i>
+            </a>
+            <ggl-logo [isAdminView]="false"></ggl-logo>
+            <nav id="ggl-menu-wrap" role="navigation">
+                <ul class="sf-menu" id="ggl-primary-menu">
+                    <li *ngFor="let menu of menuItems" [ngClass]="{'active-menu': menu.active}" >
+                        <a [title]="menu.title" [href]="menu.url">{{menu.name}}</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
-    <!-- Logout Menu -->
-    <div class="log-out bottom" title="Logout">
-        <mat-icon aria-hidden="false" class=" md-30" aria-label="Logout">power_settings_new</mat-icon>
-    </div>
-</div>
+</header>

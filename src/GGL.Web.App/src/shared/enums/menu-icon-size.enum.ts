@@ -1,4 +1,5 @@
 export enum MenuIconSize {
+    DEFAULT= 24,
 	XXSMALL = 18,
 	XSMALL = 24,
 	SMALL = 30,

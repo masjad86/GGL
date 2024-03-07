@@ -1,19 +1,19 @@
 <div onload="load();">
     <div id="ggl-wrapper">
-        <div id="ggl-page">
-            <ggl-banner [nextEvent]="nextEvent" [title]="title"></ggl-banner>
-            <ggl-header></ggl-header>
-            <div class="content">
+        <div id="ggl-page" [ngClass]="{'admin-view': isAdminView, 'expand': isAdminMenuBarExpanded}">
+            <ggl-banner *ngIf="!isAdminView" [nextEvent]="nextEvent" [title]="title"></ggl-banner>
+            <ggl-nav-menu (expand)="onExpand" [mode]="appMode" [items] ="menuItems"></ggl-nav-menu>
+            <ggl-global-header *ngIf="isAdminView"></ggl-global-header>
+            <div class="content" [ngClass]="{'admin-content': isAdminView}">
                 <router-outlet></router-outlet>
             </div>
-            <!-- end:header-top -->
-            <ggl-countdown-timer *ngIf="nextEvent" (onHide)="hideTimer" [nextEventDate]="nextEvent.date">
+            <ggl-countdown-timer *ngIf="!isAdminView && nextEvent" (onHide)="hideTimer" [nextEventDate]="nextEvent.date">
             </ggl-countdown-timer>
-            <ggl-getting-started></ggl-getting-started>
-            <ggl-footer></ggl-footer>
+            <ggl-getting-started *ngIf="!isAdminView"></ggl-getting-started>
         </div>
         <!-- END ggl-page -->
     </div>
+    <ggl-footer [isAdminView]="isAdminView"></ggl-footer>
     <script type="text/javascript">
         var currentEventName = "Are Getting Married";
         var currentEventDate = new Date(2017, 11, 28); //Dec 28, 2017

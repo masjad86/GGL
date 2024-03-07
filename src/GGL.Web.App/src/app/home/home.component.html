@@ -1,0 +1,3 @@
+<ggl-carousal *ngIf="!isAdminView"></ggl-carousal>
+<ggl-event-portfolio *ngIf="!isAdminView" [currentEvent]="currentEvent"></ggl-event-portfolio>
+<ggl-dashboard *ngIf="isAdminView"></ggl-dashboard>

@@ -1,14 +1,25 @@
+@import '../assets/css/color.scss';
+
 .main {
     width: 100%;
     min-height: 100%;
     display: flex;
 }
 
+.admin-view {
+    display: inline-flex;
+    height: 96.8vh;
+}
+
+.admin-content {
+    padding: 1rem;
+}
+
 .content {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 3rem;
+    height: 99vh;
 
     @media screen and (max-width: 650px) {
         .content {
@@ -97,8 +108,4 @@
     .position-right {
         float: right;
     }
-}
-
-div.content {
-    padding: 1rem;
 }

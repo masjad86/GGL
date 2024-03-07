@@ -4,12 +4,13 @@ export interface Menu {
 	id: number | string;
 	name: string;
 	title: string;
-	url: string;
+	url?: string;
 	icon?: MenuIcon;
 	disable?: boolean;
 	order?: number;
 	active?: boolean;
 	cssStyle?: string;
+    click?: () => void;
 	childrens?: Array<Menu>;
 }
 

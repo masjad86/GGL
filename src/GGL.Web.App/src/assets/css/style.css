@@ -363,50 +363,6 @@ ggl-cover .display-tc h6 {
     height: 65px;
 }
 
-#ggl-logo {
-    position: relative;
-    z-index: 2;
-    float: left;
-}
-
-    #ggl-logo span.brand {
-        font-size: 18px;
-    }
-
-    #ggl-logo span.slogan {
-        font-size: 12px;
-    }
-
-    #ggl-logo span.vertical {
-        font-size: 12px;
-        text-orientation: upright;
-        writing-mode: vertical-lr;
-    }
-
-    #ggl-logo img {
-        width: 64px;
-    }
-
-@media screen and (max-width:768px) {
-    .nav-header {
-        width: 90%;
-    }
-
-    #ggl-logo {
-        width: 15%;
-        float: none;
-        text-align: center
-    }
-}
-
-#ggl-logo a {
-    color: #4bd444;
-}
-
-    #ggl-logo a:hover, #ggl-logo a:focus {
-        color: #35b317 !important
-    }
-
 #ggl-menu-wrap {
     position: relative;
     z-index: 2;
@@ -867,8 +823,7 @@ ggl-cover .display-tc h6 {
 }
 
 #ggl-wrapper {
-    overflow-x: hidden;
-    position: relative
+    position: relative;
 }
 
 .ggl-offcanvas {
@@ -883,7 +838,8 @@ ggl-cover .display-tc h6 {
     position: relative;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
-    transition: 0.5s
+    transition: 0.5s;
+    width: 100%;
 }
 
 .ggl-offcanvas {

@@ -15,8 +15,8 @@
 		border-radius: 50%;
 		background: $color-red;
 		color: $color-white;
-		height: 18px;
-		width: 20px;
+		height: 1.8rem;
+		width: 2rem;
 		font-size: 8pt;
 		font-weight: bold;
 		text-align: center;
@@ -30,8 +30,8 @@
 		border-radius: 40%;
 		background: $color-red;
 		color: $color-white;
-		height: 16px;
-		width: 30px;
+		height: 1.6rem;
+		width: 3rem;
 		font-size: 8pt;
 		font-weight: bold;
 		text-align: center;
@@ -43,15 +43,15 @@
 	font-size: 10pt;
 	background-color: $color-white;
 	border: $color-white-smoke 1px solid;
-	width: 285px;
-	right: 5px;
-	top: 60px;
+	width: 28.5rem;
+	right: .57rem;
+	top: 6rem;
 	z-index: 1000;
 
 	.header {
 		background-color: $color-white-smoke;
-		width: 95%;
 		padding: 10px 10px 10px 5px;
+        font-family: Arial;
 		span {
 			font-weight: bold;
 			font-size: 9pt;
@@ -59,11 +59,12 @@
 			text-transform: uppercase;
 		}
 	}
+
 	.arrow {
 		position: absolute;
-		color: $color-white-smoke;
+		color: $color-black;
 		top: -29px;
-		right: 9px;
+		right: .5rem;
 	}
 
 	.input {
@@ -72,4 +73,228 @@
 		width: 98%;
 		display: inline-flex;
 	}
+}
+
+.top-nav-section {
+	left: 7rem;
+	top: 0;
+	width: calc(100% - 7rem);
+	height: 60px;
+	position: absolute;
+	background-color: $color-lighter-gray;
+	border-bottom: solid 1px $color-light-gray;
+	.progress-bar {
+		position: absolute;
+		z-index: 1000;
+		width: 100%;
+		top: 0;
+	}
+
+	.left-container {
+		padding-left: 2.5rem;
+		width: 45%;
+		float: left;
+		height: 6rem;
+		.title {
+			padding-top: 1.5rem;
+			font-weight: bold;
+			font-size: 15pt;
+            color: $color-white;
+		}
+	}
+
+	.right-container {
+		margin-left: 4px;
+		width: 52%;
+		float: left;
+		height: 60px;
+	}
+}
+
+.nav-section {
+	width: 75px;
+	left: 0;
+	top: 0;
+	position: absolute;
+	height: 100%;
+	cursor: pointer;
+	background-color: $color-lighter-gray;
+
+	.nav-item {
+		width: 55px;
+		height: 60px;
+		padding-top: 25px;
+		padding-left: 20px;
+		background-color: $color-menu-black;
+		color: $color-white;
+
+		.red {
+			color: $color-red;
+		}
+	}
+
+	a {
+		color: $color-white;
+	}
+
+	a.active {
+		color: $color-black;
+	}
+
+	.nav-item:hover {
+		cursor: pointer;
+		background-color: $color-light-green;
+		color: $color-black;
+
+		.nav-sub-section {
+			display: block;
+		}
+
+		.sub-menu-arrow {
+			display: block;
+			color: $color-white-smoke;
+		}
+
+		.active {
+			cursor: pointer;
+			background-color: $color-light-green;
+			color: $color-black;
+		}
+
+		a {
+			color: $color-black;
+		}
+		a.active {
+			color: $color-black;
+		}
+	}
+	.active {
+		cursor: pointer;
+		background-color: $color-menu-active;
+		color: $color-black;
+	}
+
+	.active:hover {
+		cursor: pointer;
+	}
+
+	.sub-menu-arrow {
+		position: relative;
+		float: right;
+		font-size: 55px;
+		right: 8px;
+		bottom: 5px;
+		display: none;
+	}
+
+	.nav-sub-section {
+		cursor: pointer;
+		width: 180px;
+		position: relative;
+		background-color: $color-white-smoke;
+		top: -60px;
+		left: 55px;
+		color: $color-black;
+		padding: 10px;
+		display: none;
+		z-index: 1000;
+		label {
+			position: relative;
+			display: inline-flex;
+			padding-left: 10px;
+			cursor: pointer;
+		}
+
+		mat-icon {
+			cursor: pointer;
+		}
+	}
+
+	.nav-sub-section:hover {
+		background-color: $color-menu-active;
+		color: $color-black;
+	}
+}
+
+.content-section {
+	top: 60px;
+	right: 0;
+	width: calc(100% - 75px);
+	height: calc(100% - 60px);
+	position: absolute;
+	display: inline-flex;
+
+	.filter-section {
+		width: 22%;
+		background-color: $color-lighter-gray;
+		height: 100%;
+
+		.filter-action-button {
+			display: inline-flex;
+			float: right;
+			padding: 10px 15px 10px 0;
+
+			.apply {
+				left: 5px;
+			}
+		}
+
+		.filter-item {
+			padding-left: 10px;
+			display: inline-block;
+		}
+
+		.mat-form-field {
+			width: 95%;
+			padding-bottom: 1.25em;
+		}
+
+		.toggle,
+		.slider {
+			display: list-item;
+			list-style: none;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.radio {
+			display: list-item;
+			list-style: none;
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+			label {
+				padding-right: 10px;
+			}
+		}
+	}
+
+	.content {
+		width: 78%;
+		height: 100%;
+	}
+
+	.content-100 {
+		width: 100%;
+		height: 100%;
+	}
+
+	.filter-collapse {
+		cursor: pointer;
+		width: 15px;
+		background-color: $color-light-gray;
+		align-items: center;
+		height: inherit;
+		height: 100%;
+
+		mat-icon {
+			right: 5px;
+			position: relative;
+			top: 50%;
+		}
+	}
+}
+
+.expand {
+    left: 20rem;
 }

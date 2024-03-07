@@ -1,19 +1,21 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnDestroy, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from './client/footer/footer.component';
+import { FooterComponent } from '../shared/components/footer/footer.component';
 import { CountdownTimerComponent } from './client/countdown-timer/countdown-timer.component';
 import { GettingStartedComponent } from './client/getting-started/getting-started.component';
-import { HeaderComponent } from './client/header/header.component';
 //import { BlinkDirective } from '../directives/blink.directive';
 //import { BlinkItemType } from '../enums/blink-item-type';
 import { BannerComponent } from './client/banner/banner.component';
-import { Event, EventService, GGL_TITLE } from '../shared';
+import { Event, EventService, GGL_ADMINMENU_ITEMS, GGL_MENU_ITEMS, GGL_TITLE, GlobalHeaderComponent, GlobalHeaderService, Menu, NavMenuComponent } from '../shared';
 import { Subscription } from 'rxjs';
 import { EventPortfolioComponent } from './client/event-portfolio/event-portfolio.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './client/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { SubscriptionHelper } from '../helpers/subscript.helper';
+import { AppViewMode } from '../shared/enums';
+import { ADMIN_APP_VIEW, USER_APP_VIEW } from '../constants/app.constants';
+import { LayoutService } from '../shared/services/layout/layout.service';
 
 @Component({
     selector: 'ggl-root',
@@ -25,12 +27,12 @@ import { SubscriptionHelper } from '../helpers/subscript.helper';
 
         BannerComponent,
         HomeComponent,
-        HeaderComponent,
+        NavMenuComponent,
         FooterComponent,
         CountdownTimerComponent,
         GettingStartedComponent,
         EventPortfolioComponent,
-
+        GlobalHeaderComponent,
         // Directives
         NgIf
     ],
@@ -39,8 +41,8 @@ import { SubscriptionHelper } from '../helpers/subscript.helper';
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     providers: [
         HttpClientModule,
-    ]
-
+        GlobalHeaderService
+    ],
 })
 export class AppComponent implements OnInit, OnDestroy {
     title: string = GGL_TITLE;
@@ -51,7 +53,10 @@ export class AppComponent implements OnInit, OnDestroy {
     nextEventHours: string = "00";
     nextEventMinutes: string = "00";
     nextEventSeconds: string = "00";
-
+    appMode: AppViewMode = USER_APP_VIEW;
+    isAdminView: boolean = false;
+    isAdminMenuBarExpanded = false;
+    menuItems: Array<Menu> = [];
     //blinkItemType = BlinkItemType.IMAGE;
     blinkImageUrls: Array<string> = [
         '../assets/images/svg/Black-Logo-No-Bg.svg',
@@ -60,11 +65,12 @@ export class AppComponent implements OnInit, OnDestroy {
     ];
 
     private subscriptions?: Array<Subscription> = [];
-    constructor(private eventService: EventService) {
 
+    constructor(private event: EventService,
+        private layout: LayoutService) {
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void {        
         this.initialize();
     }
 
@@ -78,12 +84,24 @@ export class AppComponent implements OnInit, OnDestroy {
         this.hideCountdownTimerSection = isHide;
     }
 
+    onExpand(isExpand: boolean) {
+        this.isAdminMenuBarExpanded = isExpand;
+    }
+
     private initialize() {
-        this.subscriptions?.push(this.eventService.getCurrentEvent().subscribe(e => {
+        if (this.layout.isAdminView) {
+            this.isAdminView = true;
+            this.appMode = ADMIN_APP_VIEW;this.menuItems = GGL_ADMINMENU_ITEMS;
+        } else {
+            this.isAdminView = false;
+            this.menuItems = GGL_MENU_ITEMS;
+        }
+
+        this.subscriptions?.push(this.event.getCurrentEvent().subscribe(e => {
             this.currentEvent = e;
         }));
 
-        this.subscriptions?.push(this.eventService.getUpcomingEvent().subscribe(e => {
+        this.subscriptions?.push(this.event.getUpcomingEvent().subscribe(e => {
             this.nextEvent = e;
         }));
     }

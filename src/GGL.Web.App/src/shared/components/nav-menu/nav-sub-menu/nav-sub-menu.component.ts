@@ -6,7 +6,7 @@ import { NgFor } from '@angular/common';
 	selector: 'ggl-nav-sub-menu',
     standalone: true,
 	templateUrl: './nav-sub-menu.component.html',
-	styleUrls: ['./nav-sub-menu.component.css'],
+	styleUrls: ['./nav-sub-menu.component.scss'],
     imports: [
         NgFor
     ],

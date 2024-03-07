@@ -4,7 +4,7 @@
     </div>
     <div class="summary">
         <div class="status {{getStatus(booking.status)}}">
-            <mat-icon class="{{getStatus(booking.status)}} md-16">check_circle</mat-icon>{{getStatus(booking.status) | uppercase}}
+            <mat-icon class="{{getStatus(booking.status)}} md-16" fontIcon="check_circle"></mat-icon>{{getStatus(booking.status) | uppercase}}
         </div>
         <div class="timestamp">{{booking.status | date: 'dd-MMM-yyyy HH:mm tt'}}</div>
     </div>

@@ -34,9 +34,34 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+@import 'assets/css/color.scss';
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 10pt; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 10pt; height: 100vh;}
 .right { text-align: right; }
 .left { text-align: left; }
 .center { text-align: center; }
+/* BOOKING STATUS */
+.pending { color: $color-orange; }
+.confirmed { color: $color-light-green; }
+.payment-pending { color: $color-skyblue; }
+.cancelled { color: $color-red; }
+ 
+
+/* padding css */
+.pad-10 {
+	padding-left: 10px;
+}
+
+.pad-15 {
+	padding-left: 15px;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-margin {
+	margin: 0;
+}
 

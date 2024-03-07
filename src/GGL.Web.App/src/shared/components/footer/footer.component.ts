@@ -1,18 +1,23 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { GGL_TITLE, MenuIconSize } from '../../../shared';
-import { SocialMedia } from '../../../shared/models/social-media';
+import { Component, Input } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { AppViewMode, GGL_TITLE, MenuIconSize } from '../..';
+import { SocialMedia } from '../../models/social-media';
 
 @Component({
     selector: 'ggl-footer',
     standalone: true,
-    imports: [NgFor],
+    imports: [
+        NgFor,
+        NgIf
+    ],
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+    @Input() isAdminView: boolean = false;
     appTitle: string = GGL_TITLE;
     appCopyright: number = 2017;
+    
     appSocialMediaLinks: Array<SocialMedia> = [
         { id: '1', name: 'twitter', url: 'https://twitter.com/greengardenlawn', icon: { name: 'icon-twitter2', size: MenuIconSize.XSMALL}, title: 'Twitter' },
         { id: '2', name: 'facebook', url: 'https://www.facebook.com/greengardenlawn', icon: { name: 'icon-facebook2', size: MenuIconSize.XSMALL }, title: 'Facebook' },
