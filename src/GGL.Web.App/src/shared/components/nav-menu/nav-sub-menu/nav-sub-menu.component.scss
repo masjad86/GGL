@@ -1,0 +1,30 @@
+@import '../../../../assets/css/color.scss';
+
+.sub-menu {
+    background-color: $color-skyblue;
+    min-width: 15rem;
+    max-width: 20rem;
+    padding: 1.5rem;
+    line-height: 3rem;
+    margin-left: 2.1rem;
+    position: relative;
+    bottom: 2rem;
+    display: none;
+    color: $color-black;
+
+    span {
+        position: relative;
+        display: inline-flex;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+
+    mat-icon {
+        cursor: pointer;
+    }
+
+    &:hover {
+        background-color: $color-menu-active;
+        color: $color-black;
+    }
+}

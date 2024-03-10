@@ -37,7 +37,7 @@
 @import 'assets/css/color.scss';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 10pt; height: 100vh;}
+body { margin: 0; font-family: Arial; font-size: 10pt; height: 100vh;}
 .right { text-align: right; }
 .left { text-align: left; }
 .center { text-align: center; }
@@ -64,4 +64,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 
 .no-margin {
 	margin: 0;
 }
-

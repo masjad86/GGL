@@ -1,4 +1,9 @@
-<div class="nav-sub-section" *ngFor="let menu of menuItems">
-    <mat-icon class="md-{{menu?.icon?.size}}">{{menu?.icon?.name}}</mat-icon>
-    <label> {{menu.name}}</label>
+<div class="sub-menu" [ngClass]="{'expand-view': isMenuExpanded}">
+    <ggl-icon 
+        [title]="subMenuItem?.title!" 
+        [icon]="subMenuItem?.icon?.name!" 
+        [size]="subMenuItem?.icon?.size"
+        [label]="subMenuItem?.name!" 
+        [showLable]="true">
+    </ggl-icon>
 </div>

@@ -1,0 +1,92 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-btn {
+    border: solid 0.1rem $color-light-gray;
+    padding: 0.5rem;
+    font-size: 10pt;
+    cursor: pointer;
+    min-width: 8rem;
+}
+
+.ggl-btn-basic {
+    background-color: $color-white-smoke;
+    color: $color-black;
+    &:hover {
+        background-color: $color-lighter-gray;
+    }
+}
+
+.ggl-btn-link {
+    border: none;
+    background-color: transparent;
+    min-width: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.ggl-btn-default {
+    background-color: $color-white;
+    border: solid 0.1rem $color-light-gray;
+
+    &:hover {
+        background-color: $color-white-smoke;
+    }
+}
+
+.ggl-btn-primary {
+    color: $color-white;
+    background-color: $color-dark-olivegreen;
+    border: solid 0.1rem $color-sea-green-medium;
+    padding: 0.8rem;
+    font-size: 10pt;
+    cursor: pointer;
+    min-width: 8rem;
+    &:hover {
+        background-color: $color-sea-green-medium;
+    }
+}
+
+.ggl-btn-secondary {
+    color: $color-black;
+    background-color: $color-skyblue;
+    border: solid 0.1rem $color-skyblue-dark;
+    &:hover {
+        background-color: $color-skyblue-dark;
+        border: solid 0.1rem $color-skyblue;
+    }
+}
+
+.ggl-btn-success {
+    color: $color-white;
+    background-color: $color-green;
+    border: solid 0.1rem $color-dark-green;    
+    &:hover {
+        background-color: $color-light-green;
+    }
+}
+
+
+.ggl-btn-danger {
+    color: $color-white;
+    background-color: $color-tomato;
+    border: solid 0.1rem $color-red;    
+    &:hover {
+        background-color: $color-light-green;
+    }
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: $color-white-smoke;
+    color: $color-gray;;
+    opacity: .8;
+
+    &:hover {
+        background-color: $color-white-smoke;
+    }
+}
+
+.show-icon {
+    padding: 0.7rem 0.5rem 0 0.5rem;
+}

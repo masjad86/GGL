@@ -1,0 +1,23 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-label {
+    span {
+        color: $color-black;
+    }    
+}
+
+.link {
+    cursor: pointer;
+    span {
+        color: $color-blue;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.disabled {
+    cursor: not-allowed;
+    color: $color-gray;
+}

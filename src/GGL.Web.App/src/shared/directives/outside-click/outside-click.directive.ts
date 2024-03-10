@@ -1,7 +1,8 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Directive({
-	selector: '[gglClickOutside]'
+	selector: '[gglClickOutside]',
+    standalone: true
 })
 export class OutsideClickDirective {
 	@Output() afterClosed: EventEmitter<boolean> = new EventEmitter();

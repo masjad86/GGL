@@ -1,0 +1,5 @@
+<div class="ggl-label" 
+    (click)="handleClick()" 
+    [ngClass]="{'link': clickable && !isDisabled, 'disabled': isDisabled}">
+    <span>{{text}}</span>
+</div>

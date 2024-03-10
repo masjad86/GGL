@@ -1,7 +1,7 @@
 @import '../../../assets/css/color.scss';
 
 .nav-section {
-    width: 7rem;
+    min-width: 7rem;
     padding-top: 1rem;
     background-color: $color-sea-green;
     height: 100vh;
@@ -14,4 +14,19 @@
         width: 4.8rem;
         height: 4.8rem;
     }
+}
+
+.expand-view {
+    width: 17rem;
+
+    &:hover {
+        .sub-menu {
+            display: block;
+            margin-left: 5.6rem;
+        }
+    }
+}
+
+.collapse-view {
+    width: 7rem;
 }

@@ -1,4 +1,4 @@
-import { MenuIconSize } from '../enums';
+import { IconSize } from '../enums';
 
 export interface Menu {
 	id: number | string;
@@ -16,7 +16,7 @@ export interface Menu {
 
 export interface MenuIcon {
 	name: string;
-	size: MenuIconSize;
+	size: IconSize;
 }
 
 

@@ -1,10 +1,10 @@
-<div *ngIf="isAdminView" class="nav-section" [ngClass]="{'expand': isMenuBarExpanded}">
+<div *ngIf="isAdminView" class="nav-section" [ngClass]="{'expand-view': isMenuBarExpanded, 'collapse-view': !isMenuBarExpanded}">
     <ggl-logo [isAdminView]="true"></ggl-logo>   
     <nav>
          <!-- Dynamic Menu Start-->
-        <ggl-nav-item *ngFor="let menu of menuItems" [item]="menu" [isMenuExpanded]="isMenuBarExpanded"></ggl-nav-item>
+        <ggl-nav-item *ngFor="let menu of menuItems" [item]="menu" [expanded]="isMenuBarExpanded"></ggl-nav-item>
         <!-- Dynamic Menu End-->
-        <ggl-nav-item [item]="expandMenuItem" [isMenuExpanded]="isMenuBarExpanded"></ggl-nav-item>
+        <ggl-nav-item [item]="expandMenuItem" (menuClick)="expandCollapse($event)" [expanded]="isMenuBarExpanded"></ggl-nav-item>
     </nav>
 </div>
 

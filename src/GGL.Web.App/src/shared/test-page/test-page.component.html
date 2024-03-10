@@ -1,0 +1,138 @@
+<div class="stack">
+    <!-- BUTTON  -->
+    <div class="stack-item">
+        <div class="component-title">Button</div>
+        <div class="component-description">&lt;ggl-button&gt; is wrapper and with additional styling.
+            You can enable the button with icon after adding few more properties like <code>showIcon</code>, <code>icon</code>.
+        </div>
+        <div class="component-snippet">
+            <code>
+                &lt;ggl-button label=&quot;Success&quot; [showIcon]=&quot;showIcon&quot; [showLabel]=&quot;showIcon&quot; title=&quot;Home&quot; icon=&quot;check_circle&quot; type=&quot;success&quot; [disabled]=&quot;isDisabled&quot; (clicked)=&quot;handleButtonClicked($event)&quot;&gt;&lt;/ggl-button&gt;
+            </code>
+        </div>
+        <div class="component horizontal">
+            <ggl-button label="Basic" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <span class="spacer"></span>
+            <ggl-button label="Default" type="default" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <span class="spacer"></span>
+            <ggl-button label="Secondary" type="secondary" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <span class="spacer"></span>
+            <ggl-button label="Primary" [showIcon]="showIcon" [iconSize]="iconSize_18" [showLabel]="showIcon" title="Primary" icon="home" type="primary" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <span class="spacer"></span>
+            <ggl-button label="Success" [showIcon]="showIcon" [showLabel]="showIcon" title="Success" icon="check_circle" type="success" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <span class="spacer"></span>
+            <ggl-button label="Disabled" [showIcon]="showIcon" [showLabel]="showIcon" title="Disabled" icon="delete" type="default" [disabled]="isDisabled" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <span class="spacer"></span>
+            <ggl-button label="Link" title="Link" type="link" (clicked)="handleButtonClicked($event)"></ggl-button>
+        </div>
+        <div class="component-result"> You have clicked <i>{{buttonLabel}}</i> button.</div>
+    </div>
+
+    <!-- CHECKBOX  -->
+    <div class="stack-item">
+        <div class="component-title">Checkbox</div>
+        <div class="component-description">This checkbox &lt;ggl-checkbox&gt; is wrapper and with additional styling.
+        </div>
+        <div class="component-snippet">
+            <code>
+                &lt;ggl-checkbox label=&quot;Disabled&quot; [checked]=&quot;isChecked&quot; [disabled]=&quot;isDisabled&quot; (changed)=&quot;handleCheckboxChange($event)&quot;&gt;&lt;/ggl-checkbox&gt;
+            </code>
+        </div>
+        <div class="component">
+            <ggl-checkbox label="Unchecked" [checked]="!isChecked"></ggl-checkbox>
+            <ggl-checkbox label="Checked" [checked]="isChecked" (changed)="handleCheckboxChange($event)"></ggl-checkbox>
+            <ggl-checkbox label="Disabled" [checked]="isChecked" [disabled]="isDisabled"></ggl-checkbox>
+        </div>
+        <div class="component-result"> Checked value: <i>{{isChecked}}</i> </div>
+    </div>
+
+    <!-- INPUT -->
+    <div class="stack-item">
+        <div class="component-title">Input</div>
+        <div class="component-description">This is <code>&lt;ggl-input&gt;</code>. Input component supports the search
+            feature as well to make the field to search field by setting up few props like <code>enableSearch</code> and
+            provide the <code>search</code> callback.</div>
+        <div class="component-snippet">
+            <code>
+                &lt;ggl-input [readonly]=&quot;true/false&quot; [disabled]=&quot;true/false&quot; [value]=&quot;10000&quot; (valueChange)=&quot;textChange()&quot; (valueBlur)=&quot;textBlur()&quot; isRequired&gt;&lt;/ggl-input&gt;
+            </code>
+        </div>
+        <div class="component">
+            <ggl-input [value]="inputValue" placeholder="Enter your name..."
+                (change)="handleInputChange($event)"></ggl-input>
+            <ggl-input [value]="inputValue" placeholder="Enter your email..." (change)="handleInputChange($event)"
+                [showIcon]="showIcon" icon="email"></ggl-input>
+            <ggl-input [value]="inputValue" placeholder="Search" [enableSearch]="enableSearch"
+                (keypress)="handleKeyPress($event)" (search)="handleInputChange($event)"></ggl-input>
+            <ggl-input [value]="inputValue" placeholder="Enter your name..." [disabled]="isDisabled"
+                (change)="handleInputChange($event)"></ggl-input>
+        </div>
+        <div class="component-result"> You have entered: <i>{{inputValue}}</i> </div>
+    </div>
+
+    <!-- ICON  -->
+    <div class="stack-item">
+        <div class="component-title">Icon</div>
+        <div class="component-description">This is <code>&lt;ggl-icon&gt;</code>. <code>IconSize</code> enum will be
+            used to define the size.
+            <code>IconSize</code> enum having option like <i>XXSMALL, XSMALL, SMALL, MEDIUM, LARGE, XLARGE </i> and
+            <i>DEFAULT</i>. The default icon size choosen as <code>IconSize.DEFAULT</code>.
+        </div>
+        <div class="component-snippet">
+            <code>
+                &lt;ggl-icon icon="home" size="18 | 24 | 30 | 36 | 48 | 60 | 72"&gt; &lt;/ggl-icon&gt;
+            </code>
+        </div>
+        <div class="component">
+            <ggl-icon icon="home" [size]="iconSize_18"></ggl-icon>
+            <ggl-icon icon="home" [size]="iconSize_24"></ggl-icon>
+            <ggl-icon icon="home" [size]="iconSize_30"></ggl-icon>
+            <ggl-icon icon="home" [size]="iconSize_36"></ggl-icon>
+            <ggl-icon icon="home" [size]="iconSize_48"></ggl-icon>
+            <ggl-icon icon="home" [size]="iconSize_60"></ggl-icon>
+            <ggl-icon icon="home" [size]="iconSize_72"></ggl-icon>
+        </div>
+    </div>
+
+    
+    <!-- LABEL  -->
+    <div class="stack-item">
+        <div class="component-title">Label</div>
+        <div class="component-description">
+            <code>&lt;/ggl-label&gt;</code> component is the wrapper to display text. You can make the clickable label to enable additional properties like <code>clickable</code> property by setting either <b>true</b> or <b>false</b> and attach <code>(clicked)</code> event
+        </div>
+        <div class="component-snippet">
+            <code>
+                &lt;ggl-label text=&quot;Label&quot; [clickable]=&quot;isClickable&quot; (clicked)=&quot;handleLinkClick($event)&quot; [disabled]=&quot;isDisabled&quot;&gt;&lt;/ggl-label&gt;
+            </code>
+        </div>
+        <div class="component">
+            <ggl-label text="Hello World!!!"></ggl-label>
+            <ggl-label text="Clickable Label" [clickable]="isClickable" (clicked)="handleLinkClick($event)"></ggl-label>
+            <ggl-label text="Disabled Label" [clickable]="isClickable" (clicked)="handleLinkClick($event)" [disabled]="isDisabled"></ggl-label>
+        </div>
+        <div class="component-result"> You have clicked <i>{{labelClicked}}</i> link.</div>
+    </div>
+    
+    <!-- GRID  -->
+    <div class="stack-item">
+        <div class="component-title">Grid</div>
+        <div class="component-description">This is <code>&lt;ggl-icon&gt;</code>. <code>IconSize</code> enum will be
+            used to define the size.
+            <code>IconSize</code> enum having option like <i>XXSMALL, XSMALL, SMALL, MEDIUM, LARGE, XLARGE </i> and
+            <i>DEFAULT</i>. The default icon size choosen as <code>IconSize.DEFAULT</code>.
+        </div>
+        <div class="component-snippet">
+            <code>
+            </code>
+        </div>
+        <div class="component">
+            <ggl-grid
+                [showDelete]="showAddNew" 
+                [showAddNew]="showAddNew" 
+                [rows]="gridRows" 
+                [headers]="gridHeaders">
+            </ggl-grid>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="grid-row" (click)="handleRowClick()">
+    <ggl-grid-column 
+        *ngFor="let column of item.columns"
+        [column]="column">
+    </ggl-grid-column>
+</div>

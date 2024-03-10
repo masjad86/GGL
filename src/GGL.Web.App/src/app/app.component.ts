@@ -91,7 +91,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private initialize() {
         if (this.layout.isAdminView) {
             this.isAdminView = true;
-            this.appMode = ADMIN_APP_VIEW;this.menuItems = GGL_ADMINMENU_ITEMS;
+            this.appMode = ADMIN_APP_VIEW;
+            this.menuItems = GGL_ADMINMENU_ITEMS;
         } else {
             this.isAdminView = false;
             this.menuItems = GGL_MENU_ITEMS;

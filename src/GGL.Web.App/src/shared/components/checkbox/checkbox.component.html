@@ -1,0 +1,9 @@
+<div class="checkbox-field" [ngClass]="{'disabled': isDisabled}">
+    <span *ngIf="label" class="checkbox-label">{{label}}</span>
+    <input type="checkbox" 
+        [disabled]="isDisabled" 
+        [checked]="isChecked" 
+        [ngClass]="{'disabled': isDisabled}" 
+        (change)="handleClick($event)"/>
+    <span class="checkmark"></span>
+</div>

@@ -1,0 +1,7 @@
+<div class="icon {{cssStyle}} icon-{{size}}">
+    <mat-icon aria-hidden="false" class="md-{{size}}" 
+        [ngClass]="iconCssStyle"
+        [aria-label]="title" [fontIcon]="icon">
+    </mat-icon>
+    <span *ngIf="showLabel">{{ label }}</span>
+</div>

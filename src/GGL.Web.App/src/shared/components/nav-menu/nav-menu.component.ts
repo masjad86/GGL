@@ -5,7 +5,7 @@ import {
 import { MatIconModule } from '@angular/material/icon'
 import { Menu } from '../../models';
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { AppViewMode, MenuIconSize } from '../../enums';
+import { AppViewMode, IconSize } from '../../enums';
 import { ADMIN_APP_VIEW } from '../../../constants/app.constants';
 import { LogoComponent } from '../../../app/client/logo/logo.component';
 import { COLLAPSE_TITLE, EXPAND_TITLE } from '../../constants';
@@ -33,15 +33,11 @@ import { NavItemComponent } from './nav-item/nav-item.component';
 export class NavMenuComponent implements OnInit, AfterViewInit {
     @Input('items') menuItems: Array<Menu> = [];
     @Input() mode: AppViewMode = AppViewMode.User;
-    @Output('expand') expandClick: EventEmitter<boolean> = new EventEmitter();
 
     isAdminView: boolean = false;
     expandCollapseTitle: string = 'Expand';
     isMenuBarExpanded: boolean = false;
-    expandMenuItem: Menu = {
-        id: 'expand', name: this.expandCollapseTitle, title: this.expandCollapseTitle,
-        icon: { name: 'double_arrow', size: MenuIconSize.LARGE }, cssStyle: 'special-menu expand-nav'
-    };
+    expandMenuItem?: Menu;
 
     constructor(private cdr: ChangeDetectorRef,
         private layout: LayoutService) { }
@@ -53,16 +49,23 @@ export class NavMenuComponent implements OnInit, AfterViewInit {
     public ngAfterViewInit() {
     }
 
-    public expandCollapse() {
+    public expandCollapse(menu: Menu) {
         this.isMenuBarExpanded = !this.isMenuBarExpanded;
         this.expandCollapseTitle = this.isMenuBarExpanded ? COLLAPSE_TITLE : EXPAND_TITLE;
         this.cdr.detectChanges();
+        menu.name = this.expandCollapseTitle;
+        menu.title = this.expandCollapseTitle;
         this.layout.toggleMenuBar(this.isMenuBarExpanded);
     }
 
     private intialize() {
         this.isAdminView = this.mode === ADMIN_APP_VIEW;
-        this.expandMenuItem.click = this.expandCollapse;
+        this.expandMenuItem = {
+            id: 'expand', name: this.expandCollapseTitle, title: this.expandCollapseTitle,
+            icon: { name: 'double_arrow', size: IconSize.DEFAULT }, 
+            cssStyle: 'special-menu expand-nav',
+        };
+
         this.cdr.detectChanges();
     }
 }

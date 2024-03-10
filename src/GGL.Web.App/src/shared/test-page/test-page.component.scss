@@ -1,0 +1,68 @@
+@import '../../assets/css/color.scss';
+
+.stack {
+    width: 100%;
+
+    .stack-item {
+        width: 100%;
+        padding-bottom: 1rem;
+
+        .component-title {
+            width: 100%;
+            padding: 1rem;
+            background-color: $color-white-smoke;
+            color: $color-black;
+            font-size: 12pt;
+            font-weight: 400;
+        }
+
+        .component-description {
+            width: inherit;
+            padding: 1rem;
+            font-size: 10pt;
+            color: $color-black;
+        }
+
+        .component-snippet {
+            width: inherit;
+            padding: 2rem;
+            border-radius: 1rem;
+            font-weight: 300;
+            font-size: 11pt;
+            color: $color-gray;
+            border: solid .1rem $color-lighter-gray;
+
+            code {
+                background-color: transparent;
+            }
+        }
+
+        .component {
+            width: 100%;
+            padding: 2rem;
+            background-color: $color-white-snow;
+            margin-top: 1rem;
+        }
+
+        .component-result {
+            width: 100%;
+            padding: 1rem;
+            background-color: $color-skyblue;
+            color: $color-black;
+            font-weight: 400;
+
+            i {
+                font-weight: 800;
+            }
+        }
+
+        .spacer {
+            margin-left: .5rem;
+        }
+
+        .horizontal {
+            display: inline-flex;
+        }
+
+    }
+}

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Menu } from '../../../models';
-import { NgFor } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { IconComponent } from '../../icon/icon.component';
 
 @Component({
 	selector: 'ggl-nav-sub-menu',
@@ -8,13 +10,18 @@ import { NgFor } from '@angular/common';
 	templateUrl: './nav-sub-menu.component.html',
 	styleUrls: ['./nav-sub-menu.component.scss'],
     imports: [
-        NgFor
+        NgIf,
+        NgClass,
+
+        IconComponent,
+        MatIconModule
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavSubMenuComponent implements OnInit {
-	@Input() public menuItems: Array<Menu> = [];
+	@Input('item') subMenuItem?: Menu;
+    @Input('expanded') isMenuExpanded: boolean = false;
 	constructor() { }
 
 	public ngOnInit(): void {

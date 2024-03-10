@@ -1,0 +1,10 @@
+<button class="ggl-btn ggl-btn-{{type}}" [title]="title" [ngClass]="{'show-icon': showIcon, 'disabled': isDisabled}"
+    (click)="handleClick()">
+    <ggl-icon *ngIf="showIcon && buttonIcon" 
+        [icon]="buttonIcon" 
+        [size]="buttonIconSize"
+        [showLabel]="showIconLabel"
+        [label]="label"
+    ></ggl-icon>
+    <span *ngIf="!showIcon && label">{{label}}</span>
+</button>

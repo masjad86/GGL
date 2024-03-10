@@ -1,17 +1,22 @@
-<div *ngIf="menuItem" class="icon {{menuItem.cssStyle!}}" 
-    [ngClass]="{ 'active': menuItem.active === true, 'expand': isMenuExpanded}"
+<button *ngIf="menuItem" class="menu {{menuItem.cssStyle!}}"
+    [ngClass]="{ 'active': menuItem.active === true, 'expand-view': isMenuExpanded}" 
     [matTooltip]="menuItem.title"
-    matTooltipPosition="after"
-    (click)="handleClick"
-    >
-    <mat-icon *ngIf="menuItem.childrens && menuItem.childrens.length" class="sub-menuItem-arrow"
-        fontIcon="arrow_right"></mat-icon>
-    <a href="{{menuItem.url}}" [ngClass]="{ 'active': menuItem.active === true}">
-        <mat-icon *ngIf="menuItem?.icon?.name" aria-hidden="false" class="md-{{ menuItem.icon?.size }}"
-            [aria-label]="menuItem.title" [fontIcon]="menuItem.icon?.name!">
-        </mat-icon>
-        <span *ngIf="isMenuExpanded">{{menuItem.name}}</span>
-    </a>
+    matTooltipPosition="after" 
+    (click)="handleClick()">
+        <ggl-icon 
+            [title]="menuItem.title" 
+            [icon]="menuItem.icon?.name!" 
+            [size]="menuItem.icon?.size"
+            [label]="menuItem.name"
+            [showLabel]="isMenuExpanded">
+        </ggl-icon>
 
-    <!-- <ggl-nav-item *ngFor="let menu of menuItem.childrens" [item]="menu" [isMenuExpanded]="false"></ggl-nav-item> -->
-</div>
+        <ggl-icon *ngIf="menuItem.childrens && menuItem.childrens.length && isMenuExpanded" 
+            [icon]="rightIcon" cssStyle="sub-menuItem-arrow">
+        </ggl-icon>
+        
+        <ggl-nav-sub-menu *ngFor="let subMenu of menuItem.childrens" 
+            [item]="subMenu" 
+            [expanded]="isMenuExpanded">
+        </ggl-nav-sub-menu>
+</button>

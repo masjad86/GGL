@@ -9,6 +9,7 @@ import { NgClass, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { OutsideClickDirective } from '../../directives';
 
 export const ENTER_BUTTON = 13;
 
@@ -21,7 +22,9 @@ export const ENTER_BUTTON = 13;
 
         MatIconModule,
         MatInputModule,
-        FormsModule
+        FormsModule,
+
+        OutsideClickDirective
     ],
     templateUrl: './global-header.component.html',
     styleUrls: ['./global-header.component.scss'],
@@ -53,16 +56,17 @@ export class GlobalHeaderComponent implements OnInit, AfterViewInit, DoCheck {
 
     ngDoCheck(): void {
         this.isMenuBarExpanded = this.layout.isMenuBarExpanded;
+        this.title = this.globalHeaderService.title;
         this.cdr.detectChanges();
     }
 
-    ngAfterViewInit(): void {
-        this.title = this.globalHeaderService.title;
+    ngAfterViewInit(): void {        
         this.cdr.detectChanges();
     }
 
     public ngOnInit(): void {
         this.isMenuBarExpanded = this.layout.isMenuBarExpanded;
+        this.title = this.globalHeaderService.title;
         this.cdr.detectChanges();
     }
 

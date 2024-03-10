@@ -1,0 +1,43 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-input-field {
+    background-color: $color-white;
+    width: 100%;
+    border: solid .1rem $color-lighter-gray;
+
+    input {
+        color: $color-gray;
+        width: inherit;
+        padding: .5rem .2rem .5rem 1rem;
+        line-height: 2.5rem;
+        border: none;
+    }
+
+    &:hover {
+        border: solid .1rem $color-gray;
+    }
+}
+
+.show-icon {
+    display: inline-flex;
+    margin-top: 0.2rem;
+    padding-right: 0.5rem;
+
+    input {
+        width: 98%;
+    }
+}
+
+input:focus{
+    outline: none;
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: $color-white-smoke;
+
+    input {
+        cursor: not-allowed;
+        background-color: $color-white-smoke;
+    }
+}

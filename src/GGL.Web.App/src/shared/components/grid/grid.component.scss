@@ -1,0 +1,25 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-grid {
+    width: 100%;
+
+    .grid-header {
+        display: inline-flex;
+        background-color: $color-gray;
+        color: $color-white;
+        width: 100%;
+        font-weight: 600;
+    }
+
+    .grid-column {
+        padding: 1rem;
+        min-width: 10rem;
+        text-align: center;
+    }
+
+    .grid-header-action {
+        background-color: $color-white-smoke;
+        padding: 0.2rem;
+        margin-bottom: .2rem;
+    }
+}

@@ -1,0 +1,70 @@
+@import '../../../assets/css/color.scss';
+
+.checkbox-field {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 10pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked~.checkmark {
+            background-color: $color-skyblue-dark;
+        }
+
+        &:checked~.checkmark:after {
+            display: block;
+        }
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1.8rem;
+        width: 1.8rem;    
+        background-color: $color-white;
+        border: solid 0.1rem $color-light-gray;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+
+            left: .5rem;
+            top: .2rem;; 
+            width: 5px;
+            height: 10px;
+            border: solid $color-white;
+            border-width: 0 .3rem .3rem 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    &:hover input~.checkmark {
+        background-color: $color-light-gray;
+    }    
+}
+
+
+.disabled {
+    cursor: not-allowed;
+    color: $color-gray;
+
+    input:checked~.checkmark {
+        background-color: $color-light-gray;
+    }
+}

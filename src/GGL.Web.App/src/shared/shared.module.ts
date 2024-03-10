@@ -12,9 +12,12 @@ import {
 	GlobalFilterComponent,
 	GlobalHeaderComponent,
 	GridComponent,
+	NavItemComponent,
 	NavMenuComponent,
 	NavSubMenuComponent,
 	SliderComponent,
+    InputComponent,
+    IconComponent
 } from './components';
 import { OutsideClickDirective } from './directives';
 
@@ -28,9 +31,13 @@ import { OutsideClickDirective } from './directives';
 		ClientFooterComponent,
 		GlobalHeaderComponent,
 		GlobalFilterComponent,
-		GridComponent,
+		IconComponent,
+        InputComponent,
+        GridComponent,
+
 		NavMenuComponent,
-		NavSubMenuComponent,
+		NavItemComponent,
+        NavSubMenuComponent,
 		SliderComponent,
 		// directives
 		OutsideClickDirective

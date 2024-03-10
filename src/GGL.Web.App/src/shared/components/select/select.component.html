@@ -1,0 +1,14 @@
+<div class="ggl-input-field" [ngClass]="{'show-icon': showIcon || enableSearch}">
+    <select  
+        (onchange)="handleChange($event)"
+        [multiple]="allowMultiple">
+        <option *ngFor="let option in options" [selected]="option.selected" [value]="option.value">
+            <span *ngIf="!allowMultiple">{{option.text}}</span>
+            <span *ngIf="selectedItems && selectedItems.length">
+                <ggl-checkbox (click)="handleCheck(option)"></ggl-checkbox>
+                {{selectedItems[0].text}}
+                <span class="mutil-selection">(+ {{selectedItems.length > 2 ? 'others' : 'other'}} )</span>
+            </span>
+        </option>
+    </mat-select>
+</div>

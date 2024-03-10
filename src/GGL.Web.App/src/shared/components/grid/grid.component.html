@@ -1,1 +1,33 @@
-<p>grid works!</p>
+<div class="ggl-grid">
+    <div class="grid-header-action" *ngIf="showAddNew || showDelete">
+        <ggl-button *ngIf="showAddNew && addNewLabel"
+            [showIcon]="showIcon" 
+            [icon]="addButtonIcon" 
+            [label]="addNewLabel"
+            (click)="handleAddClick()">
+        </ggl-button>
+        <span class="spacer"></span>
+        <ggl-button *ngIf="showDelete" 
+            [showIcon]="showIcon" 
+            [icon]="deleteButtonIcon" 
+            [label]="deleteLabel"
+            type="danger"
+            (click)="handleDeleteClick()">
+        </ggl-button>
+    </div>
+    <div *ngIf="showHeader && headers && headers.length" class="grid-header">
+        <div *ngFor="let header of headers" class="grid-column">
+            <div *ngIf="showHeaderCheckbox">
+                <ggl-checkbox></ggl-checkbox>
+            </div>
+            <div [title]="header.title">{{header.name}}</div>
+        </div>
+    </div>
+    <div class="grid-rows">
+        <ggl-grid-rows *ngFor="let row of rows" 
+            [item]="row" 
+            [showCheckbox]="showHeaderCheckbox"
+            (rowClick)="rowClicked">
+        </ggl-grid-rows>
+    </div>
+</div>
