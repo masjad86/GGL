@@ -85,7 +85,8 @@
     position: absolute;
     background-color: $color-lighter-gray;
     border-bottom: solid 1px $color-light-gray;
-
+    z-index: 1004;
+    
     .progress-bar {
         position: absolute;
         z-index: 1000;

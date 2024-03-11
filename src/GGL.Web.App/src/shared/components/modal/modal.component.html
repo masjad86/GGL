@@ -1,0 +1,22 @@
+<div class="ggl-modal" *ngIf="showModal"
+    [style.width.px]="modalWidth"
+    [style.height.px]="modalHeight">
+    <div class="ggl-modal-header">
+        <div class="ggl-modal-title">
+            {{modalTitle}}
+        </div>
+        <div class="ggl-modal-close">
+            <ggl-icon [icon]="closeIcon" [size]="closeIconSize" (clicked)="handleClose()"></ggl-icon>
+        </div>
+    </div>
+    <div class="ggl-modal-content">
+        <ng-content select="modal-content"></ng-content>
+    </div>
+    <div class="ggl-modal-footer">
+        <div class="right">
+            <ng-content *ngIf="!showCloseButton" select="modal-footer">
+            </ng-content>
+            <ggl-button *ngIf="showCloseButton" label="Close" type="default" (clicked)="handleClose()"></ggl-button>
+        </div>
+    </div>
+</div>

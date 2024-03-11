@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { IconSize } from '../../enums';
 import { IconTypes } from '../../enums/icon-type.enum';
@@ -24,4 +24,11 @@ export class IconComponent {
     @Input() showLabel: boolean = false;
     @Input() cssStyle?: string = '';
     @Input() iconCssStyle: string = '';
+    @Output('clicked') iconClicked: EventEmitter<any> = new EventEmitter();
+
+    handleClick() {
+        if (this.iconClicked) {
+            this.iconClicked.emit();
+        }
+    }
 }

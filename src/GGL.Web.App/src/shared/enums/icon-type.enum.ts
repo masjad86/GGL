@@ -5,6 +5,7 @@ export const IconTypes = {
     ARROW_LEFT_DOUBLE: 'double_arrow',
     BELL: 'notification_important',
     BOOKING: 'post_add',
+    CLOSE: 'cancel',
     CHEVRON_RIGHT: 'arrow_right',
     DASHBOARD: 'dashboard',
     TUNE: 'tune',

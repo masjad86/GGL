@@ -13,12 +13,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CheckboxComponent {
     @Input() label: string = '';
-    @Input('checked') isChecked: boolean = false;
+    @Input('selected') isChecked: boolean = false;
     @Input('disabled') isDisabled: boolean = false;
     @Output('changed') valueChanged: EventEmitter<boolean> = new EventEmitter();
 
-    handleClick($event: any) {
-        this.isChecked = $event.checked;
-        this.valueChanged.emit($event.checked);
+    handleClick() {
+        this.isChecked = !this.isChecked;
+        this.valueChanged.emit(this.isChecked);
     }
 }

@@ -1,4 +1,9 @@
-<div class="ggl-radio">
-    <input type="radio" />
-    <span></span>
+<div class="ggl-radio" (click)="handleChange()" [ngClass]="{'disabled': isDisabled}">
+    <input type="radio" 
+        [value]="radioValue" 
+        [ngClass]="{'selected': optionSelected}"
+        [checked]="optionSelected"
+    />
+    <span class="check"></span>
+    <span *ngIf="showRadioLabel && radioLabel">{{radioLabel}}</span>
 </div>

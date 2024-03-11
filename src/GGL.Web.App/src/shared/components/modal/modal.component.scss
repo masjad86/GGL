@@ -1,0 +1,47 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-white-smoke;
+    border: solid .1rem $color-lighter-gray;
+    min-width: 50rem;
+    min-height: 30rem;
+    z-index: 1005;
+
+    .ggl-modal-header {
+        display: inline-flex;
+        padding: .8rem;
+        background-color: $color-light-gray;
+        color: $color-gray;
+        width: 100%;
+
+        .ggl-modal-title {
+            font-size: 13pt;
+            font-weight: 500;
+        }
+
+        .ggl-modal-close {
+            position: absolute;
+            right: 1rem;
+            cursor: pointer;
+        }
+    }
+
+    .ggl-modal-content {
+        background-color: $color-white-smoke;
+        min-height: 20.5rem;
+        padding: 0.8rem;
+    }
+
+    .ggl-modal-footer {
+        background-color: $color-white;
+        width: 100%;
+        padding: 0.8rem;
+        position: absolute;
+        bottom: 0;
+        min-height: 4.5rem;
+    }
+}

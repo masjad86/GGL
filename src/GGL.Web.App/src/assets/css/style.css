@@ -1172,3 +1172,12 @@ ggl-cover .display-tc h6 {
 .spacer {
     padding-left: .5rem;
 }
+
+.oritentation-vertical {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.oritentation-horizontal {
+    display: inline-flex;
+}

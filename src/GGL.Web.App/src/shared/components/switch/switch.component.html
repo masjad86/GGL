@@ -1,0 +1,4 @@
+<label class="ggl-switch" [ngClass]="{'disabled': isDisabled}">
+    <input type="checkbox" (click)="handleToggle()" [ngClass]="{'selected': switchSelected}">
+    <span class="slider round" [ngClass]="{'selected': switchSelected}"></span>
+  </label>

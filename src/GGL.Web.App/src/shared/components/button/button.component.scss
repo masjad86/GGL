@@ -38,10 +38,6 @@
     color: $color-white;
     background-color: $color-dark-olivegreen;
     border: solid 0.1rem $color-sea-green-medium;
-    padding: 0.8rem;
-    font-size: 10pt;
-    cursor: pointer;
-    min-width: 8rem;
     &:hover {
         background-color: $color-sea-green-medium;
     }

@@ -3,7 +3,8 @@
     <div class="stack-item">
         <div class="component-title">Button</div>
         <div class="component-description">&lt;ggl-button&gt; is wrapper and with additional styling.
-            You can enable the button with icon after adding few more properties like <code>showIcon</code>, <code>icon</code>.
+            You can enable the button with icon after adding few more properties like <code>showIcon</code>,
+            <code>icon</code>.
         </div>
         <div class="component-snippet">
             <code>
@@ -17,11 +18,14 @@
             <span class="spacer"></span>
             <ggl-button label="Secondary" type="secondary" (clicked)="handleButtonClicked($event)"></ggl-button>
             <span class="spacer"></span>
-            <ggl-button label="Primary" [showIcon]="showIcon" [iconSize]="iconSize_18" [showLabel]="showIcon" title="Primary" icon="home" type="primary" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <ggl-button label="Primary" [showIcon]="showIcon" [iconSize]="iconSize_18" [showLabel]="showIcon"
+                title="Primary" icon="home" type="primary" (clicked)="handleButtonClicked($event)"></ggl-button>
             <span class="spacer"></span>
-            <ggl-button label="Success" [showIcon]="showIcon" [showLabel]="showIcon" title="Success" icon="check_circle" type="success" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <ggl-button label="Success" [showIcon]="showIcon" [showLabel]="showIcon" title="Success" icon="check_circle"
+                type="success" (clicked)="handleButtonClicked($event)"></ggl-button>
             <span class="spacer"></span>
-            <ggl-button label="Disabled" [showIcon]="showIcon" [showLabel]="showIcon" title="Disabled" icon="delete" type="default" [disabled]="isDisabled" (clicked)="handleButtonClicked($event)"></ggl-button>
+            <ggl-button label="Disabled" [showIcon]="showIcon" [showLabel]="showIcon" title="Disabled" icon="delete"
+                type="default" [disabled]="isDisabled" (clicked)="handleButtonClicked($event)"></ggl-button>
             <span class="spacer"></span>
             <ggl-button label="Link" title="Link" type="link" (clicked)="handleButtonClicked($event)"></ggl-button>
         </div>
@@ -31,17 +35,17 @@
     <!-- CHECKBOX  -->
     <div class="stack-item">
         <div class="component-title">Checkbox</div>
-        <div class="component-description">This checkbox &lt;ggl-checkbox&gt; is wrapper and with additional styling.
+        <div class="component-description">&lt;ggl-checkbox&gt; is wrapper and with additional styling.
         </div>
         <div class="component-snippet">
             <code>
-                &lt;ggl-checkbox label=&quot;Disabled&quot; [checked]=&quot;isChecked&quot; [disabled]=&quot;isDisabled&quot; (changed)=&quot;handleCheckboxChange($event)&quot;&gt;&lt;/ggl-checkbox&gt;
+                &lt;ggl-checkbox label=&quot;Disabled&quot; [selected]=&quot;isChecked&quot; [disabled]=&quot;isDisabled&quot; (changed)=&quot;handleCheckboxChange($event)&quot;&gt;&lt;/ggl-checkbox&gt;
             </code>
         </div>
         <div class="component">
-            <ggl-checkbox label="Unchecked" [checked]="!isChecked"></ggl-checkbox>
-            <ggl-checkbox label="Checked" [checked]="isChecked" (changed)="handleCheckboxChange($event)"></ggl-checkbox>
-            <ggl-checkbox label="Disabled" [checked]="isChecked" [disabled]="isDisabled"></ggl-checkbox>
+            <ggl-checkbox label="Unchecked" [selected]="!isChecked"></ggl-checkbox>
+            <ggl-checkbox label="Checked" [selected]="isChecked" (changed)="handleCheckboxChange($event)"></ggl-checkbox>
+            <ggl-checkbox label="Disabled" [selected]="isChecked" [disabled]="isDisabled"></ggl-checkbox>
         </div>
         <div class="component-result"> Checked value: <i>{{isChecked}}</i> </div>
     </div>
@@ -94,12 +98,14 @@
         </div>
     </div>
 
-    
+
     <!-- LABEL  -->
     <div class="stack-item">
         <div class="component-title">Label</div>
         <div class="component-description">
-            <code>&lt;/ggl-label&gt;</code> component is the wrapper to display text. You can make the clickable label to enable additional properties like <code>clickable</code> property by setting either <b>true</b> or <b>false</b> and attach <code>(clicked)</code> event
+            <code>&lt;/ggl-label&gt;</code> component is the wrapper to display text. You can make the clickable label
+            to enable additional properties like <code>clickable</code> property by setting either <b>true</b> or
+            <b>false</b> and attach <code>(clicked)</code> event
         </div>
         <div class="component-snippet">
             <code>
@@ -109,11 +115,12 @@
         <div class="component">
             <ggl-label text="Hello World!!!"></ggl-label>
             <ggl-label text="Clickable Label" [clickable]="isClickable" (clicked)="handleLinkClick($event)"></ggl-label>
-            <ggl-label text="Disabled Label" [clickable]="isClickable" (clicked)="handleLinkClick($event)" [disabled]="isDisabled"></ggl-label>
+            <ggl-label text="Disabled Label" [clickable]="isClickable" (clicked)="handleLinkClick($event)"
+                [disabled]="isDisabled"></ggl-label>
         </div>
         <div class="component-result"> You have clicked <i>{{labelClicked}}</i> link.</div>
     </div>
-    
+
     <!-- GRID  -->
     <div class="stack-item">
         <div class="component-title">Grid</div>
@@ -127,12 +134,104 @@
             </code>
         </div>
         <div class="component">
-            <ggl-grid
-                [showDelete]="showAddNew" 
-                [showAddNew]="showAddNew" 
-                [rows]="gridRows" 
-                [headers]="gridHeaders">
+            <ggl-grid [showDelete]="showAddNew" [showAddNew]="showAddNew" [rows]="gridRows" [headers]="gridHeaders">
             </ggl-grid>
+        </div>
+    </div>
+
+    <!-- MODAL  -->
+    <div class="stack-item">
+        <div class="component-title">Modal</div>
+        <div class="component-description">
+        </div>
+        <div class="component-snippet">
+            <code>
+                &lt;ggl-modal 
+                title=&quot;Modal Title&quot; <br/>
+                [show]=&quot;isShowModal&quot;<br/>
+                [width]=&quot;modalWidth&quot; <br/>
+                [height]=&quot;modalHeight&quot; <br/>
+                [showFooter]=&quot;showModalFooter&quot;<br/>
+                [showClose]=&quot;showModalCloseButton&quot; <br/>
+                (closed)=&quot;handleCloseModal($event)&quot;&gt;<br/>
+                    &lt;modal-content&gt;
+                        &lt;span&gt;
+                            Put your modal content here.
+                        &lt;/span&gt;<br/>
+                    &lt;/modal-content&gt;
+                    &lt;modal-footer&gt;<br/>
+                        &lt;span&gt;
+                            Put your modal footer or add footer buttons here.
+                        &lt;/span&gt;<br/>
+                    &lt;/modal-footer&gt;<br/>
+            &lt;/ggl-modal&gt;
+            </code>
+        </div>
+        <div class="component">
+            <ggl-button label="Show Modal" type="default" (clicked)="handleShowModal('')"></ggl-button>
+            <span class="spacer"></span>
+            <ggl-button label="Big Modal" type="default" (clicked)="handleShowModal('big')"></ggl-button>
+            <span class="spacer"></span>
+            <ggl-button label="Custom Modal" type="primary" (clicked)="handleCustomModal()"></ggl-button>
+            <ggl-modal title="Modal Title"
+                [show]="isShowModal" 
+                [width]="modalWidth" 
+                [height]="modalHeight" 
+                [showFooter]="showModalFooter"
+                [showClose]="showModalCloseButton" 
+                (closed)="handleCloseModal($event)">
+                    <modal-content>
+                        <span>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                            and more recently with desktop publishing software like Aldus PageMaker including versions of
+                            Lorem Ipsum.
+                        </span>
+                    </modal-content>
+                    <modal-footer>
+                        <ggl-button label="Cancel" type="default" (clicked)="handleCloseModal(false)"></ggl-button>
+                        <span class="spacer"></span>
+                        <ggl-button label="Save" type="primary" (clicked)="handleSaveClick()"></ggl-button>
+                    </modal-footer>
+            </ggl-modal>
+        </div>
+        <div class="component-result"> You have clicked <i>{{clickedModalButton}}</i> modal button.</div>
+    </div>
+
+     <!-- RADIO  -->
+     <div class="stack-item">
+        <div class="component-title">Radio</div>
+        <div class="component-description">&lt;ggl-radio&gt; is wrapper and with additional styling.
+        </div>
+        <div class="component-snippet">
+            <code>
+                &lt;ggl-radio label=&quot;Radio Text&quot; [selected]=&quot;isSelected&quot; [disabled]=&quot;isDisabled&quot; (changed)=&quot;handleRadioChange($event)&quot;&gt;&lt;/ggl-radio&gt;
+            </code>
+        </div>
+        <div class="component oritentation-vertical">
+            <ggl-radio label="Unchecked" [showLabel]="showLabel"></ggl-radio>
+            <ggl-radio label="Checked" [showLabel]="showLabel" [selected]="isCheckedOption" (changed)="handleRadioChange($event)"></ggl-radio>
+            <ggl-radio label="Disabled" [showLabel]="showLabel" [selected]="isChecked" [disabled]="isDisabled"></ggl-radio>
+        </div>
+    </div>
+
+    <!-- SWITCH  -->
+    <div class="stack-item">
+        <div class="component-title">Switch</div>
+        <div class="component-description">&lt;ggl-switch&gt; is custom component to toggle the value to turn on and off or can be used mark the entity as active/inactive.
+        </div>
+        <div class="component-snippet">
+            <code>
+                &lt;ggl-switch [selected]=&quot;true&quot; [disabled]=&quot;false&quot; (toggle)=&quot;handleToggle($event)&quot;&gt;&lt;/ggl-switch&gt;
+            </code>
+        </div>
+        <div class="component oritentation-vertical">
+            <ggl-switch></ggl-switch>
+            <ggl-switch [selected]="switchSelected" (toggle)="handleSwitchToggle($event)"></ggl-switch>
+            <ggl-switch [selected]="switchSelected" [disabled]="isDisabled"></ggl-switch>
         </div>
     </div>
 </div>
