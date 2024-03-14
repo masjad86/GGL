@@ -1,9 +1,10 @@
 @import '../../../assets/css/color.scss';
 
 .ggl-checkbox {
-    display: block;
+    display: inline-flex;
     position: relative;
     padding-left: 2.5rem;
+    padding-right: .5rem; 
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 10pt;

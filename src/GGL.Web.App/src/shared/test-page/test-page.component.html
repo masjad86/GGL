@@ -212,7 +212,9 @@
             </code>
         </div>
         <div class="component oritentation-vertical">
-            <ggl-multiselect 
+            <ggl-checkbox label="Disabled" (changed)="disableMultiselect($event)"></ggl-checkbox>
+            <ggl-multiselect
+                [disabled]="isDisableMultiselect"
                 [options]="multiselectOptions"
                 [selectedOptions]="selectedMultiselectOptions"
                 [showIcons]="showIcon"
@@ -220,7 +222,7 @@
             <span class="spacer"></span>
             <!-- <ggl-select [options]="options" [showBlankOption]="showBlankOption" [disabled]="isDisabled"></ggl-select> -->
         </div>
-        <div class="component-result"> Choosed item <i>{{selectedOption}}</i>.</div>
+        <div class="component-result"> Choosed item <i><span *ngFor="let option of selectedMultiselectOptions">{{option.text}},</span></i>.</div>
     </div>
 
      <!-- RADIO  -->
@@ -233,7 +235,7 @@
                 &lt;ggl-radio label=&quot;Radio Text&quot; [selected]=&quot;isSelected&quot; [disabled]=&quot;isDisabled&quot; (changed)=&quot;handleRadioChange($event)&quot;&gt;&lt;/ggl-radio&gt;
             </code>
         </div>
-        <div class="component oritentation-vertical">
+        <div class="component">
             <ggl-radio label="Unchecked" [showLabel]="showLabel"></ggl-radio>
             <ggl-radio label="Checked" [showLabel]="showLabel" [selected]="isCheckedOption" (changed)="handleRadioChange($event)"></ggl-radio>
             <ggl-radio label="Disabled" [showLabel]="showLabel" [selected]="isChecked" [disabled]="isDisabled"></ggl-radio>

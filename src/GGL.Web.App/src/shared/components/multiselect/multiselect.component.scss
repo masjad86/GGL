@@ -1,32 +1,103 @@
 @import '../../../assets/css/color.scss';
 
-.ggl-multiselect {
-    .selected-item {
-        border: solid 0.1rem $color-light-gray;
-        padding: 0.2rem 0.4rem 0 0.4rem;
-        display: inline-flex;
-        font-size: 10pt;
-        margin-left: 0.2rem;
+.chosen-container {
+    position: relative;
+    display: inline;
+
+    .selected-items {
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        padding-left: 0.2rem;
+        width: 100%;
+        border: solid .1rem $color-lighter-gray;
+        background-color: $color-white;
+
+        li.search-field {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        li.search-field input[type="text"] {
+            margin: 1px 0;
+            padding: 0;
+            outline: 0;
+            border: 0 !important;
+            background: transparent !important;
+            box-shadow: none;
+            color: $color-gray;
+            line-height: normal;
+            border-radius: 0;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+        }
+
+        li.search-choice {
+            position: relative;
+            margin: 0.2rem 0.2rem 0.2rem 0.1rem;
+            padding: 0.5rem 0.5rem 0.2rem 0.2rem;
+            border: 1px solid $color-lighter-gray;
+            background-color: $color-white-smoke;
+            color: $color-gray;
+
+            span {
+                padding: 0.1rem 0 0.2rem 0;
+            }
+        }
     }
 
     .list {
+        position: absolute;
+        z-index: 1010;
+        width: 100%;
+        border: .1rem solid $color-gray;
+        border-top: 0;
         background-color: $color-white;
-        border: solid 0.1rem $color-light-gray;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+    }
 
-        ul {
-            list-style-type: none;
+    .list-items {
+        color: $color-gray;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin: 0 4px 4px 0;
+        padding: 0 0 0 4px;
+        max-height: 240px;
+        -webkit-overflow-scrolling: touch;
+
+        li {
             margin: 0;
-            padding: 0;
+            padding: .5rem 0 0 .8rem;
+            list-style: none;
+            line-height: 15px;
+            word-wrap: break-word;
+            -webkit-touch-callout: none;
+            width: 100%;
 
-            li {
-                cursor: pointer;
-                padding: .5rem 0 0 .8rem;
-                width: 100%;
-
-                &:hover {
-                    background-color: $color-white-smoke;
-                }
+            &:hover {
+                background-color: $color-white-smoke;
             }
+        }
+    }
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: $color-white-smoke;
+
+    ul.selected-items {
+        background-color: $color-white-smoke;
+
+        li.search-choice {
+            padding: 0.5rem;
+            min-width: auto;
+            background-color: $color-lighter-gray;
+            border: .1rem solid $color-light-gray;
         }
     }
 }

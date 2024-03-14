@@ -14,6 +14,7 @@ import { IconSize } from '../enums';
 import { SelectItem } from '../models';
 import { MultiSelectItem } from '../components/multiselect/multiselect.model';
 import { IconTypes } from '../enums/icon-type.enum';
+import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'ggl-components',
@@ -31,7 +32,9 @@ import { IconTypes } from '../enums/icon-type.enum';
         SelectComponent,
         SwitchComponent,
         TabsComponent,
-        TabComponent
+        TabComponent,
+
+        NgFor
     ],
     templateUrl: './test-page.component.html',
     styleUrl: './test-page.component.scss',
@@ -102,6 +105,7 @@ export class TestPageComponent implements OnInit {
     clickedModalButton: string = '';
 
     //multiselect
+    isDisableMultiselect: boolean = false;
     multiselectOptions: Array<MultiSelectItem> = [];
     selectedMultiselectOptions: Array<MultiSelectItem> = [];
 
@@ -196,6 +200,11 @@ export class TestPageComponent implements OnInit {
 
     disableTabs(value: boolean) {
         this.isTabDisabled = value;
+        this.cdr.detectChanges();
+    }
+
+    disableMultiselect(value: boolean) {
+        this.isDisableMultiselect = value;
         this.cdr.detectChanges();
     }
 

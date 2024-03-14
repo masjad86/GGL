@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, OnInit, Output 
 import { MultiSelectItem } from './multiselect.model';
 import { IconTypes } from '../../enums/icon-type.enum';
 import { OutsideClickDirective } from '../../directives';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { IconSize } from '../../enums';
@@ -14,6 +14,7 @@ import { IconPosition } from '../icon/icon.model';
     imports: [
         NgIf,
         NgFor,
+        NgClass,
 
         IconComponent,
         InputComponent,
@@ -36,6 +37,7 @@ export class MultiselectComponent implements OnInit {
     closeIconPosition: IconPosition = IconPosition.Right;
     showOptions: boolean = false;
     showLabel: boolean = true;
+    showOutline: boolean = false;
     dropdownIcon: string = IconTypes.CHEVRON_DOWN;
     showDropdownIcon: boolean = true;
     ngOnInit(): void {

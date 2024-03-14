@@ -13,10 +13,6 @@
         line-height: 2.5rem;
         border: none;
     }
-
-    &:hover {
-        border: solid .1rem $color-gray;
-    }
 }
 
 .show-icon {
@@ -33,6 +29,24 @@
 input:focus{
     outline: none;
 }
+
+.no-border {
+    border: none;
+    outline: none;
+    
+    input,
+    input:hover {
+        border: none;
+        outline: none;
+        padding:0;
+    }
+}
+
+.with-border {
+    &:hover {
+        border: solid .1rem $color-gray;
+    }
+} 
 
 .disabled {
     cursor: not-allowed;

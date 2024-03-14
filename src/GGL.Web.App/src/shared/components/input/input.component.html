@@ -1,4 +1,8 @@
-<div class="ggl-input-field" [ngClass]="{'show-icon': showIcon || enableSearch, 'disabled': isDisabled}">
+<div class="ggl-input-field {{cssStyle}}" [ngClass]="{
+    'show-icon': showIcon || enableSearch, 
+    'disabled': isDisabled,
+    'no-border': !outline,
+    'with-border': outline}">
     <input 
         [type]="type" 
         [readonly]="isReadonly || isDisabled" 

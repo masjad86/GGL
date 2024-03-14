@@ -20,6 +20,7 @@ export class InputComponent {
     @Input() value: string = '';
     @Input() type: string = '';
     @Input() placeholder: string = '';
+    @Input() outline: boolean = true;
     @Input() cssStyle: string = '';
     @Input() showIcon: boolean = false;
     @Input('disabled') isDisabled: boolean = false;

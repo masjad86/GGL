@@ -18,10 +18,8 @@ import { IconPosition } from './icon.model';
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class IconComponent implements OnInit {
-    ngOnInit(): void {
-        this.isLeftPosition = this.position === IconPosition.Left;
-    }
     @Input() title: string = '';
+    @Input() disabled: boolean = false;
     @Input() size?: IconSize = IconSize.DEFAULT;
     @Input() icon: string = '';
     @Input() label: string = '';
@@ -32,9 +30,13 @@ export class IconComponent implements OnInit {
     @Output('clicked') iconClicked: EventEmitter<any> = new EventEmitter();
 
     isLeftPosition: boolean = true;
-
+    
+    ngOnInit(): void {
+        this.isLeftPosition = this.position === IconPosition.Left;
+    }
+    
     handleClick() {
-        if (this.iconClicked) {
+        if (this.iconClicked && !this.disabled) {
             this.iconClicked.emit();
         }
     }
