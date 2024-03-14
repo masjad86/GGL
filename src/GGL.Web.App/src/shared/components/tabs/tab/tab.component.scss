@@ -1,0 +1,12 @@
+@import '../../../../assets/css/color.scss';
+
+.ggl-tab {
+    padding: 1rem;
+    border: solid .1rem $color-lighter-gray;
+    background-color: $color-white;
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: $color-white-smoke;
+}

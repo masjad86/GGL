@@ -1,0 +1,32 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-multiselect {
+    .selected-item {
+        border: solid 0.1rem $color-light-gray;
+        padding: 0.2rem 0.4rem 0 0.4rem;
+        display: inline-flex;
+        font-size: 10pt;
+        margin-left: 0.2rem;
+    }
+
+    .list {
+        background-color: $color-white;
+        border: solid 0.1rem $color-light-gray;
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                cursor: pointer;
+                padding: .5rem 0 0 .8rem;
+                width: 100%;
+
+                &:hover {
+                    background-color: $color-white-smoke;
+                }
+            }
+        }
+    }
+}

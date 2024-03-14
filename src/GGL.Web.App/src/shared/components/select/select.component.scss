@@ -1,4 +1,38 @@
-.mutil-selection {
-    opacity: 0.75;
-    font-size: 0.75em;
-  }
+@import '../../../assets/css/color.scss';
+
+.ggl-select {
+    background-color: $color-white;
+    min-width: 10rem;
+    width: inherit;
+    border: solid .1rem $color-lighter-gray;
+
+    select {
+        color: $color-gray;
+        width: 100%;
+        padding: .8rem .2rem .8rem 1rem;
+        line-height: 2.5rem;
+        border: none;
+
+        &:after {
+            position: absolute;
+            content: "";
+            top: 1.4rem;
+            right: 1rem;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: $color-gray transparent transparent;
+          }
+    }
+}
+
+
+.disabled {
+    cursor: not-allowed;
+    background-color: $color-white-smoke;
+
+    select {
+        cursor: not-allowed;
+        background-color: $color-white-smoke;
+    }
+}

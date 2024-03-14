@@ -1,7 +1,13 @@
 <div class="icon {{cssStyle}} icon-{{size}}" (click)="handleClick()">
-    <mat-icon aria-hidden="false" class="md-{{size}}" 
+    <mat-icon *ngIf="isLeftPosition" aria-hidden="false" class="md-{{size}}" 
         [ngClass]="iconCssStyle"
+        (click)="handleClick()"
         [aria-label]="title" [fontIcon]="icon">
     </mat-icon>
-    <span *ngIf="showLabel">{{ label }}</span>
+    <span *ngIf="showLabel && label">{{ label }}</span>
+    <mat-icon *ngIf="!isLeftPosition" aria-hidden="false" class="md-{{size}}" 
+        [ngClass]="iconCssStyle"
+        (click)="handleClick()"
+        [aria-label]="title" [fontIcon]="icon">
+    </mat-icon>
 </div>

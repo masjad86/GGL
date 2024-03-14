@@ -1,30 +1,34 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatOptionModule } from '@angular/material/core';
-import { MatSelectModule, MatSelectTrigger } from '@angular/material/select';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output } from '@angular/core';
 import { SelectItem } from '../../models';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { CheckboxComponent } from '../checkbox/checkbox.component';
 
 @Component({
     selector: 'ggl-select',
     standalone: true,
     imports: [
-        MatSelectModule,
-        MatOptionModule,
-        MatSelectTrigger
+        NgIf,
+        NgClass,
+        NgFor,
+
+        CheckboxComponent
     ],
     templateUrl: './select.component.html',
-    styleUrl: './select.component.scss'
+    styleUrl: './select.component.scss',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SelectComponent {
-    @Input('items') options: Array<SelectItem> = [];
-    @Input('selectedItems') selectedOptions: Array<SelectItem> = [];
-    @Input('multiple') allowMultiple: boolean = false;
+    @Input() options: Array<SelectItem> = [];
+    @Input() selectedItem?: SelectItem;
+    @Input('disabled') isDisabled: boolean = false;
+    @Input('showBlankOption') addEmptyOption: boolean = true;
+    @Input('placeholder') itemPlaceholder: string = '';
     @Output('change') selectionChanged: EventEmitter<any> = new EventEmitter(); 
 
-    handleChange($event: HTMLSelectElement) {
-        this.selectionChanged.emit($event.value);
-    }
-
-    handleCheck(item: SelectItem) {
-        
+    handleChange($event: any) {
+        this.selectionChanged.emit({
+            text: $event.value,
+            value: $event.value
+        });;
     }
 }

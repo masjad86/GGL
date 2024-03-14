@@ -4,16 +4,19 @@ import {
     ButtonComponent, CheckboxComponent, GridHeader, GridRow,
     IconComponent, InputComponent,
     LabelComponent, GridComponent,
-    ModalComponent, RadioComponent,
-    SwitchComponent
+    ModalComponent, MultiselectComponent,
+    RadioComponent,
+    SelectComponent, SwitchComponent,
+    TabsComponent, TabComponent
 } from '../components';
-import { MatInputModule } from '@angular/material/input';
 import { KEY_CODE_ENTER } from '../../constants/app.constants';
 import { IconSize } from '../enums';
-import { } from '../components';
+import { SelectItem } from '../models';
+import { MultiSelectItem } from '../components/multiselect/multiselect.model';
+import { IconTypes } from '../enums/icon-type.enum';
 
 @Component({
-    selector: 'ggl-test-page',
+    selector: 'ggl-components',
     standalone: true,
     imports: [
         ButtonComponent,
@@ -23,9 +26,12 @@ import { } from '../components';
         LabelComponent,
         GridComponent,
         ModalComponent,
+        MultiselectComponent,
         RadioComponent,
+        SelectComponent,
         SwitchComponent,
-        MatInputModule
+        TabsComponent,
+        TabComponent
     ],
     templateUrl: './test-page.component.html',
     styleUrl: './test-page.component.scss',
@@ -95,12 +101,27 @@ export class TestPageComponent implements OnInit {
     modalWidth: number = 300;
     clickedModalButton: string = '';
 
+    //multiselect
+    multiselectOptions: Array<MultiSelectItem> = [];
+    selectedMultiselectOptions: Array<MultiSelectItem> = [];
+
     //radio
     showLabel: boolean = true;
     isSelected: boolean = true;
 
     //switch 
     switchSelected: boolean = true;
+
+    //select
+    options: Array<SelectItem> = [];
+
+    showBlankOption: boolean = true;
+    selectedOption: string = '';
+
+    //tabs
+    isTabActive: boolean = true;
+    selectedTabTitle: string = 'Tab 1';
+    isTabDisabled: boolean = false;
 
     constructor(private globalHeader: GlobalHeaderService,
         private cdr: ChangeDetectorRef) {
@@ -109,6 +130,7 @@ export class TestPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.globalHeader.title = "Components";
+        this.loadData();
     }
 
     handleInputChange($event: any) {
@@ -168,7 +190,41 @@ export class TestPageComponent implements OnInit {
         this.switchSelected = value;
     }
 
+    handleTabChange(tab: TabComponent) {
+        this.selectedTabTitle = tab.title;
+    }
+
+    disableTabs(value: boolean) {
+        this.isTabDisabled = value;
+        this.cdr.detectChanges();
+    }
+
     private openModal(isShow: boolean) {
         this.isShowModal = isShow;
+    }
+
+    private loadData() {
+        for (let index = 1; index <= 10; index++) {
+            const option: SelectItem = {
+                text: 'User ' + index.toString(),
+                selected: false,
+                value: index.toString()
+            };
+
+            this.options.push(option);
+            this.multiselectOptions.push({
+                ...option,
+                icon: IconTypes.USER,
+                iconSize: IconSize.XXSMALL
+            });
+
+            if (index % 3 === 0 || index % 5 === 0) {
+                this.selectedMultiselectOptions.push({
+                    ...option,
+                    icon: IconTypes.USER,
+                    iconSize: IconSize.XXSMALL
+                })
+            }
+        }
     }
 }

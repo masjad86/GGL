@@ -1,0 +1,11 @@
+<div class="ggl-tabs">
+    <ul *ngIf="tabs && tabs.length" class="oritentation-horizontal tab">
+        <li *ngFor="let tab of tabs" class="tab" 
+            [ngClass]="{'active': tab.active === true, 'disabled': isDisabled }" 
+            (click)="selectTab(tab)"
+        >
+            {{ tab.title }}
+        </li>
+    </ul>
+    <ng-content></ng-content>
+</div>

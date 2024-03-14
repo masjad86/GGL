@@ -1,12 +1,15 @@
 <div class="ggl-input-field" [ngClass]="{'show-icon': showIcon || enableSearch, 'disabled': isDisabled}">
-    <input matInput 
+    <input 
         [type]="type" 
         [readonly]="isReadonly || isDisabled" 
         [placeholder]="placeholder" 
-        (blur)="handleBlur"
-        (change)="handleChange" 
+        (blur)="handleBlur($event)"
+        (click)="handleClick($event)"
+        (keyup)="handleKeyPress($event)"
+        (change)="handleChange($event)"
+        [value]="value"
         [required]="isRequired" />
     <mat-error *ngIf="errorMessage && isRequired && showInputValidation">{{errorMessage}}</mat-error>
-    <ggl-icon *ngIf="!enableSearch && showIcon && icon" [icon]="icon" cssStyle="icon-style"></ggl-icon>
+    <ggl-icon *ngIf="!enableSearch && showIcon && icon" (click)="handleIconClick()" [icon]="icon" cssStyle="icon-style"></ggl-icon>
     <ggl-icon *ngIf="enableSearch" icon="search" (click)="handleSearch()" cssStyle="icon-style"></ggl-icon>
 </div>

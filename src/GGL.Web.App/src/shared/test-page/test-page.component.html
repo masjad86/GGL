@@ -58,18 +58,18 @@
             provide the <code>search</code> callback.</div>
         <div class="component-snippet">
             <code>
-                &lt;ggl-input [readonly]=&quot;true/false&quot; [disabled]=&quot;true/false&quot; [value]=&quot;10000&quot; (valueChange)=&quot;textChange()&quot; (valueBlur)=&quot;textBlur()&quot; isRequired&gt;&lt;/ggl-input&gt;
+                &lt;ggl-input [readonly]=&quot;false&quot; [disabled]=&quot;false&quot; [value]=&quot;10000&quot; (changed)=&quot;textChange($event)&quot; (blured)=&quot;textBlur($event)&quot; (keypressed)=&quot;onKeyPressed($event)&quot; isRequired&gt;&lt;/ggl-input&gt;
             </code>
         </div>
-        <div class="component">
+        <div class="component oritentation-vertical">
             <ggl-input [value]="inputValue" placeholder="Enter your name..."
                 (change)="handleInputChange($event)"></ggl-input>
             <ggl-input [value]="inputValue" placeholder="Enter your email..." (change)="handleInputChange($event)"
                 [showIcon]="showIcon" icon="email"></ggl-input>
             <ggl-input [value]="inputValue" placeholder="Search" [enableSearch]="enableSearch"
                 (keypress)="handleKeyPress($event)" (search)="handleInputChange($event)"></ggl-input>
-            <ggl-input [value]="inputValue" placeholder="Enter your name..." [disabled]="isDisabled"
-                (change)="handleInputChange($event)"></ggl-input>
+                <ggl-input [value]="inputValue" placeholder="Enter your name..." [disabled]="isDisabled"
+            (change)="handleInputChange($event)"></ggl-input>
         </div>
         <div class="component-result"> You have entered: <i>{{inputValue}}</i> </div>
     </div>
@@ -201,6 +201,28 @@
         <div class="component-result"> You have clicked <i>{{clickedModalButton}}</i> modal button.</div>
     </div>
 
+    <!-- MUTLISELECT  -->
+    <div class="stack-item">
+        <div class="component-title">MultiSelect</div>
+        <div class="component-description">&lt;ggl-multiselect&gt; is wrapper component and designed for choose single or multiple values. You can enable the multiple selection by setting up the <code>allowMultiple</code> property.
+        </div>
+        <div class="component-snippet">
+            <code>
+                
+            </code>
+        </div>
+        <div class="component oritentation-vertical">
+            <ggl-multiselect 
+                [options]="multiselectOptions"
+                [selectedOptions]="selectedMultiselectOptions"
+                [showIcons]="showIcon"
+            ></ggl-multiselect>
+            <span class="spacer"></span>
+            <!-- <ggl-select [options]="options" [showBlankOption]="showBlankOption" [disabled]="isDisabled"></ggl-select> -->
+        </div>
+        <div class="component-result"> Choosed item <i>{{selectedOption}}</i>.</div>
+    </div>
+
      <!-- RADIO  -->
      <div class="stack-item">
         <div class="component-title">Radio</div>
@@ -218,6 +240,24 @@
         </div>
     </div>
 
+    <!-- SELECT  -->
+    <div class="stack-item">
+        <div class="component-title">Select</div>
+        <div class="component-description">&lt;ggl-select&gt; is wrapper component and designed for choose single or multiple values. You can enable the multiple selection by setting up the <code>allowMultiple</code> property.
+        </div>
+        <div class="component-snippet">
+            <code>
+                
+            </code>
+        </div>
+        <div class="component oritentation-vertical">
+            <ggl-select [options]="options" [showBlankOption]="showBlankOption"></ggl-select>
+            <span class="spacer"></span>
+            <ggl-select [options]="options" [showBlankOption]="showBlankOption" [disabled]="isDisabled"></ggl-select>
+        </div>
+        <div class="component-result"> Choosed item <i>{{selectedOption}}</i>.</div>
+    </div>
+
     <!-- SWITCH  -->
     <div class="stack-item">
         <div class="component-title">Switch</div>
@@ -231,7 +271,34 @@
         <div class="component oritentation-vertical">
             <ggl-switch></ggl-switch>
             <ggl-switch [selected]="switchSelected" (toggle)="handleSwitchToggle($event)"></ggl-switch>
-            <ggl-switch [selected]="switchSelected" [disabled]="isDisabled"></ggl-switch>
+            <ggl-switch [selected]="isDisabled" [disabled]="isDisabled"></ggl-switch>
         </div>
+    </div>
+
+    <!-- TABS  -->
+    <div class="stack-item">
+        <div class="component-title">Tabs</div>
+        <div class="component-description">&lt;ggl-tabs&gt; is custom component to toggle the value to turn on and off or can be used mark the entity as active/inactive.
+        </div>
+        <div class="component-snippet">
+            <code>
+                
+            </code>
+        </div>
+        <div class="component oritentation-vertical">
+            <ggl-checkbox label="Disabled" (changed)="disableTabs($event)"></ggl-checkbox>
+            <ggl-tabs (change)="handleTabChange($event)" [disabled]="isTabDisabled">
+                <ggl-tab title="Tab 1" [active]="isTabActive" [disabled]="isTabDisabled">
+                    <div>Tab Content 1</div>
+                </ggl-tab>
+                <ggl-tab title="Tab 2" [disabled]="isTabDisabled">
+                    <div>Tab Content 2</div>
+                </ggl-tab>
+                <ggl-tab title="Tab 3" [disabled]="isTabDisabled">
+                    <div>Tab Content 3</div>
+                </ggl-tab>
+            </ggl-tabs>
+        </div>
+        <div class="component-result"> Selected tab <i>{{selectedTabTitle}}</i>.</div>
     </div>
 </div>

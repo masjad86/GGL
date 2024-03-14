@@ -1,18 +1,25 @@
 .icon {
     display: inline-flex;
-}
 
-
-span {
-    font-family: Arial;
-    font-size: 10pt;
-    padding: .4rem .3rem 0 .5rem;
-    font-weight: 400;
+    span {
+        font-family: Arial;
+        font-size: 10pt;
+        padding: .4rem .3rem 0 .5rem;
+        font-weight: 400;
+    }
 }
 
 .icon-style {
     padding-top: 0.3rem;
     padding-left: .2rem;
+}
+
+.icon-16 {
+    .mat-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+    }
 }
 
 .icon-18 {

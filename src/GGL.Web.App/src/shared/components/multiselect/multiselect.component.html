@@ -1,0 +1,32 @@
+<div class="ggl-multiselect" gglClickOutside (afterClosed)="hideOption()">
+    <div class="select-container">
+        <div class="selected-item" *ngFor="let option of selectedOptions">
+            <ggl-icon 
+                [icon]="closeIcon"
+                [size]="closeIconSize" 
+                [label]="option.text" 
+                [position]="closeIconPosition"
+                [showLabel]="showLabel"
+                (clicked)="removeItem(option)">
+            </ggl-icon>
+        </div>
+        <ggl-input 
+            (clicked)="showOption($event)"
+            (blured)="searchItem($event)"
+            (iconClick)="toggle()">
+        </ggl-input>
+    </div>
+    <div class="list" *ngIf="showOptions">
+        <ul>
+            <li *ngFor="let option of filteredOptions" (click)="addItem(option)">
+                <ggl-icon *ngIf="showIcons && option.icon" [label]="option.text" 
+                    [icon]="option.icon"
+                    [size]="option.iconSize"
+                    [showLabel]="showLabel"
+                >
+                </ggl-icon>
+                <span *ngIf="!showIcons">{{ option.text }}</span>
+            </li>
+        </ul>
+    </div>
+</div>

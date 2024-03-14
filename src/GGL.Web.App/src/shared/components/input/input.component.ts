@@ -1,6 +1,5 @@
 import { NgClass, NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatInputModule } from '@angular/material/input';
 import { IconComponent } from '../icon/icon.component';
 import { KEY_CODE_ENTER } from '../../../constants/app.constants';
 
@@ -11,8 +10,7 @@ import { KEY_CODE_ENTER } from '../../../constants/app.constants';
         NgIf,
         NgClass,
 
-        IconComponent,
-        MatInputModule
+        IconComponent
     ],
     templateUrl: './input.component.html',
     styleUrl: './input.component.scss',
@@ -29,11 +27,14 @@ export class InputComponent {
     @Input() isRequired: boolean = false;
     @Input() errorMessage: string = '';
     @Input() icon?: string;
-    @Input() enableSearch:  boolean = false;
-    @Output('change') valueChanged: EventEmitter<any> = new EventEmitter(); 
-    @Output('blur') valueBlur: EventEmitter<any> = new EventEmitter();
-    @Output('search') valueSearch: EventEmitter<any> = new EventEmitter();
-    @Output('keypress') valueKeyPress: EventEmitter<any> = new EventEmitter();
+    @Input() enableSearch: boolean = false;
+    @Output() valueChange: EventEmitter<any> = new EventEmitter();
+    @Output('changed') valueChanged?: EventEmitter<any> = new EventEmitter();
+    @Output('blured') valueBlur: EventEmitter<string> = new EventEmitter();
+    @Output('search') valueSearch: EventEmitter<string> = new EventEmitter();
+    @Output('keypressed') valueKeyPress: EventEmitter<string> = new EventEmitter();
+    @Output('clicked') inputClick: EventEmitter<string> = new EventEmitter();
+    @Output() iconClick: EventEmitter<any> = new EventEmitter();
 
     showInputValidation: boolean = false;
 
@@ -42,34 +43,52 @@ export class InputComponent {
     }
 
     handleChange($event: any) {
+        if (!this.valueChanged) { return; }
+
         if (this.isRequired && !$event.value) {
             this.showInputValidation = true;
             return;
         }
 
-        this.valueChanged.emit($event);
+        this.valueChange.emit($event.target.value);
+        this.valueChanged.emit(this.value);
     }
 
     handleBlur($event: any) {
+        if (!this.valueBlur) { return; }
+
         if (this.validateInput($event.value)) {
             this.showInputValidation = true;
             return;
         }
 
-        this.valueBlur.emit($event);
+        this.valueChange.emit($event.target.value);
+        this.valueBlur.emit(this.value);
     }
 
     handleKeyPress($event: any) {
+        if (!this.valueKeyPress) { return; }
         if (this.enableSearch && $event.keyCode === KEY_CODE_ENTER) {
             this.handleSearch();
             return;
         }
 
-        this.valueKeyPress.emit($event.target.value);
+        this.valueChange.emit($event.target.value);
+        this.valueKeyPress.emit(this.value);
+    }
+
+    handleClick($event: any) {
+        if (!this.inputClick) { return; }
+
+        this.inputClick.emit(this.value);
     }
 
     handleSearch() {
         this.valueSearch.emit(this.value);
+    }
+
+    handleIconClick() {
+        this.iconClick.emit();
     }
 
     private validateInput(value: string) {

@@ -26,7 +26,7 @@ export class ModalComponent {
     @Input('showClose') showCloseButton: boolean = false;
     @Output('closed') modalCloseClick: EventEmitter<any> = new EventEmitter();
 
-    closeIcon: string = IconTypes.CLOSE;
+    closeIcon: string = IconTypes.CANCEL;
     closeIconSize: IconSize = IconSize.XSMALL;
 
     handleClose() {

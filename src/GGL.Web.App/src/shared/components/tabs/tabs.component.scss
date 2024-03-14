@@ -1,0 +1,51 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-tabs {
+    margin: 2px;
+
+    .tab {
+        padding: 0;
+        text-align: center;
+        min-width: 10rem;
+        cursor: pointer;
+        font-size: 10pt;
+        list-style-type: none;
+        margin: 0;
+        background-color: $color-white-smoke;
+
+        &:hover {
+            border-radius: 2px;
+            opacity: 90%;
+        }
+
+        li {
+            padding: 0.5rem 0.5rem 0 0;
+        }
+
+        li.disabled {
+            cursor: not-allowed;
+            background-color: $color-lighter-gray;
+            color: $color-gray;
+        }
+
+        li.active.disabled {
+            background-color: $color-light-gray;
+        }
+    }
+}
+
+.ggl-tabs .tab.active {
+    color: white;
+    background-color: $color-gray;
+}
+
+.tab.disabled {
+    cursor: not-allowed;
+    background-color: $color-light-gray;
+}
+
+.tab.active.disabled,
+.disabled {
+    cursor: not-allowed;
+    background-color: $color-light-gray;
+}
