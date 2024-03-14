@@ -1,5 +1,5 @@
-<div class="ggl-grid">
-    <div class="grid-header-action" *ngIf="showAddNew || showDelete">
+<div class="ggl-table">
+    <div class="table-header-action" *ngIf="showAddNew || showDelete">
         <ggl-button *ngIf="showAddNew && addNewLabel"
             [showIcon]="showIcon" 
             [icon]="addButtonIcon" 
@@ -15,19 +15,19 @@
             (click)="handleDeleteClick()">
         </ggl-button>
     </div>
-    <div *ngIf="showHeader && headers && headers.length" class="grid-header">
-        <div *ngFor="let header of headers" class="grid-column">
-            <div *ngIf="showHeaderCheckbox">
-                <ggl-checkbox></ggl-checkbox>
+    <div *ngIf="showHeader && headers && headers.length" class="table-header">
+        <div *ngFor="let header of headers" class="table-column">
+            <div *ngIf="showSelectAll">
+                <ggl-checkbox (clicked)="handelSelectAll()"></ggl-checkbox>
             </div>
             <div [title]="header.title">{{header.name}}</div>
         </div>
     </div>
-    <div class="grid-rows">
-        <ggl-grid-rows *ngFor="let row of rows" 
-            [item]="row" 
-            [showCheckbox]="showHeaderCheckbox"
+    <div class="rows">
+        <ggl-table-row *ngFor="let row of rows" 
+            [item]="row"
+            [selectable]="showSelectCheckbox"
             (rowClick)="rowClicked">
-        </ggl-grid-rows>
+        </ggl-table-row>
     </div>
 </div>

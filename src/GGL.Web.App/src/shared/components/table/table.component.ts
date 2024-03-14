@@ -1,14 +1,15 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GridColumn, GridHeader, GridRow } from './grid.model';
+import { TableHeader, TableRow } from './table.model';
 import { CheckboxComponent } from '../checkbox/checkbox.component';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { IconTypes } from '../../enums/icon-type.enum';
 import { ButtonComponent } from '../button/button.component';
-import { GridRowComponent } from './grid-row/grid-row.component';
+import { TableRowComponent } from './table-row/table-row.component';
 import { ADD_NEW, DELETE } from '../../constants';
+import { TableColumnComponent } from './table-column/table-column.component';
 
 @Component({
-    selector: 'ggl-grid',
+    selector: 'ggl-table',
     standalone: true,
     imports: [
         NgIf,
@@ -16,18 +17,21 @@ import { ADD_NEW, DELETE } from '../../constants';
         NgFor,
 
         ButtonComponent,
-        GridRowComponent,
+        TableColumnComponent,
+        TableRowComponent,
         CheckboxComponent
     ],
-    templateUrl: './grid.component.html',
-    styleUrls: ['./grid.component.scss'],
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.scss'],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class GridComponent implements OnInit {
+export class TableComponent implements OnInit {
     @Input() showHeader: boolean = true;
-    @Input() showHeaderCheckbox: boolean = false;
-    @Input() rows: Array<GridRow> = [];
-    @Input() headers: Array<GridHeader> = [];
+    @Input('selectable') showSelectCheckbox: boolean = false;
+    @Input() showSelectAll: boolean = false;
+    @Input() rows: Array<TableRow> = [];
+    @Input() selectedRows: Array<TableRow> = [];
+    @Input() headers: Array<TableHeader> = [];
     @Input() enableAction: boolean = false;
     @Input() showDelete: boolean = false;
     @Input() showAddNew: boolean = false;
@@ -35,7 +39,7 @@ export class GridComponent implements OnInit {
     @Input() deleteLabel: string = DELETE;
     @Output() addClick: EventEmitter<any> = new EventEmitter();
     @Output() deleteClick: EventEmitter<any> = new EventEmitter();
-    @Output() rowClicked: EventEmitter<GridRow> = new EventEmitter();
+    @Output() rowClicked: EventEmitter<TableRow> = new EventEmitter();
 
     addButtonIcon: string = IconTypes.ADD;
     deleteButtonIcon: string = IconTypes.TRASH;
@@ -51,5 +55,19 @@ export class GridComponent implements OnInit {
 
     handleDeleteClick() {
         this.deleteClick.emit();
+    }
+
+    handelSelectAll() {
+        this.selectedRows = this.rows;
+    }
+
+    handleCheckbox() {
+        if (this.selectedRows.length == this.rows.length) {
+
+        }
+    }
+
+    isRowSelected(row: TableRow) {
+        return false;
     }
 }

@@ -22,10 +22,10 @@
     <div class="list" *ngIf="showOptions && !disabled">
         <ul class="list-items">
             <li *ngFor="let option of filteredOptions" (click)="addItem(option)">
-                <ggl-icon *ngIf="showIcons && option.icon" [label]="option.text" [icon]="option.icon"
+                <ggl-icon *ngIf="showIcon && option.icon" [label]="option.text" [icon]="option.icon"
                     [size]="option.iconSize" [showLabel]="showLabel">
                 </ggl-icon>
-                <span *ngIf="!showIcons">{{ option.text }}</span>
+                <span *ngIf="!showIcon">{{ option.text }}</span>
             </li>
         </ul>
     </div>

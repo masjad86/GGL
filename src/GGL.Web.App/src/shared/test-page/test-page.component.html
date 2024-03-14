@@ -121,24 +121,6 @@
         <div class="component-result"> You have clicked <i>{{labelClicked}}</i> link.</div>
     </div>
 
-    <!-- GRID  -->
-    <div class="stack-item">
-        <div class="component-title">Grid</div>
-        <div class="component-description">This is <code>&lt;ggl-icon&gt;</code>. <code>IconSize</code> enum will be
-            used to define the size.
-            <code>IconSize</code> enum having option like <i>XXSMALL, XSMALL, SMALL, MEDIUM, LARGE, XLARGE </i> and
-            <i>DEFAULT</i>. The default icon size choosen as <code>IconSize.DEFAULT</code>.
-        </div>
-        <div class="component-snippet">
-            <code>
-            </code>
-        </div>
-        <div class="component">
-            <ggl-grid [showDelete]="showAddNew" [showAddNew]="showAddNew" [rows]="gridRows" [headers]="gridHeaders">
-            </ggl-grid>
-        </div>
-    </div>
-
     <!-- MODAL  -->
     <div class="stack-item">
         <div class="component-title">Modal</div>
@@ -204,11 +186,16 @@
     <!-- MUTLISELECT  -->
     <div class="stack-item">
         <div class="component-title">MultiSelect</div>
-        <div class="component-description">&lt;ggl-multiselect&gt; is wrapper component and designed for choose single or multiple values. You can enable the multiple selection by setting up the <code>allowMultiple</code> property.
+        <div class="component-description">&lt;ggl-multiselect&gt; is wrapper component and designed for choose single or multiple values.
         </div>
         <div class="component-snippet">
             <code>
-                
+                &lt;ggl-multiselect
+                [disabled]=&quot;isDisableMultiselect&quot;
+                [options]=&quot;multiselectOptions&quot;
+                [selectedOptions]=&quot;selectedMultiselectOptions&quot;
+                [showIcon]=&quot;showIcon&quot;
+                &gt;&lt;/ggl-multiselect&gt;
             </code>
         </div>
         <div class="component oritentation-vertical">
@@ -217,10 +204,9 @@
                 [disabled]="isDisableMultiselect"
                 [options]="multiselectOptions"
                 [selectedOptions]="selectedMultiselectOptions"
-                [showIcons]="showIcon"
+                [showIcon]="showIcon"
             ></ggl-multiselect>
             <span class="spacer"></span>
-            <!-- <ggl-select [options]="options" [showBlankOption]="showBlankOption" [disabled]="isDisabled"></ggl-select> -->
         </div>
         <div class="component-result"> Choosed item <i><span *ngFor="let option of selectedMultiselectOptions">{{option.text}},</span></i>.</div>
     </div>
@@ -245,7 +231,7 @@
     <!-- SELECT  -->
     <div class="stack-item">
         <div class="component-title">Select</div>
-        <div class="component-description">&lt;ggl-select&gt; is wrapper component and designed for choose single or multiple values. You can enable the multiple selection by setting up the <code>allowMultiple</code> property.
+        <div class="component-description">&lt;ggl-select&gt; is wrapper component and designed for choose single or multiple values.
         </div>
         <div class="component-snippet">
             <code>
@@ -302,5 +288,23 @@
             </ggl-tabs>
         </div>
         <div class="component-result"> Selected tab <i>{{selectedTabTitle}}</i>.</div>
+    </div>
+    
+    <!-- TABLE  -->
+    <div class="stack-item">
+        <div class="component-title">Table</div>
+        <div class="component-description"></div>
+        <div class="component-snippet">
+            <code>
+            </code>
+        </div>
+        <div class="component">
+            <ggl-table 
+                [showDelete]="showAddNew" 
+                [showAddNew]="showAddNew" 
+                [rows]="tableRows" 
+                [headers]="tableHeaders">
+            </ggl-table>
+        </div>
     </div>
 </div>

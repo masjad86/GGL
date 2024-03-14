@@ -7,6 +7,7 @@ import { IconComponent } from '../icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { IconSize } from '../../enums';
 import { IconPosition } from '../icon/icon.model';
+import { CompareHelper } from '../../helpers';
 
 @Component({
     selector: 'ggl-multiselect',
@@ -26,7 +27,7 @@ import { IconPosition } from '../icon/icon.model';
 })
 export class MultiselectComponent implements OnInit {
     @Input() options: Array<MultiSelectItem> = [];
-    @Input() showIcons: boolean = false;
+    @Input() showIcon: boolean = false;
     @Input() disabled: boolean = false;
     @Input() selectedOptions: Array<MultiSelectItem> = [];
     @Output() selectedOptionsChange: EventEmitter<Array<MultiSelectItem>> = new EventEmitter();
@@ -79,9 +80,7 @@ export class MultiselectComponent implements OnInit {
     }
 
     private refreshOptions() {
-        // apply list sorting here
-        // write code here and create Comparer helper
-        this.filteredOptions = this.options;
+        this.filteredOptions = this.options.sort((a, b) => CompareHelper.compareString(a.text, b.text));
     }
 
     private removeItems(items: Array<MultiSelectItem>) {

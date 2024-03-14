@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GridComponent } from './grid.component';
+import { GridComponent } from './table.component';
 
 describe('GridComponent', () => {
   let component: GridComponent;

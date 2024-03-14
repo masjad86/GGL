@@ -1,0 +1,7 @@
+<div class="table-column">
+    <ggl-checkbox *ngIf="selectable"></ggl-checkbox>
+    <ggl-label  
+        [text]="column?.value || ''"
+        [clickable]="isLabelClickable"
+    ></ggl-label>
+</div>

@@ -1,14 +1,12 @@
 import { ControlType, SelectItem } from "../../models";
 
-type GridDataType = number | string | boolean;
-
-export interface GridRow {
+export interface TableRow {
     rowClick?: () => void;
     rowStyle?: string;
-    columns: Array<GridColumn>;
+    columns: Array<TableColumn>;
 }
 
-export interface GridColumn {
+export interface TableColumn {
 	id: string;
 	name: string;
 	title: string;
@@ -17,7 +15,7 @@ export interface GridColumn {
     options?: Array<SelectItem>;
 }
 
-export interface GridHeader {
+export interface TableHeader {
     id: string;
     name: string;
     title:string;

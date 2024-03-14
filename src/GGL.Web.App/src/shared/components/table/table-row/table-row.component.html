@@ -1,0 +1,7 @@
+<div class="table-row" (click)="handleRowClick()">
+    <ggl-table-column 
+        *ngFor="let column of item.columns"
+        [selectable]="selectable"
+        [column]="column">
+    </ggl-table-column>
+</div>

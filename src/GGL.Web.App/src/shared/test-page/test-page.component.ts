@@ -1,13 +1,13 @@
 import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { GlobalHeaderService } from '../services';
 import {
-    ButtonComponent, CheckboxComponent, GridHeader, GridRow,
+    ButtonComponent, CheckboxComponent,
     IconComponent, InputComponent,
-    LabelComponent, GridComponent,
-    ModalComponent, MultiselectComponent,
-    RadioComponent,
+    LabelComponent,  ModalComponent,
+    MultiselectComponent, RadioComponent,
     SelectComponent, SwitchComponent,
-    TabsComponent, TabComponent
+    TabsComponent, TabComponent,
+    TableComponent
 } from '../components';
 import { KEY_CODE_ENTER } from '../../constants/app.constants';
 import { IconSize } from '../enums';
@@ -15,6 +15,7 @@ import { SelectItem } from '../models';
 import { MultiSelectItem } from '../components/multiselect/multiselect.model';
 import { IconTypes } from '../enums/icon-type.enum';
 import { NgFor } from '@angular/common';
+import { TableHeader, TableRow } from '../components/table';
 
 @Component({
     selector: 'ggl-components',
@@ -25,7 +26,6 @@ import { NgFor } from '@angular/common';
         IconComponent,
         InputComponent,
         LabelComponent,
-        GridComponent,
         ModalComponent,
         MultiselectComponent,
         RadioComponent,
@@ -33,6 +33,7 @@ import { NgFor } from '@angular/common';
         SwitchComponent,
         TabsComponent,
         TabComponent,
+        TableComponent,
 
         NgFor
     ],
@@ -67,30 +68,8 @@ export class TestPageComponent implements OnInit {
     //grid
     showDelete: boolean = true;
     showAddNew: boolean = true;
-    gridRows: Array<GridRow> = [
-        {
-            columns: [
-                { id: 'name', name: 'Name', title: 'Name', value: 'Label' },
-                { id: 'description', name: 'Description', title: 'Description', value: 'Label Description' },
-                { id: 'type', name: 'Control', title: 'Control', value: 'Control' }
-            ]
-        },
-        {
-            columns: [
-                { id: 'name', name: 'Name', title: 'TextBox', value: 'TextBox' },
-                { id: 'description', name: 'Description', title: 'TextBox', value: 'TextBox' },
-                { id: 'type', name: 'Control', title: 'Control', value: 'Input' }
-            ]
-        },
-        {
-            columns: [
-                { id: 'name', name: 'Name', title: 'Select', value: 'Select' },
-                { id: 'description', name: 'Description', title: 'Select', value: 'Select' },
-                { id: 'type', name: 'Control', title: 'Control', value: 'Select' }
-            ]
-        }
-    ];
-    gridHeaders: Array<GridHeader> = [
+    tableRows: Array<TableRow> = [];
+    tableHeaders: Array<TableHeader> = [
         { id: 'name', name: 'Name', title: 'Name' },
         { id: 'description', name: 'Description', title: 'Description' },
         { id: 'type', name: 'Control', title: 'Control' }
@@ -235,5 +214,29 @@ export class TestPageComponent implements OnInit {
                 })
             }
         }
+
+        this.tableRows = [
+            {
+                columns: [
+                    { id: 'name', name: 'Name', title: 'Name', value: 'Label' },
+                    { id: 'description', name: 'Description', title: 'Description', value: 'Label Description' },
+                    { id: 'type', name: 'Control', title: 'Control', value: 'Control' }
+                ]
+            },
+            {
+                columns: [
+                    { id: 'name', name: 'Name', title: 'TextBox', value: 'TextBox' },
+                    { id: 'description', name: 'Description', title: 'TextBox', value: 'TextBox' },
+                    { id: 'type', name: 'Control', title: 'Control', value: 'Input' }
+                ]
+            },
+            {
+                columns: [
+                    { id: 'name', name: 'Name', title: 'Select', value: 'Select' },
+                    { id: 'description', name: 'Description', title: 'Select', value: 'Select' },
+                    { id: 'type', name: 'Control', title: 'Control', value: 'Select' }
+                ]
+            }
+        ];
     }
 }
