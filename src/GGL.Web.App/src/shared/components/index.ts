@@ -9,6 +9,7 @@ export * from './checkbox/checkbox.component';
 export * from './icon/icon.component';
 export * from './input/input.component';
 export * from './label/label.component';
+export * from './list/list.component';
 export * from './modal/modal.component';
 export * from './multiselect/multiselect.component';
 export * from './radio/radio.component';

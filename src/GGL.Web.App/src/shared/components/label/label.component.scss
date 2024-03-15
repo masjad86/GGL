@@ -2,14 +2,14 @@
 
 .ggl-label {
     span {
-        color: $color-black;
+        color: $color-gray;
     }    
 }
 
 .link {
     cursor: pointer;
     span {
-        color: $color-blue;
+        color: $color-light-blue;
 
         &:hover {
             text-decoration: underline;

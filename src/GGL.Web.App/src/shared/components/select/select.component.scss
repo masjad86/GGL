@@ -24,6 +24,15 @@
             border-color: $color-gray transparent transparent;
           }
     }
+
+    option {
+        line-height: 2.5rem;
+        padding-top: .3rem;
+
+        &:hover {
+            background-color: $color-white-smoke;
+        }
+    }
 }
 
 

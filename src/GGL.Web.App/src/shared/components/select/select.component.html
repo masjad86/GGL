@@ -1,5 +1,5 @@
 <div class="ggl-select" [ngClass]="{'disabled': isDisabled}">
-    <select (change)="handleChange($event)" [disabled]="isDisabled">
+    <select (change)="handleChange($event)" [disabled]="isDisabled" [value]="value">
         <option *ngIf="addEmptyOption">{{itemPlaceholder}}</option>
         <option *ngFor="let option of options" [selected]="option.selected" [value]="option.value">
             {{option.text}}

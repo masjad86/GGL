@@ -3,7 +3,7 @@ import { GlobalHeaderService } from '../services';
 import {
     ButtonComponent, CheckboxComponent,
     IconComponent, InputComponent,
-    LabelComponent,  ModalComponent,
+    LabelComponent, ListComponent, ModalComponent,
     MultiselectComponent, RadioComponent,
     SelectComponent, SwitchComponent,
     TabsComponent, TabComponent,
@@ -26,6 +26,7 @@ import { TableHeader, TableRow } from '../components/table';
         IconComponent,
         InputComponent,
         LabelComponent,
+        ListComponent,
         ModalComponent,
         MultiselectComponent,
         RadioComponent,
@@ -65,7 +66,12 @@ export class TestPageComponent implements OnInit {
     isClickable: boolean = true;
     labelClicked: string = '';
 
-    //grid
+    //list
+    listItems: Array<SelectItem> = [];
+    enableAction: boolean = true;
+    selectedListItem?: SelectItem;
+
+    //table
     showDelete: boolean = true;
     showAddNew: boolean = true;
     tableRows: Array<TableRow> = [];
@@ -99,6 +105,8 @@ export class TestPageComponent implements OnInit {
     options: Array<SelectItem> = [];
 
     showBlankOption: boolean = true;
+    selectedValue: string = '';
+    selectedText: string = '';
     selectedOption: string = '';
 
     //tabs
@@ -108,7 +116,6 @@ export class TestPageComponent implements OnInit {
 
     constructor(private globalHeader: GlobalHeaderService,
         private cdr: ChangeDetectorRef) {
-
     }
 
     ngOnInit(): void {
@@ -142,6 +149,22 @@ export class TestPageComponent implements OnInit {
         this.labelClicked = $event;
     }
 
+    handleListItemClick($event: SelectItem) {
+        this.selectedListItem = $event;
+    }
+
+    hideListDefaultButtons($event: boolean) {
+        this.enableAction = !$event;
+    }
+
+    handleListAcceptClick() {
+
+    }
+
+    handleListRejectClick() {
+        
+    }
+
     handleShowModal(type: string) {
         if (type === "big") {
             this.modalWidth = 700;
@@ -167,6 +190,11 @@ export class TestPageComponent implements OnInit {
     handleCloseModal(isClosed: boolean) {
         this.clickedModalButton = "Cancel";
         this.openModal(isClosed);
+    }
+
+    handleSelectChange() {
+        this.selectedOption = "You have choosen";
+        this.selectedText = this.options.find(o => o.value === this.selectedValue)?.text || '';
     }
 
     handleSwitchToggle(value: boolean) {
@@ -200,11 +228,16 @@ export class TestPageComponent implements OnInit {
             };
 
             this.options.push(option);
+            this.listItems.push({
+                ...option,
+                text: 'GGL00000000000'+ index.toString()
+            });
             this.multiselectOptions.push({
                 ...option,
                 icon: IconTypes.USER,
                 iconSize: IconSize.XXSMALL
             });
+
 
             if (index % 3 === 0 || index % 5 === 0) {
                 this.selectedMultiselectOptions.push({

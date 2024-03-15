@@ -98,7 +98,6 @@
         </div>
     </div>
 
-
     <!-- LABEL  -->
     <div class="stack-item">
         <div class="component-title">Label</div>
@@ -119,6 +118,31 @@
                 [disabled]="isDisabled"></ggl-label>
         </div>
         <div class="component-result"> You have clicked <i>{{labelClicked}}</i> link.</div>
+    </div>
+
+    <!-- LIST  -->
+    <div class="stack-item">
+        <div class="component-title">List</div>
+        <div class="component-description"></div>
+        <div class="component-snippet">
+            <code>
+            </code>
+        </div>
+        <div class="component">
+            <div>
+                <ggl-checkbox label="Use Custom Actions" (changed)="hideListDefaultButtons($event)"></ggl-checkbox>
+            </div>
+            <ggl-list 
+                [items]="listItems"
+                [showDefaultAction]="enableAction"
+                (itemClick)="handleListItemClick($event)"
+                actionLabel="Confirm">
+                    <ggl-icon label="Accept" type="default" icon="check_circle" (clicked)="handleListAcceptClick()"></ggl-icon>
+                    <span class="spacer"></span>
+                    <ggl-icon label="Reject" type="default" icon="cancel" (clicked)="handleListRejectClick()"></ggl-icon>
+            </ggl-list>
+        </div>
+        <div class="component-result">Confirmed click for item : <b><i>{{selectedListItem?.text}}</i></b></div>
     </div>
 
     <!-- MODAL  -->
@@ -235,15 +259,15 @@
         </div>
         <div class="component-snippet">
             <code>
-                
+                &lt;ggl-select [options]=&quot;options&quot; [(value)]=&quot;selectedValue&quot; (changed)=&quot;handleSelectChange()&quot; [showBlankOption]=&quot;true&quot; [disabled]=&quot;false&quot;&gt;&lt;/ggl-select&gt;
             </code>
         </div>
         <div class="component oritentation-vertical">
-            <ggl-select [options]="options" [showBlankOption]="showBlankOption"></ggl-select>
+            <ggl-select [options]="options" [(value)]="selectedValue" (changed)="handleSelectChange()" [showBlankOption]="showBlankOption"></ggl-select>
             <span class="spacer"></span>
             <ggl-select [options]="options" [showBlankOption]="showBlankOption" [disabled]="isDisabled"></ggl-select>
         </div>
-        <div class="component-result"> Choosed item <i>{{selectedOption}}</i>.</div>
+        <div class="component-result"> {{selectedOption}} <i>{{selectedText}}</i>.</div>
     </div>
 
     <!-- SWITCH  -->
@@ -270,7 +294,14 @@
         </div>
         <div class="component-snippet">
             <code>
-                
+                &lt;ggl-tabs (change)=&quot;handleTabChange($event)&quot; [disabled]=&quot;false&quot;&gt;<br/>
+                        &lt;ggl-tab title=&quot;Tab 1&quot; [active]=&quot;isTabActive&quot; [disabled]=&quot;false&quot;&gt;<br/>
+                            &lt;div&gt;Tab Content 1&lt;/div&gt;<br/>
+                        &lt;/ggl-tab&gt; 
+                        &lt;ggl-tab title=&quot;Tab 2&quot; [disabled]=&quot;isTabDisabled&quot;&gt;<br/>
+                            &lt;div&gt;Tab Content 2&lt;/div&gt;<br/>
+                        &lt;/ggl-tab&gt;<br/>
+                &lt;/ggl-tabs&gt;
             </code>
         </div>
         <div class="component oritentation-vertical">

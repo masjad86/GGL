@@ -19,16 +19,15 @@ import { CheckboxComponent } from '../checkbox/checkbox.component';
 })
 export class SelectComponent {
     @Input() options: Array<SelectItem> = [];
-    @Input() selectedItem?: SelectItem;
+    @Input() value: string = '';
     @Input('disabled') isDisabled: boolean = false;
     @Input('showBlankOption') addEmptyOption: boolean = true;
     @Input('placeholder') itemPlaceholder: string = '';
-    @Output('change') selectionChanged: EventEmitter<any> = new EventEmitter(); 
+    @Output() valueChange: EventEmitter<string> = new EventEmitter(); 
+    @Output('changed') selectionChanged: EventEmitter<SelectItem> = new EventEmitter(); 
 
     handleChange($event: any) {
-        this.selectionChanged.emit({
-            text: $event.value,
-            value: $event.value
-        });;
+        this.valueChange.emit($event.target.value);
+        this.selectionChanged.emit();
     }
 }
