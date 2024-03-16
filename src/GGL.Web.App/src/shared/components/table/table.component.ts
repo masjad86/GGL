@@ -27,11 +27,11 @@ import { TableColumnComponent } from './table-column/table-column.component';
 })
 export class TableComponent implements OnInit {
     @Input() showHeader: boolean = true;
-    @Input('selectable') showSelectCheckbox: boolean = false;
-    @Input() showSelectAll: boolean = false;
+    @Input() selectable: boolean = false;
     @Input() rows: Array<TableRow> = [];
     @Input() selectedRows: Array<TableRow> = [];
     @Input() headers: Array<TableHeader> = [];
+    @Input() height: number = 0;
     @Input() enableAction: boolean = false;
     @Input() showDelete: boolean = false;
     @Input() showAddNew: boolean = false;
@@ -44,9 +44,11 @@ export class TableComponent implements OnInit {
     addButtonIcon: string = IconTypes.ADD;
     deleteButtonIcon: string = IconTypes.TRASH;
     showIcon: boolean = true;
+    averageColumnWidth = 0;
     constructor() { }
 
     ngOnInit(): void {
+        this.calculateColumnWidth();
     }
 
     handleAddClick() {
@@ -69,5 +71,18 @@ export class TableComponent implements OnInit {
 
     isRowSelected(row: TableRow) {
         return false;
+    }
+
+    private calculateColumnWidth() {
+        let availableWidth: number = 100;
+
+        if (this.selectable) {
+            availableWidth -= 5;
+        }
+
+        if (this.headers && this.headers.length < 6) {
+            this.averageColumnWidth = Math.round(availableWidth / this.headers.length);
+        }
+
     }
 }

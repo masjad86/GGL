@@ -1,33 +1,22 @@
-<div class="ggl-table">
+<div class="ggl-table" [style.height.px]="height">
     <div class="table-header-action" *ngIf="showAddNew || showDelete">
-        <ggl-button *ngIf="showAddNew && addNewLabel"
-            [showIcon]="showIcon" 
-            [icon]="addButtonIcon" 
-            [label]="addNewLabel"
+        <ggl-button *ngIf="showAddNew && addNewLabel" [showIcon]="showIcon" [icon]="addButtonIcon" [label]="addNewLabel"
             (click)="handleAddClick()">
         </ggl-button>
         <span class="spacer"></span>
-        <ggl-button *ngIf="showDelete" 
-            [showIcon]="showIcon" 
-            [icon]="deleteButtonIcon" 
-            [label]="deleteLabel"
-            type="danger"
-            (click)="handleDeleteClick()">
+        <ggl-button *ngIf="showDelete" [showIcon]="showIcon" [icon]="deleteButtonIcon" [label]="deleteLabel"
+            type="danger" (click)="handleDeleteClick()">
         </ggl-button>
     </div>
     <div *ngIf="showHeader && headers && headers.length" class="table-header">
-        <div *ngFor="let header of headers" class="table-column">
-            <div *ngIf="showSelectAll">
-                <ggl-checkbox (clicked)="handelSelectAll()"></ggl-checkbox>
-            </div>
+        <div class="selection" *ngIf="selectable">
+            <ggl-checkbox (clicked)="handelSelectAll()"></ggl-checkbox>
+        </div>
+        <div *ngFor="let header of headers" class="table-column" [style.width.%]="averageColumnWidth">            
             <div [title]="header.title">{{header.name}}</div>
         </div>
     </div>
-    <div class="rows">
-        <ggl-table-row *ngFor="let row of rows" 
-            [item]="row"
-            [selectable]="showSelectCheckbox"
-            (rowClick)="rowClicked">
-        </ggl-table-row>
-    </div>
+    <ggl-table-row *ngFor="let row of rows" [item]="row" [columnWidth]="averageColumnWidth"
+        [selectable]="selectable" (rowClick)="rowClicked">
+    </ggl-table-row>
 </div>

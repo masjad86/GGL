@@ -1,5 +1,4 @@
-<div class="ggl-label" 
-    (click)="handleClick()" 
-    [ngClass]="{'link': clickable && !isDisabled, 'disabled': isDisabled}">
-    <span>{{text}}</span>
+<div class="ggl-label">
+    <ggl-icon *ngIf="icon && showIcon" [disabled]="isDisabled" [icon]="icon" [size]="iconSize" [label]="text" (clicked)="handleClick()"></ggl-icon>
+    <span (click)="handleClick()" [ngClass]="{'link': clickable && !isDisabled, 'disabled': isDisabled}">{{text}}</span>
 </div>

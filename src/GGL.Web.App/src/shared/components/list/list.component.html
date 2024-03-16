@@ -2,15 +2,17 @@
     <ul class="list-items {{layoutCss}}" [style.height.px]="height" ngClass="{'oritentation-vertical': orientation">
         <li *ngFor="let item of items" [ngClass]="{'disabled': disabled}">
             <div class="item-field">
-                <ggl-label [text]="item.text"></ggl-label>
+                <ggl-label [text]="item.text" [clickable]="itemClickable"></ggl-label>
             </div>
             <div class="item-action">
                 <ggl-label *ngIf="showDefaultAction && itemActionLabel && !disabled" 
                     [clickable]="itemClickable"
                     [text]="itemActionLabel"
+                    [showIcon]="showIcon"
+                    [icon]="itemActionIcon"
                     (clicked)="handleClick(item)">
                 </ggl-label>
-                <ng-content select="[actionButtons]"></ng-content>
+                <ng-content></ng-content>
             </div>
         </li>
     </ul>

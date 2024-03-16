@@ -1,8 +1,10 @@
 @import '../../../assets/css/color.scss';
 
 .ggl-label {
+    display: inline-flex;
     span {
         color: $color-gray;
+        padding-left: .5rem;
     }    
 }
 

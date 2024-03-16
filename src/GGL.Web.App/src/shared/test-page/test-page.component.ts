@@ -14,13 +14,15 @@ import { IconSize } from '../enums';
 import { SelectItem } from '../models';
 import { MultiSelectItem } from '../components/multiselect/multiselect.model';
 import { IconTypes } from '../enums/icon-type.enum';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { TableHeader, TableRow } from '../components/table';
 
 @Component({
     selector: 'ggl-components',
     standalone: true,
     imports: [
+        NgIf,
+
         ButtonComponent,
         CheckboxComponent,
         IconComponent,
@@ -69,11 +71,13 @@ export class TestPageComponent implements OnInit {
     //list
     listItems: Array<SelectItem> = [];
     enableAction: boolean = true;
+    showListIcon: boolean = true;
     selectedListItem?: SelectItem;
 
     //table
     showDelete: boolean = true;
     showAddNew: boolean = true;
+    selectable: boolean = true;
     tableRows: Array<TableRow> = [];
     tableHeaders: Array<TableHeader> = [
         { id: 'name', name: 'Name', title: 'Name' },
@@ -154,7 +158,7 @@ export class TestPageComponent implements OnInit {
     }
 
     hideListDefaultButtons($event: boolean) {
-        this.enableAction = !$event;
+        this.enableAction = $event;
     }
 
     handleListAcceptClick() {

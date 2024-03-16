@@ -1,0 +1,17 @@
+@import '../../../../assets/css/color.scss';
+
+.table-row {
+    display: inline-flex;
+    background-color: $color-white;
+    color: $color-gray;
+    width: 100%;
+
+    &:hover {
+        background-color: $color-white-smoke;
+    }
+}
+
+.selection {
+    cursor: pointer;
+    text-align: center;
+}

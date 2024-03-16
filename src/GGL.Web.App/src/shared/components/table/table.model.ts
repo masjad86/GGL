@@ -1,8 +1,17 @@
 import { ControlType, SelectItem } from "../../models";
 
+export enum ContentAlignment {
+    Center,
+    Left,
+    Right,
+    Justify
+}
+
+
 export interface TableRow {
     rowClick?: () => void;
     rowStyle?: string;
+    selected?: boolean;
     columns: Array<TableColumn>;
 }
 
@@ -12,6 +21,7 @@ export interface TableColumn {
 	title: string;
 	type?: ControlType;
     value: any;
+    align?: ContentAlignment;
     options?: Array<SelectItem>;
 }
 

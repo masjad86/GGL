@@ -2,6 +2,8 @@
 
 .ggl-table {
     width: 100%;
+    min-height: 30rem;
+    overflow: auto;
 
     .table-header {
         display: inline-flex;
@@ -10,6 +12,10 @@
         width: 100%;
         font-weight: 600;       
         text-align: center;
+    }
+
+    .rows {
+        width: 100%;
     }
 
     .table-column {
@@ -22,5 +28,10 @@
         background-color: $color-white-smoke;
         padding: 0.2rem;
         margin-bottom: .2rem;
+    }
+
+    .selection {
+        width: 5%;
+        text-align: center;
     }
 }

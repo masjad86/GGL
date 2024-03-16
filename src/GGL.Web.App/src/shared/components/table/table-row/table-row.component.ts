@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { TableColumnComponent } from '../table-column/table-column.component';
 import { TableRow } from '../table.model';
 
@@ -9,7 +9,8 @@ import { TableRow } from '../table.model';
     imports: [
         NgIf,
         NgFor,
-        
+        NgClass,
+
         TableColumnComponent
     ],
     templateUrl: './table-row.component.html',
@@ -19,9 +20,15 @@ import { TableRow } from '../table.model';
 export class TableRowComponent {
     @Input() item: TableRow = { columns: [] };
     @Input() selectable: boolean = false;
+    @Input() columnWidth: number = 0;
     @Output() rowClick: EventEmitter<TableRow> = new EventEmitter();
 
+    rowSelected: boolean = false;
     handleRowClick() {
-        this.rowClick.emit(this.item);
+        this.rowSelected = !this.rowSelected;
+        this.rowClick.emit({
+            ...this.item,
+            selected: this.rowSelected
+        });
     }
 }

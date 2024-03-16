@@ -131,11 +131,15 @@
         <div class="component">
             <div>
                 <ggl-checkbox label="Use Custom Actions" (changed)="hideListDefaultButtons($event)"></ggl-checkbox>
+                <span *ngIf="enableAction">(Show)</span>
+                <span *ngIf="!enableAction">(Hide)</span>
             </div>
             <ggl-list 
                 [items]="listItems"
                 [showDefaultAction]="enableAction"
+                [showIcon]="showListIcon"
                 (itemClick)="handleListItemClick($event)"
+                actionIcon="check_circle"
                 actionLabel="Confirm">
                     <ggl-icon label="Accept" type="default" icon="check_circle" (clicked)="handleListAcceptClick()"></ggl-icon>
                     <span class="spacer"></span>
@@ -333,7 +337,8 @@
             <ggl-table 
                 [showDelete]="showAddNew" 
                 [showAddNew]="showAddNew" 
-                [rows]="tableRows" 
+                [rows]="tableRows"
+                [selectable]="selectable" 
                 [headers]="tableHeaders">
             </ggl-table>
         </div>

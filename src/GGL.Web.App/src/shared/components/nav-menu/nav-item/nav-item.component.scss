@@ -8,13 +8,17 @@
     color: $color-white;
     border: none;
     text-align: left;
-    padding-left: 2.5rem;
-    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-top: 1.5rem;
     display: inline-flex;
 
     &:hover {
         background-color: $color-light-sea-green;
         color: $color-black;
+    }
+
+    .icon span {
+        padding-top: 1rem;
     }
 }
 
