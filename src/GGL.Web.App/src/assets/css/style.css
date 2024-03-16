@@ -1180,3 +1180,7 @@ ggl-cover .display-tc h6 {
 .oritentation-horizontal {
     display: inline-flex;
 }
+
+.cursor {
+    cursor: pointer;
+}

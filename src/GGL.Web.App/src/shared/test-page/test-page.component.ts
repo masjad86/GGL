@@ -166,7 +166,7 @@ export class TestPageComponent implements OnInit {
     }
 
     handleListRejectClick() {
-        
+
     }
 
     handleShowModal(type: string) {
@@ -234,7 +234,7 @@ export class TestPageComponent implements OnInit {
             this.options.push(option);
             this.listItems.push({
                 ...option,
-                text: 'GGL00000000000'+ index.toString()
+                text: 'GGL00000000000' + index.toString()
             });
             this.multiselectOptions.push({
                 ...option,
@@ -252,28 +252,17 @@ export class TestPageComponent implements OnInit {
             }
         }
 
-        this.tableRows = [
-            {
-                columns: [
-                    { id: 'name', name: 'Name', title: 'Name', value: 'Label' },
-                    { id: 'description', name: 'Description', title: 'Description', value: 'Label Description' },
-                    { id: 'type', name: 'Control', title: 'Control', value: 'Control' }
-                ]
-            },
-            {
-                columns: [
-                    { id: 'name', name: 'Name', title: 'TextBox', value: 'TextBox' },
-                    { id: 'description', name: 'Description', title: 'TextBox', value: 'TextBox' },
-                    { id: 'type', name: 'Control', title: 'Control', value: 'Input' }
-                ]
-            },
-            {
-                columns: [
-                    { id: 'name', name: 'Name', title: 'Select', value: 'Select' },
-                    { id: 'description', name: 'Description', title: 'Select', value: 'Select' },
-                    { id: 'type', name: 'Control', title: 'Control', value: 'Select' }
-                ]
-            }
-        ];
+        for (let index = 1; index < 100; index++) {
+            this.tableRows.push(
+                {
+                    columns: [
+                        { id: 'name', name: 'Name', title: 'Name', value: 'Label' },
+                        { id: 'description', name: 'Description ', title: 'Description', value: 'Label Description' },
+                        { id: 'type', name: 'Control', title: 'Control', value: 'Control' }
+                    ]
+                },
+            );
+
+        }
     }
 }

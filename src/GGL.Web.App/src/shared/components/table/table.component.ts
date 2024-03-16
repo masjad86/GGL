@@ -4,7 +4,6 @@ import { CheckboxComponent } from '../checkbox/checkbox.component';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { IconTypes } from '../../enums/icon-type.enum';
 import { ButtonComponent } from '../button/button.component';
-import { TableRowComponent } from './table-row/table-row.component';
 import { ADD_NEW, DELETE } from '../../constants';
 import { TableColumnComponent } from './table-column/table-column.component';
 
@@ -18,7 +17,6 @@ import { TableColumnComponent } from './table-column/table-column.component';
 
         ButtonComponent,
         TableColumnComponent,
-        TableRowComponent,
         CheckboxComponent
     ],
     templateUrl: './table.component.html',
@@ -40,7 +38,8 @@ export class TableComponent implements OnInit {
     @Output() addClick: EventEmitter<any> = new EventEmitter();
     @Output() deleteClick: EventEmitter<any> = new EventEmitter();
     @Output() rowClicked: EventEmitter<TableRow> = new EventEmitter();
-
+    
+    rowSelected: boolean = false;
     addButtonIcon: string = IconTypes.ADD;
     deleteButtonIcon: string = IconTypes.TRASH;
     showIcon: boolean = true;
@@ -69,8 +68,8 @@ export class TableComponent implements OnInit {
         }
     }
 
-    isRowSelected(row: TableRow) {
-        return false;
+    handleRowClick() {
+        this.rowSelected = !this.rowSelected;
     }
 
     private calculateColumnWidth() {
@@ -81,8 +80,7 @@ export class TableComponent implements OnInit {
         }
 
         if (this.headers && this.headers.length < 6) {
-            this.averageColumnWidth = Math.round(availableWidth / this.headers.length);
+            this.averageColumnWidth = Math.floor(availableWidth / this.headers.length);
         }
-
     }
 }

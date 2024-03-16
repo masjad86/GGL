@@ -2,8 +2,12 @@
 
 .ggl-table {
     width: 100%;
-    min-height: 30rem;
-    overflow: auto;
+
+    .table-header-action {
+        background-color: $color-white-smoke;
+        padding: 0.2rem;
+        margin-bottom: .2rem;
+    }
 
     .table-header {
         display: inline-flex;
@@ -12,26 +16,36 @@
         width: 100%;
         font-weight: 600;       
         text-align: center;
+
+        div {
+            padding: .5rem;
+        }
     }
 
-    .rows {
+    .row-container {
+        width: inherit;
+        min-height: 20rem;
+        overflow: auto;
+        border: solid 0.1rem $color-white-smoke;
+    }
+
+    .table-row {
+        background-color: $color-white;
+        color: $color-gray;
         width: 100%;
-    }
-
-    .table-column {
         padding: 1rem;
-        min-width: 10rem;
- 
+    
+        &:hover {
+            background-color: $color-white-smoke;
+        }
+        
+        div {
+            padding: .5rem;
+        }
     }
-
-    .table-header-action {
-        background-color: $color-white-smoke;
-        padding: 0.2rem;
-        margin-bottom: .2rem;
-    }
-
+    
     .selection {
+        cursor: pointer;
         width: 5%;
-        text-align: center;
     }
 }
