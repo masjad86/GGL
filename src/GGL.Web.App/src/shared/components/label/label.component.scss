@@ -4,8 +4,11 @@
     display: inline-flex;
     span {
         color: $color-gray;
+    }
+    
+    .icon {
         padding-left: .5rem;
-    }    
+    }
 }
 
 .link {

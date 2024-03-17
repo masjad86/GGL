@@ -9,16 +9,27 @@
         margin-bottom: .2rem;
     }
 
+    table-column-filter {
+        width: 100%;
+        border-top: solid .1rem $color-light-gray;
+        border-left: solid .1rem $color-light-gray;
+        border-right: solid .1rem $color-light-gray;
+        background-color: $color-white-smoke;
+    }
+
     .table-header {
         display: inline-flex;
-        background-color: $color-gray;
-        color: $color-white;
+        background-color: $color-lighter-gray;
+        color: $color-gray;
         width: 100%;
-        font-weight: 600;       
+        font-weight: 600;
         text-align: center;
+        border-top: solid .1rem $color-light-gray;
+        border-left: solid .1rem $color-light-gray;
+        border-right: solid .1rem $color-light-gray;
 
         div {
-            padding: .5rem;
+            padding: 0.5rem 0 0.5rem 1rem;
         }
     }
 
@@ -26,7 +37,7 @@
         width: inherit;
         min-height: 20rem;
         overflow: auto;
-        border: solid 0.1rem $color-white-smoke;
+        border: solid 0.1rem $color-light-gray;
     }
 
     .table-row {
@@ -34,16 +45,66 @@
         color: $color-gray;
         width: 100%;
         padding: 1rem;
-    
+
         &:hover {
             background-color: $color-white-smoke;
         }
-        
+
         div {
             padding: .5rem;
         }
     }
-    
+
+    .table-pager {
+        width: 100%;
+        padding: 1rem;
+        background-color: $color-white-smoke;
+        border-left: solid 0.1rem $color-light-gray;
+        border-right: solid 0.1rem $color-light-gray;
+        border-bottom: solid 0.1rem $color-light-gray;
+        text-align: center;
+
+        ul.pagination {
+            display: inline-flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+
+            .page {
+                padding: 0.2rem;
+                border-radius: 0.2rem;
+                min-width: 2.4rem;
+                text-align: center;
+                cursor: pointer;
+                color: $color-blue;
+                font-weight: 400;
+
+                &:hover {
+                    background-color: $color-light-gray;
+                    border-radius: 50%;
+                }
+            }
+
+            .page.active {
+                background-color: $color-skyblue;
+                color: $color-white;
+                border-radius: 50%;
+            }
+
+            .first-page,
+            .previous-page,
+            .next-page,
+            .last-page {
+                margin-right: .1rem;
+                padding: .2rem .5rem 0 .5rem;
+                &:hover {
+                    background-color: $color-light-gray;
+                }
+            }
+        }
+    }
+
     .selection {
         cursor: pointer;
         width: 5%;

@@ -1,4 +1,4 @@
-<div class="ggl-table">
+<div class="ggl-table" [style.width.%]="width">
     <div class="table-header-action" *ngIf="showAddNew || showDelete">
         <ggl-button *ngIf="showAddNew && addNewLabel" [showIcon]="showIcon" [icon]="addButtonIcon" [label]="addNewLabel"
             (click)="handleAddClick()">
@@ -10,18 +10,36 @@
     </div>
     <div *ngIf="showHeader && headers && headers.length" class="table-header">
         <div class="selection" *ngIf="selectable">
-            <ggl-checkbox (clicked)="handelSelectAll()"></ggl-checkbox>
+            <ggl-checkbox (changed)="handelSelectAll($event)"></ggl-checkbox>
         </div>
         <div *ngFor="let header of headers" class="table-column" [style.width.%]="averageColumnWidth">
             <div [title]="header.title">{{header.name}}</div>
         </div>
     </div>
-    <div class="row-container" [style.height.px]="height">
-        <div *ngFor="let row of rows" class="table-row" [ngClass]="{'cursor': selectable}">
-            <ggl-table-column *ngIf="selectable" [selected]="rowSelected" [selectable]="selectable">
+    <div *ngIf="showFilter && !disabled && filters && filters.length" class="table-column-filter">
+        <div class="selection" *ngIf="selectable"></div>
+        <ggl-table-filter-column *ngFor="let filter of filters" 
+            [column]="filter" 
+            [width]="averageColumnWidth">
+        </ggl-table-filter-column>
+    </div>
+    <div class="row-container" [style.height.px]="height"> 
+        <div *ngFor="let row of rows; index as rowIndex" (click)="handleRowClick(row, rowIndex)" class="table-row" [ngClass]="{'cursor': selectable}">
+            <ggl-table-column *ngIf="selectable" [selected]="row.selected || false" [selectable]="selectable">
             </ggl-table-column>
             <ggl-table-column *ngFor="let column of row.columns" [width]="averageColumnWidth" [column]="column">
             </ggl-table-column>
         </div>
+    </div>
+    <div *ngIf="showPaging && pages && pages.length" class="table-pager">
+        <ul class="pagination">
+            <li class="first-page"><ggl-label [disabled]="pageIndex === 1" [clickable]="true" text="First" (clicked)="handlePage('first')"></ggl-label></li>
+            <li class="previous-page"><ggl-label [disabled]="pageIndex === 1" [clickable]="true" text="Previous" (clicked)="handlePage('previous')"></ggl-label></li>
+            <li *ngFor="let page of pages" class="page" [ngClass]="{'active': page.selected}">
+                <ggl-label [clickable]="true" [text]="page.index.toString()" (clicked)="handleSelectedPage(page.index)"></ggl-label>                
+            </li>
+            <li class="next-page"><ggl-label [disabled]="pageIndex === pages.length" [clickable]="true" text="Next" (clicked)="handlePage('next')"></ggl-label></li>
+            <li class="last-page"><ggl-label [disabled]="pageIndex === pages.length" [clickable]="true" text="Last" (clicked)="handlePage('last')"></ggl-label></li>
+        </ul>
     </div>
 </div>

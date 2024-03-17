@@ -25,9 +25,20 @@ export interface TableColumn {
     options?: Array<SelectItem>;
 }
 
+export interface TableColumnFilter {
+	id: string;
+	type: ControlType;
+    options?: Array<SelectItem>;
+}
+
 export interface TableHeader {
     id: string;
     name: string;
     title:string;
     icon?: string;
+}
+
+export interface TablePager {
+    index: number;
+    selected: boolean;
 }

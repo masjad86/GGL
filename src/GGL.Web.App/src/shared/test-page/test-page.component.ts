@@ -11,11 +11,12 @@ import {
 } from '../components';
 import { KEY_CODE_ENTER } from '../../constants/app.constants';
 import { IconSize } from '../enums';
-import { SelectItem } from '../models';
+import { ControlType, SelectItem } from '../models';
 import { MultiSelectItem } from '../components/multiselect/multiselect.model';
 import { IconTypes } from '../enums/icon-type.enum';
 import { NgFor, NgIf } from '@angular/common';
-import { TableHeader, TableRow } from '../components/table';
+import { TableColumnFilter, TableHeader, TablePager, TableRow } from '../components/table';
+import { take } from 'rxjs';
 
 @Component({
     selector: 'ggl-components',
@@ -78,13 +79,19 @@ export class TestPageComponent implements OnInit {
     showDelete: boolean = true;
     showAddNew: boolean = true;
     selectable: boolean = true;
+    allTableRows: Array<TableRow> = [];
     tableRows: Array<TableRow> = [];
     tableHeaders: Array<TableHeader> = [
         { id: 'name', name: 'Name', title: 'Name' },
         { id: 'description', name: 'Description', title: 'Description' },
         { id: 'type', name: 'Control', title: 'Control' }
     ];
-
+    tableCurrentRowIndex: number = 1;
+    tablePageSize = 10;
+    tablePageIndex = 1;
+    tableTotalPages: Array<TablePager> = [];
+    showTableFilters: boolean = true;
+    tableFilters: Array<TableColumnFilter> = [];
     //modal
     isShowModal: boolean = false;
     showModalFooter: boolean = true;
@@ -125,6 +132,7 @@ export class TestPageComponent implements OnInit {
     ngOnInit(): void {
         this.globalHeader.title = "Components";
         this.loadData();
+        this.calculateTablePages();
     }
 
     handleInputChange($event: any) {
@@ -205,6 +213,14 @@ export class TestPageComponent implements OnInit {
         this.switchSelected = value;
     }
 
+    handlePageChange($event: number) {
+        this.tableCurrentRowIndex = $event;
+        const startIndex = this.tableCurrentRowIndex > 1 ? (10 * this.tableCurrentRowIndex) : 0;
+        this.tableRows = this.allTableRows.filter((x, index) =>
+            index > startIndex - 1
+            && index < (startIndex + 10));
+    }
+
     handleTabChange(tab: TabComponent) {
         this.selectedTabTitle = tab.title;
     }
@@ -252,17 +268,51 @@ export class TestPageComponent implements OnInit {
             }
         }
 
+        let controlType = '';
         for (let index = 1; index < 100; index++) {
-            this.tableRows.push(
+            if (index % 5 === 0 && index % 3 === 0) {
+                controlType = 'Select';
+            } else if (index % 3 === 0) {
+                controlType = 'Input';
+            } else {
+                controlType = 'Label';
+            }
+
+            this.allTableRows.push(
                 {
                     columns: [
-                        { id: 'name', name: 'Name', title: 'Name', value: 'Label' },
-                        { id: 'description', name: 'Description ', title: 'Description', value: 'Label Description' },
-                        { id: 'type', name: 'Control', title: 'Control', value: 'Control' }
+                        { id: 'name', name: 'Name', title: 'Name', value: controlType },
+                        { id: 'description', name: 'Description ', title: 'Description', value: `${controlType} Description ${index}` },
+                        { id: 'type', name: 'Control', title: 'Control', value: controlType }
                     ]
                 },
             );
+        }
 
+        this.tableFilters = [
+            { id: 'name', type: ControlType.TEXTBOX },
+            { id: 'description', type: ControlType.TEXTBOX },
+            {
+                id: 'type', type: ControlType.SELECT, options: [
+                    { value: 'Label', text: 'Label' },
+                    { value: 'Input', text: 'Input' },
+                    { value: 'Select', text: 'Select' }
+                ]
+            }
+        ]
+
+        this.handlePageChange(1);
+    }
+
+    private calculateTablePages() {
+        const pageCount: number = this.allTableRows?.length / this.tablePageSize;
+        if (pageCount) {
+            for (let index = 1; index <= pageCount; index++) {
+                this.tableTotalPages.push({
+                    index,
+                    selected: index === this.tablePageIndex
+                })
+            }
         }
     }
 }

@@ -29,6 +29,7 @@ export enum ControlType {
 	SLIDER,
 	TEXTBOX,
 	TOGGLE,
+    DATEPICKER
 }
 
 export interface ListItem {

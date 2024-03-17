@@ -24,9 +24,9 @@ export class TableColumnComponent implements OnInit {
     @Input() column?: TableColumn;
     @Input() width: number = 100; // in percentage
     @Input() selectable: boolean = false;
+    @Input() selected: boolean = false;
     @Output('clicked') checkboxClick: EventEmitter<boolean> = new EventEmitter();
 
-    isSelected: boolean = false;
     isLabelClickable: boolean = false;
     columnAlignment: string = '';
     constructor() {
@@ -47,9 +47,9 @@ export class TableColumnComponent implements OnInit {
     }
 
     handleCheckboxChange($event: boolean) {
-        this.isSelected = $event;
+        this.selected = $event;
         if (this.checkboxClick) {
-            this.checkboxClick.emit(this.isSelected);
+            this.checkboxClick.emit(this.selected);
         }
     }
 

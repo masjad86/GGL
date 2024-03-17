@@ -339,9 +339,16 @@
                 [showAddNew]="showAddNew" 
                 [rows]="tableRows"
                 [height]="350"
+                [pageSize]="tablePageSize"
+                [pageIndex]="tableCurrentRowIndex"
+                [pages]="tableTotalPages"
                 [selectable]="selectable" 
-                [headers]="tableHeaders">
+                [headers]="tableHeaders"
+                [showFilter]="true"
+                [filters] = "tableFilters"
+                (pageChanged)="handlePageChange($event)">
             </ggl-table>
         </div>
+        <div class="component-result"> Current Row selected <i>{{tableCurrentRowIndex}}</i>.</div>
     </div>
 </div>

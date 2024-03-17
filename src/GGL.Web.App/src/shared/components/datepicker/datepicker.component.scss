@@ -1,0 +1,26 @@
+@import '../../../assets/css/color.scss';
+
+.ggl-date-picker {
+    background-color: $color-white;
+    min-width: 10rem;
+    width: inherit;
+    border: solid .1rem $color-lighter-gray;
+
+    input {
+        color: $color-gray;
+        width: 100%;
+        padding: .5rem .2rem .5rem 1rem;
+        line-height: 2.5rem;
+        border: none;
+    }
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: $color-white-smoke;
+
+    input {
+        cursor: not-allowed;
+        background-color: $color-white-smoke;
+    }
+}

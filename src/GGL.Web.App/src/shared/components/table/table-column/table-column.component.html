@@ -1,5 +1,5 @@
 <div class="table-column {{columnAlignment}}" [style.width.%]="width">
-    <ggl-checkbox *ngIf="selectable" [selected]="isSelected" (changed)="handleCheckboxChange($event)"></ggl-checkbox>
+    <ggl-checkbox *ngIf="selectable" [selected]="selected" (changed)="handleCheckboxChange($event)"></ggl-checkbox>
     <ggl-label  *ngIf="!selectable"
         [text]="column?.value || ''"
         [clickable]="isLabelClickable"
