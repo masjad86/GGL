@@ -1,13 +1,15 @@
-import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+    CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, OnInit, Output
+} from '@angular/core';
 import { TableColumnFilter, TableHeader, TablePager, TableRow } from './table.model';
 import { CheckboxComponent } from '../checkbox/checkbox.component';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { IconTypes } from '../../enums/icon-type.enum';
 import { ButtonComponent } from '../button/button.component';
-import { ADD_NEW, DELETE } from '../../constants';
-import { TableColumnComponent } from './table-column/table-column.component';
 import { LabelComponent } from '../label/label.component';
+import { TableColumnComponent } from './table-column/table-column.component';
 import { TableColumnFilterComponent } from './table-column-filter/table-column-filter.component';
+import { ADD_NEW, DELETE } from '../../constants';
 
 @Component({
     selector: 'ggl-table',
@@ -76,7 +78,7 @@ export class TableComponent implements OnInit {
         this.rows = this.rows.map(x => {
             x.selected = $event;
             return x;
-        }); 
+        });
 
         this.rowChange.emit(this.rows);
     }
@@ -129,7 +131,7 @@ export class TableComponent implements OnInit {
         this.pages = this.pages.map(x => {
             x.selected = x.index === this.pageIndex;
             return x;
-        }); 
+        });
         this.pageChanged.emit(index);
     }
 

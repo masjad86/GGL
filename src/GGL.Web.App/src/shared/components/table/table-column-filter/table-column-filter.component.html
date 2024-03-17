@@ -1,4 +1,4 @@
-<div class="table-column-filter" [style.width.%]="width">
+<div class="filter-column" [style.width.%]="width">
     <ggl-input *ngIf="isInputFilter"></ggl-input>
     <ggl-select *ngIf="isDropdownFilter" [options]="column?.options || []"></ggl-select>
 </div>

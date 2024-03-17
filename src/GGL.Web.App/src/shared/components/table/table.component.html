@@ -16,7 +16,7 @@
             <div [title]="header.title">{{header.name}}</div>
         </div>
     </div>
-    <div *ngIf="showFilter && !disabled && filters && filters.length" class="table-column-filter">
+    <div *ngIf="showFilter && !disabled && filters && filters.length" class="table-column-filters">
         <div class="selection" *ngIf="selectable"></div>
         <ggl-table-filter-column *ngFor="let filter of filters" 
             [column]="filter" 

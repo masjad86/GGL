@@ -9,7 +9,8 @@
         margin-bottom: .2rem;
     }
 
-    table-column-filter {
+    .table-column-filters {
+        display: inline-flex;
         width: 100%;
         border-top: solid .1rem $color-light-gray;
         border-left: solid .1rem $color-light-gray;
